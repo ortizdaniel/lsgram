@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iWT-gd-WCZ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="ch3-Ha-0b7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="80F-iN-pzu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lkm-6e-Cbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="22"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="mJ2-en-y1u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="6IN-XW-fFu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HvC-BW-U8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="269"/>
+        </scene>
+        <!--Access View Controller-->
+        <scene sceneID="1Jo-6O-Uit">
+            <objects>
+                <viewController storyboardIdentifier="access" id="iWT-gd-WCZ" customClass="AccessViewController" customModule="lsgram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o9r-fp-gQZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uik-uk-1EA">
+                                <rect key="frame" x="24" y="581" width="327" height="50"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.34509803921568627" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uH1-YB-ABn"/>
+                                </constraints>
+                                <state key="normal" title="LOG OUT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6IN-XW-fFu" kind="show" id="k3e-jg-2xB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOw-hZ-XtP">
+                                <rect key="frame" x="24" y="507" width="327" height="50"/>
+                                <color key="backgroundColor" red="0.2196078431372549" green="0.29019607843137252" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="42v-be-AgX"/>
+                                </constraints>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="ACCESS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="80F-iN-pzu" kind="show" id="vsO-hu-U8e"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flash" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-pW-ahg">
+                                <rect key="frame" x="163.5" y="309.5" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="2h7-pK-Uni"/>
+                                    <constraint firstAttribute="height" constant="48" id="gcx-p1-pAA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <constraints>
+                            <constraint firstItem="pOw-hZ-XtP" firstAttribute="leading" secondItem="Yrg-XN-mPc" secondAttribute="leading" constant="24" id="6XZ-RU-OYP"/>
+                            <constraint firstItem="Yrg-XN-mPc" firstAttribute="trailing" secondItem="Uik-uk-1EA" secondAttribute="trailing" constant="24" id="G6z-JK-pox"/>
+                            <constraint firstItem="Yrg-XN-mPc" firstAttribute="bottom" secondItem="Uik-uk-1EA" secondAttribute="bottom" constant="36" id="Hye-7D-BYM"/>
+                            <constraint firstItem="1rc-pW-ahg" firstAttribute="centerY" secondItem="o9r-fp-gQZ" secondAttribute="centerY" id="S8k-AH-WgW"/>
+                            <constraint firstItem="1rc-pW-ahg" firstAttribute="centerX" secondItem="o9r-fp-gQZ" secondAttribute="centerX" id="dtG-0e-rkr"/>
+                            <constraint firstItem="Uik-uk-1EA" firstAttribute="leading" secondItem="Yrg-XN-mPc" secondAttribute="leading" constant="24" id="eu2-uS-cUh"/>
+                            <constraint firstItem="Yrg-XN-mPc" firstAttribute="trailing" secondItem="pOw-hZ-XtP" secondAttribute="trailing" constant="24" id="min-no-o1d"/>
+                            <constraint firstItem="Uik-uk-1EA" firstAttribute="top" secondItem="pOw-hZ-XtP" secondAttribute="bottom" constant="24" id="mvO-Eu-baa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yrg-XN-mPc"/>
+                    </view>
+                    <connections>
+                        <outlet property="accessButton" destination="pOw-hZ-XtP" id="qsy-3O-tpR"/>
+                        <outlet property="logoutButton" destination="Uik-uk-1EA" id="M8Y-mE-AgA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OlS-fv-36U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63" y="143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="flash" width="36" height="36"/>
+    </resources>
+</document>
