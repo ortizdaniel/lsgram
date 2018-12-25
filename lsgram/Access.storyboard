@@ -60,24 +60,27 @@
                                     <segue destination="80F-iN-pzu" kind="show" id="vsO-hu-U8e"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flash" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-pW-ahg">
-                                <rect key="frame" x="163.5" y="309.5" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="2h7-pK-Uni"/>
-                                    <constraint firstAttribute="height" constant="48" id="gcx-p1-pAA"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYz-j3-rfY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="487"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="4aj-S4-jDs">
+                                <rect key="frame" x="112.5" y="188.5" width="150" height="150"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
                             <constraint firstItem="pOw-hZ-XtP" firstAttribute="leading" secondItem="Yrg-XN-mPc" secondAttribute="leading" constant="24" id="6XZ-RU-OYP"/>
+                            <constraint firstItem="4aj-S4-jDs" firstAttribute="centerX" secondItem="o9r-fp-gQZ" secondAttribute="centerX" id="8Z5-hU-6eE"/>
                             <constraint firstItem="Yrg-XN-mPc" firstAttribute="trailing" secondItem="Uik-uk-1EA" secondAttribute="trailing" constant="24" id="G6z-JK-pox"/>
                             <constraint firstItem="Yrg-XN-mPc" firstAttribute="bottom" secondItem="Uik-uk-1EA" secondAttribute="bottom" constant="36" id="Hye-7D-BYM"/>
-                            <constraint firstItem="1rc-pW-ahg" firstAttribute="centerY" secondItem="o9r-fp-gQZ" secondAttribute="centerY" id="S8k-AH-WgW"/>
-                            <constraint firstItem="1rc-pW-ahg" firstAttribute="centerX" secondItem="o9r-fp-gQZ" secondAttribute="centerX" id="dtG-0e-rkr"/>
+                            <constraint firstItem="SYz-j3-rfY" firstAttribute="top" secondItem="Yrg-XN-mPc" secondAttribute="top" id="Kbl-gl-NSM"/>
+                            <constraint firstItem="SYz-j3-rfY" firstAttribute="leading" secondItem="Yrg-XN-mPc" secondAttribute="leading" id="S51-4b-30C"/>
+                            <constraint firstItem="4aj-S4-jDs" firstAttribute="centerY" secondItem="SYz-j3-rfY" secondAttribute="centerY" id="X2z-QF-Qza"/>
+                            <constraint firstItem="Yrg-XN-mPc" firstAttribute="trailing" secondItem="SYz-j3-rfY" secondAttribute="trailing" id="a2T-C3-Y1G"/>
                             <constraint firstItem="Uik-uk-1EA" firstAttribute="leading" secondItem="Yrg-XN-mPc" secondAttribute="leading" constant="24" id="eu2-uS-cUh"/>
                             <constraint firstItem="Yrg-XN-mPc" firstAttribute="trailing" secondItem="pOw-hZ-XtP" secondAttribute="trailing" constant="24" id="min-no-o1d"/>
                             <constraint firstItem="Uik-uk-1EA" firstAttribute="top" secondItem="pOw-hZ-XtP" secondAttribute="bottom" constant="24" id="mvO-Eu-baa"/>
+                            <constraint firstItem="pOw-hZ-XtP" firstAttribute="top" secondItem="SYz-j3-rfY" secondAttribute="bottom" id="pEr-o1-eAa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yrg-XN-mPc"/>
                     </view>
@@ -92,6 +95,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="flash" width="36" height="36"/>
+        <image name="logo_white" width="150" height="150"/>
     </resources>
 </document>
