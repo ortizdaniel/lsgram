@@ -18,9 +18,9 @@
 		C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01721D2DAEB00892EB4 /* LoginViewController.swift */; };
 		C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */; };
 		C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */; };
-		C303F02421D2FD1D00892EB4 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C303F02321D2FD1D00892EB4 /* Pacifico.ttf */; };
 		C3A4DDD221D130A600B43DF8 /* Access.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A4DDD121D130A600B43DF8 /* Access.storyboard */; };
 		C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */; };
+		C3C6386721D374F600CA2CF6 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3C6386621D374F600CA2CF6 /* Pacifico.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 		C303F01721D2DAEB00892EB4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TextColor.swift"; sourceTree = "<group>"; };
-		C303F02321D2FD1D00892EB4 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = ../../../../../Desktop/Pacifico.ttf; sourceTree = "<group>"; };
 		C3A4DDD121D130A600B43DF8 /* Access.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Access.storyboard; sourceTree = "<group>"; };
 		C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
+		C3C6386621D374F600CA2CF6 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +85,13 @@
 		65159B5B21A05AE200DAE44C /* lsgram */ = {
 			isa = PBXGroup;
 			children = (
+				C3C6386521D374A000CA2CF6 /* Font */,
 				65159B5C21A05AE200DAE44C /* AppDelegate.swift */,
 				65159B6321A05AE300DAE44C /* Assets.xcassets */,
 				65159B6821A05AE300DAE44C /* Info.plist */,
 				C303F01521D2CE2B00892EB4 /* Storyboard */,
 				C303F01621D2D1E000892EB4 /* ViewController */,
 				C303F01B21D2EF1100892EB4 /* Extensions */,
-				C303F02221D2FCE300892EB4 /* Fonts */,
 			);
 			path = lsgram;
 			sourceTree = "<group>";
@@ -136,12 +136,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C303F02221D2FCE300892EB4 /* Fonts */ = {
+		C3C6386521D374A000CA2CF6 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				C303F02321D2FD1D00892EB4 /* Pacifico.ttf */,
+				C3C6386621D374F600CA2CF6 /* Pacifico.ttf */,
 			);
-			path = Fonts;
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,7 +206,7 @@
 			files = (
 				65159B6721A05AE300DAE44C /* LaunchScreen.storyboard in Resources */,
 				C303F01221D2CD0100892EB4 /* Login.storyboard in Resources */,
-				C303F02421D2FD1D00892EB4 /* Pacifico.ttf in Resources */,
+				C3C6386721D374F600CA2CF6 /* Pacifico.ttf in Resources */,
 				C3A4DDD221D130A600B43DF8 /* Access.storyboard in Resources */,
 				65159B6421A05AE300DAE44C /* Assets.xcassets in Resources */,
 				65159B6221A05AE200DAE44C /* Main.storyboard in Resources */,
