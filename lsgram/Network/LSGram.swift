@@ -28,7 +28,6 @@ class LSGram {
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
             do {
                 req.httpBody = try JSONSerialization.data(withJSONObject: handler.reqParameters())
-                //print(NSString(data: req.httpBody!, encoding:String.Encoding.utf8.rawValue)!)
             } catch {
                 handler.error(message: "Could not serialize the request parameters.")
                 return
@@ -38,10 +37,14 @@ class LSGram {
         URLSession.shared.dataTask(with: req) {
             (data, response, error) in
             do {
-                let response = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                handler.success(response: response!)
+                if data != nil {
+                    let out = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
+                    handler.success(response: out!)
+                } else if error != nil {
+                    handler.error(message: error!.localizedDescription)
+                }
             } catch {
-                handler.error(message: "Could not perform the the call correctly.")
+                handler.error(message: "Could not parse the response correctly.")
             }
         }.resume()
     }

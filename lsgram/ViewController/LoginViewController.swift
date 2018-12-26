@@ -106,6 +106,8 @@ public class LoginViewController : UIViewController, RequestHandler {
     }
     
     func error(message: String) {
-        print(message)
+        DispatchQueue.main.async {
+            self.showAlert(title: "Error", message: message, buttonText: "Ok", callback: nil)
+        }
     }
 }
