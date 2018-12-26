@@ -21,7 +21,6 @@ public class LoginViewController : UIViewController, RequestHandler {
     @IBOutlet weak var constraintErrorPassword: NSLayoutConstraint!
     
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var registerLabel: UILabel!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -31,21 +30,10 @@ public class LoginViewController : UIViewController, RequestHandler {
         
         signInButton.layer.cornerRadius = 8
         
-        registerLabel.text = "Don't have an account yet? Sign up here"
-        registerLabel.halfTextColorChange(fullText: registerLabel.text!, changeText: "Sign up here")
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        registerLabel.isUserInteractionEnabled = true
-        registerLabel.addGestureRecognizer(tap)
-        
         errorNameLabel.isHidden = true
         errorPasswordLabel.isHidden = true
         constraintErrorName.priority = UILayoutPriority(rawValue: 10)
         constraintErrorPassword.priority = UILayoutPriority(rawValue: 10)
-    }
-    
-    @objc func handleTap(gestureRecognizer: UIGestureRecognizer) {
-        performSegue(withIdentifier: "changeRegister", sender: gestureRecognizer)
     }
     
     @IBAction func nameChanged(_ sender: Any) {

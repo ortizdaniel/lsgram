@@ -25,7 +25,6 @@ public class RegisterViewController : UIViewController, RequestHandler {
     @IBOutlet weak var constraintErrorPassword2: NSLayoutConstraint!
     
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var signInLabel: UILabel!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -35,23 +34,12 @@ public class RegisterViewController : UIViewController, RequestHandler {
         
         signUpButton.layer.cornerRadius = 8
         
-        signInLabel.text = "Already have an account? Sign in here"
-        signInLabel.halfTextColorChange(fullText: signInLabel.text!, changeText: "Sign in here")
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        signInLabel.isUserInteractionEnabled = true
-        signInLabel.addGestureRecognizer(tap)
-        
         errorNameLabel.isHidden = true
         errorPasswordLabel.isHidden = true
         errorPassword2Label.isHidden = true
         constraintErrorName.priority = UILayoutPriority(rawValue: 10)
         constraintErrorPassword.priority = UILayoutPriority(rawValue: 10)
         constraintErrorPassword2.priority = UILayoutPriority(rawValue: 10)
-    }
-    
-    @objc func handleTap(gestureRecognizer: UIGestureRecognizer) {
-        performSegue(withIdentifier: "changeLogin", sender: gestureRecognizer)
     }
     
     @IBAction func nameChanged(_ sender: Any) {
@@ -97,6 +85,13 @@ public class RegisterViewController : UIViewController, RequestHandler {
             constraintErrorPassword.priority = UILayoutPriority(rawValue: 999)
             error = true
             errorPasswordLabel.text = "Field cannot be empty"
+        } else {
+            if (tfPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines).count < 6) {
+                errorPasswordLabel.isHidden = false
+                constraintErrorPassword.priority = UILayoutPriority(rawValue: 999)
+                error = true
+                errorPasswordLabel.text = "Password must be at least 6 characters long"
+            }
         }
         
         if (tfPassword2.text!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
