@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iWT-gd-WCZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iWT-gd-WCZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,6 +48,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="logoutPressed:" destination="iWT-gd-WCZ" eventType="touchUpInside" id="VEE-Q7-rP0"/>
                                     <segue destination="6IN-XW-fFu" kind="show" id="HiS-Vh-jTc"/>
                                 </connections>
                             </button>
@@ -102,6 +103,7 @@
                     <connections>
                         <outlet property="accessButton" destination="pOw-hZ-XtP" id="lnm-Wk-2Wh"/>
                         <outlet property="logoutButton" destination="Uik-uk-1EA" id="YqU-JO-Xx7"/>
+                        <outlet property="welcomeBackLabel" destination="qno-9E-7gF" id="L0S-Ai-clg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OlS-fv-36U" userLabel="First Responder" sceneMemberID="firstResponder"/>

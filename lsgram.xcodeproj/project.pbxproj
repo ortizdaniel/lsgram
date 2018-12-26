@@ -12,6 +12,9 @@
 		65159B6221A05AE200DAE44C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6021A05AE200DAE44C /* Main.storyboard */; };
 		65159B6421A05AE300DAE44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6321A05AE300DAE44C /* Assets.xcassets */; };
 		65159B6721A05AE300DAE44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6521A05AE300DAE44C /* LaunchScreen.storyboard */; };
+		65A6789821D3763B00EB72AE /* LSGram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789721D3763B00EB72AE /* LSGram.swift */; };
+		65A6789A21D3785000EB72AE /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789921D3785000EB72AE /* RequestHandler.swift */; };
+		65A6789C21D381EA00EB72AE /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */; };
 		81FBC3D5ECCD6172FE6D53B0 /* Pods_lsgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5539D060DC0B5AC34B60A423 /* Pods_lsgram.framework */; };
 		C303F01221D2CD0100892EB4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C303F01121D2CD0100892EB4 /* Login.storyboard */; };
 		C303F01421D2CE1B00892EB4 /* LoginAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01321D2CE1B00892EB4 /* LoginAccessViewController.swift */; };
@@ -32,6 +35,9 @@
 		65159B6321A05AE300DAE44C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65159B6621A05AE300DAE44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65159B6821A05AE300DAE44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65A6789721D3763B00EB72AE /* LSGram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSGram.swift; sourceTree = "<group>"; };
+		65A6789921D3785000EB72AE /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		97DDFA84DB9796D61E9DECA2 /* Pods-lsgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.debug.xcconfig"; sourceTree = "<group>"; };
 		B722459D7C497A9C4D7E4909 /* Pods-lsgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.release.xcconfig"; sourceTree = "<group>"; };
 		C303F01121D2CD0100892EB4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 		65159B5B21A05AE200DAE44C /* lsgram */ = {
 			isa = PBXGroup;
 			children = (
+				65A6789621D3760600EB72AE /* Network */,
 				C3C6386521D374A000CA2CF6 /* Font */,
 				65159B5C21A05AE200DAE44C /* AppDelegate.swift */,
 				65159B6321A05AE300DAE44C /* Assets.xcassets */,
@@ -94,6 +101,15 @@
 				C303F01B21D2EF1100892EB4 /* Extensions */,
 			);
 			path = lsgram;
+			sourceTree = "<group>";
+		};
+		65A6789621D3760600EB72AE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				65A6789721D3763B00EB72AE /* LSGram.swift */,
+				65A6789921D3785000EB72AE /* RequestHandler.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		BAE30C399CE59FA6E56C856B /* Pods */ = {
@@ -132,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */,
+				65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,6 +289,9 @@
 				65159B5F21A05AE200DAE44C /* ViewController.swift in Sources */,
 				C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */,
 				C303F01421D2CE1B00892EB4 /* LoginAccessViewController.swift in Sources */,
+				65A6789C21D381EA00EB72AE /* UIViewController+Alert.swift in Sources */,
+				65A6789A21D3785000EB72AE /* RequestHandler.swift in Sources */,
+				65A6789821D3763B00EB72AE /* LSGram.swift in Sources */,
 				C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */,
 				65159B5D21A05AE200DAE44C /* AppDelegate.swift in Sources */,
 			);

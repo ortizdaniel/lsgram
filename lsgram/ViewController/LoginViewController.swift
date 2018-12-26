@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import JVFloatLabeledTextField
 
-public class LoginViewController : UIViewController {
+public class LoginViewController : UIViewController, RequestHandler {
     
     @IBOutlet weak var tfName: JVFloatLabeledTextField!
     @IBOutlet weak var tfPassword: JVFloatLabeledTextField!
@@ -56,14 +56,15 @@ public class LoginViewController : UIViewController {
     
     @IBAction func signInClick(_ sender: Any) {
         if (!checkErrors()) {
-            //TODO check credentials
-            //performSegue(withIdentifier: "login", sender: sender)
+            LSGram.login(handler: self)
         }
     }
     
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "login") {
-            //TODO manage user
+            let prefs = UserDefaults.standard
+            prefs.set(tfName.text, forKey: "username")
+            prefs.synchronize()
         }
     }
     
@@ -84,5 +85,27 @@ public class LoginViewController : UIViewController {
         }
         
         return error
+    }
+    
+    func reqParameters() -> [String: Any] {
+        var params: [String: Any] = [:]
+        params["username"] = tfName.text ?? ""
+        params["password"] = tfPassword.text ?? ""
+        return params
+    }
+    
+    func success(response: [String: Any]) {
+        let status: String = (response["status"] as? String) ?? ""
+        DispatchQueue.main.async {
+            if status == "KO" {
+                self.showAlert(title: "Invalid credentials", message: "The credentials you've introduced are incorrect.", buttonText: "OK", callback: nil)
+            } else if status == "OK" {
+                self.performSegue(withIdentifier: "login", sender: self)
+            }
+        }
+    }
+    
+    func error(message: String) {
+        print(message)
     }
 }

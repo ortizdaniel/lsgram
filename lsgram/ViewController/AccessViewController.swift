@@ -13,6 +13,7 @@ class AccessViewController : UIViewController  {
     
     @IBOutlet weak var accessButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var welcomeBackLabel: UILabel!
     
     var gradientLayer = CAGradientLayer()
     
@@ -20,6 +21,7 @@ class AccessViewController : UIViewController  {
         super.viewDidLoad()
         accessButton.layer.cornerRadius = 8
         logoutButton.layer.cornerRadius = 8
+        welcomeBackLabel.text = "Welcome back, \(UserDefaults.standard.object(forKey: "username") as? String ?? "")!"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,4 +39,9 @@ class AccessViewController : UIViewController  {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    @IBAction func logoutPressed(_ sender: Any) {
+        let prefs = UserDefaults.standard
+        prefs.removeObject(forKey: "username")
+        prefs.synchronize()
+    }
 }
