@@ -52,13 +52,11 @@ public class LoginViewController : UIViewController, RequestHandler {
         }
     }
     
-    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "login") {
-            let prefs = UserDefaults.standard
-            prefs.set(tfName.text, forKey: "username")
-            prefs.synchronize()
+            
         }
-    }
+    }*/
     
     private func checkErrors() -> Bool {
         var error = false
@@ -92,7 +90,11 @@ public class LoginViewController : UIViewController, RequestHandler {
             if status == "KO" {
                 self.showAlert(title: "Invalid credentials", message: "The credentials you've introduced are incorrect.", buttonText: "OK", callback: nil)
             } else if status == "OK" {
-                self.performSegue(withIdentifier: "login", sender: self)
+                if let app = UIApplication.shared.delegate {
+                    if let win = app.window {
+                        self.switchToMainView(win: win!)
+                    }
+                }
             }
         }
     }
@@ -101,5 +103,20 @@ public class LoginViewController : UIViewController, RequestHandler {
         DispatchQueue.main.async {
             self.showAlert(title: "Error", message: message, buttonText: "Ok", callback: nil)
         }
+    }
+    
+    func switchToMainView(win: UIWindow) {
+        //https://stackoverflow.com/questions/41144523/swap-rootviewcontroller-with-animation
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
+        vc.view.frame = (win.rootViewController?.view.frame)!
+        vc.view.layoutIfNeeded()
+        UIView.transition(with: win, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            win.rootViewController = vc
+        }, completion: nil)
+        
+        let prefs = UserDefaults.standard
+        prefs.set(self.tfName.text, forKey: "username")
+        prefs.synchronize()
     }
 }
