@@ -12,9 +12,19 @@
 		65159B6221A05AE200DAE44C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6021A05AE200DAE44C /* Main.storyboard */; };
 		65159B6421A05AE300DAE44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6321A05AE300DAE44C /* Assets.xcassets */; };
 		65159B6721A05AE300DAE44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6521A05AE300DAE44C /* LaunchScreen.storyboard */; };
+		81FBC3D5ECCD6172FE6D53B0 /* Pods_lsgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5539D060DC0B5AC34B60A423 /* Pods_lsgram.framework */; };
+		C303F01221D2CD0100892EB4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C303F01121D2CD0100892EB4 /* Login.storyboard */; };
+		C303F01421D2CE1B00892EB4 /* LoginAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01321D2CE1B00892EB4 /* LoginAccessViewController.swift */; };
+		C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01721D2DAEB00892EB4 /* LoginViewController.swift */; };
+		C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */; };
+		C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */; };
+		C303F02421D2FD1D00892EB4 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C303F02321D2FD1D00892EB4 /* Pacifico.ttf */; };
+		C3A4DDD221D130A600B43DF8 /* Access.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A4DDD121D130A600B43DF8 /* Access.storyboard */; };
+		C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5539D060DC0B5AC34B60A423 /* Pods_lsgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lsgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65159B5921A05AE200DAE44C /* lsgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lsgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65159B5C21A05AE200DAE44C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65159B5E21A05AE200DAE44C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +32,16 @@
 		65159B6321A05AE300DAE44C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65159B6621A05AE300DAE44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65159B6821A05AE300DAE44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97DDFA84DB9796D61E9DECA2 /* Pods-lsgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.debug.xcconfig"; sourceTree = "<group>"; };
+		B722459D7C497A9C4D7E4909 /* Pods-lsgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.release.xcconfig"; sourceTree = "<group>"; };
+		C303F01121D2CD0100892EB4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		C303F01321D2CE1B00892EB4 /* LoginAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAccessViewController.swift; sourceTree = "<group>"; };
+		C303F01721D2DAEB00892EB4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TextColor.swift"; sourceTree = "<group>"; };
+		C303F02321D2FD1D00892EB4 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = ../../../../../Desktop/Pacifico.ttf; sourceTree = "<group>"; };
+		C3A4DDD121D130A600B43DF8 /* Access.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Access.storyboard; sourceTree = "<group>"; };
+		C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FBC3D5ECCD6172FE6D53B0 /* Pods_lsgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FFFCCDB7BF52457E9C97507 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5539D060DC0B5AC34B60A423 /* Pods_lsgram.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		65159B5021A05AE200DAE44C = {
 			isa = PBXGroup;
 			children = (
 				65159B5B21A05AE200DAE44C /* lsgram */,
 				65159B5A21A05AE200DAE44C /* Products */,
+				BAE30C399CE59FA6E56C856B /* Pods */,
+				3FFFCCDB7BF52457E9C97507 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +86,62 @@
 			isa = PBXGroup;
 			children = (
 				65159B5C21A05AE200DAE44C /* AppDelegate.swift */,
-				65159B5E21A05AE200DAE44C /* ViewController.swift */,
-				65159B6021A05AE200DAE44C /* Main.storyboard */,
 				65159B6321A05AE300DAE44C /* Assets.xcassets */,
-				65159B6521A05AE300DAE44C /* LaunchScreen.storyboard */,
 				65159B6821A05AE300DAE44C /* Info.plist */,
+				C303F01521D2CE2B00892EB4 /* Storyboard */,
+				C303F01621D2D1E000892EB4 /* ViewController */,
+				C303F01B21D2EF1100892EB4 /* Extensions */,
+				C303F02221D2FCE300892EB4 /* Fonts */,
 			);
 			path = lsgram;
+			sourceTree = "<group>";
+		};
+		BAE30C399CE59FA6E56C856B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97DDFA84DB9796D61E9DECA2 /* Pods-lsgram.debug.xcconfig */,
+				B722459D7C497A9C4D7E4909 /* Pods-lsgram.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C303F01521D2CE2B00892EB4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C3A4DDD121D130A600B43DF8 /* Access.storyboard */,
+				C303F01121D2CD0100892EB4 /* Login.storyboard */,
+				65159B6021A05AE200DAE44C /* Main.storyboard */,
+				65159B6521A05AE300DAE44C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C303F01621D2D1E000892EB4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				65159B5E21A05AE200DAE44C /* ViewController.swift */,
+				C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */,
+				C303F01321D2CE1B00892EB4 /* LoginAccessViewController.swift */,
+				C303F01721D2DAEB00892EB4 /* LoginViewController.swift */,
+				C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C303F01B21D2EF1100892EB4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C303F02221D2FCE300892EB4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C303F02321D2FD1D00892EB4 /* Pacifico.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +151,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65159B6B21A05AE300DAE44C /* Build configuration list for PBXNativeTarget "lsgram" */;
 			buildPhases = (
+				BED3B6D10A5FCD9240B98826 /* [CP] Check Pods Manifest.lock */,
 				65159B5521A05AE200DAE44C /* Sources */,
 				65159B5621A05AE200DAE44C /* Frameworks */,
 				65159B5721A05AE200DAE44C /* Resources */,
+				7CF9BB5075698C0FD53D6DAA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +205,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				65159B6721A05AE300DAE44C /* LaunchScreen.storyboard in Resources */,
+				C303F01221D2CD0100892EB4 /* Login.storyboard in Resources */,
+				C303F02421D2FD1D00892EB4 /* Pacifico.ttf in Resources */,
+				C3A4DDD221D130A600B43DF8 /* Access.storyboard in Resources */,
 				65159B6421A05AE300DAE44C /* Assets.xcassets in Resources */,
 				65159B6221A05AE200DAE44C /* Main.storyboard in Resources */,
 			);
@@ -130,12 +215,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7CF9BB5075698C0FD53D6DAA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BED3B6D10A5FCD9240B98826 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lsgram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65159B5521A05AE200DAE44C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */,
+				C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */,
 				65159B5F21A05AE200DAE44C /* ViewController.swift in Sources */,
+				C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */,
+				C303F01421D2CE1B00892EB4 /* LoginAccessViewController.swift in Sources */,
+				C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */,
 				65159B5D21A05AE200DAE44C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +417,7 @@
 		};
 		65159B6C21A05AE300DAE44C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97DDFA84DB9796D61E9DECA2 /* Pods-lsgram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +435,7 @@
 		};
 		65159B6D21A05AE300DAE44C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B722459D7C497A9C4D7E4909 /* Pods-lsgram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
