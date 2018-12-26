@@ -25,10 +25,14 @@ public class LoginViewController : UIViewController, RequestHandler {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 229.0 / 255, green: 237.0 / 255, blue: 239.0 / 255, alpha: 1.0)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
         signInButton.layer.cornerRadius = 8
         
-        registerLabel.text = "Don't have an account yet? SIGN UP HERE"
-        registerLabel.halfTextColorChange(fullText: registerLabel.text!, changeText: "SIGN UP HERE")
+        registerLabel.text = "Don't have an account yet? Sign up here"
+        registerLabel.halfTextColorChange(fullText: registerLabel.text!, changeText: "Sign up here")
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         registerLabel.isUserInteractionEnabled = true

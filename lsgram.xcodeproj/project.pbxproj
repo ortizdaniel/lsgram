@@ -91,14 +91,14 @@
 		65159B5B21A05AE200DAE44C /* lsgram */ = {
 			isa = PBXGroup;
 			children = (
-				65A6789621D3760600EB72AE /* Network */,
-				C3C6386521D374A000CA2CF6 /* Font */,
 				65159B5C21A05AE200DAE44C /* AppDelegate.swift */,
 				65159B6321A05AE300DAE44C /* Assets.xcassets */,
 				65159B6821A05AE300DAE44C /* Info.plist */,
 				C303F01521D2CE2B00892EB4 /* Storyboard */,
 				C303F01621D2D1E000892EB4 /* ViewController */,
+				65A6789621D3760600EB72AE /* Network */,
 				C303F01B21D2EF1100892EB4 /* Extensions */,
+				C3C6386521D374A000CA2CF6 /* Font */,
 			);
 			path = lsgram;
 			sourceTree = "<group>";

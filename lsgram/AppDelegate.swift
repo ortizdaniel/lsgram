@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //TODO comprobar si está logueado
         let loggedIn = UserDefaults.standard.object(forKey: "username") != nil
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
