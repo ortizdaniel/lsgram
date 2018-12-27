@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 import JVFloatLabeledTextField
 
-public class LoginViewController : UIViewController, RequestHandler {
+class LoginViewController : UIViewController, RequestHandler {
+    
+    //@IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var tfName: JVFloatLabeledTextField!
     @IBOutlet weak var tfPassword: JVFloatLabeledTextField!
@@ -22,7 +24,7 @@ public class LoginViewController : UIViewController, RequestHandler {
     
     @IBOutlet weak var signInButton: UIButton!
     
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 229.0 / 255, green: 237.0 / 255, blue: 239.0 / 255, alpha: 1.0)
@@ -125,4 +127,33 @@ public class LoginViewController : UIViewController, RequestHandler {
         prefs.set(self.tfName.text, forKey: "username")
         prefs.synchronize()
     }
+    
+    /*override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerKeyboardNotifications()
+    }
+    
+    func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+    }*/
 }

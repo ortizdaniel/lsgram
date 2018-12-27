@@ -7,15 +7,20 @@
 //
 
 import Foundation
+import MapKit
 import UIKit
 
 class MapViewController : UIViewController {
     
+    @IBOutlet weak var mapView: MKMapView!
+    
     var button: UIButton!
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createFloatingButton()
+        requestLocationPermissions()
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
@@ -54,6 +59,13 @@ class MapViewController : UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         button.isHidden = true
         button.isEnabled = false
+    }
+    
+    private func requestLocationPermissions() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
 }
