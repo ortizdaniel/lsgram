@@ -35,4 +35,16 @@ class Imgur {
                     }
         })
     }
+    
+    static func downloadImage(url: String, callback: @escaping (UIImage?) -> Void) {
+        Alamofire.request(url).responseData {
+            response in
+            if let data = response.data, let img = UIImage(data: data) {
+                print(data.base64EncodedString())
+                callback(img)
+            } else {
+                callback(nil)
+            }
+        }
+    }
 }

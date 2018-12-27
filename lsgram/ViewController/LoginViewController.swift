@@ -6,7 +6,7 @@
 //  Copyright © 2018 Daniel. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 import UIKit
 import JVFloatLabeledTextField
 
@@ -88,8 +88,8 @@ class LoginViewController : UIViewController, RequestHandler {
         return params
     }
     
-    func success(response: [String: Any]) {
-        let status: String = (response["status"] as? String) ?? ""
+    func success(response: JSON) {
+        let status: String = response["status"].stringValue
         DispatchQueue.main.async {
             if status == "KO" {
                 self.showAlert(title: "Invalid credentials", message: "The credentials you've introduced are incorrect.", buttonText: "OK", callback: nil)

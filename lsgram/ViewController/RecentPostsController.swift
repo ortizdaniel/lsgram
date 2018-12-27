@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import SwiftyJSON
+import CoreData
 
-class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestHandler {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var button: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return PostList.instance().filtered().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -24,6 +30,41 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         createFloatingButton()
+        
+        LSGram.getPosts(handler: self)
+    }
+    
+    
+    func reqParameters() -> [String : Any] {
+        return [:]
+    }
+    
+    func success(response: JSON) {
+        //load posts from API
+        if response["status"] == "OK" {
+            let posts = PostList.instance()
+            for jsonPost in response["data"].arrayValue {
+                posts.add(PostJSON(json: jsonPost))
+            }
+            posts.noFilter()
+            print("Finished loading posts")
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func error(message: String) {
+        //load posts from DB cache
+        print(message)
+        let posts: PostList = PostList.instance()
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "CachedPost")
+        posts.addAll(try! context.fetch(fetch) as! [PostItem])
+        posts.noFilter()
+        print("Finished loading posts from cache")
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func logoutPressed(_ sender: Any) {

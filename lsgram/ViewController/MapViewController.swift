@@ -23,6 +23,22 @@ class MapViewController : UIViewController {
         requestLocationPermissions()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //load waypoints
+        mapView.removeAnnotations(mapView.annotations)
+        for post in PostList.instance().filtered() {
+            let lat = post.getLatitude()
+            let lng = post.getLongitude()
+            
+            let annotation = MKPointAnnotation()
+            let coord = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+            annotation.coordinate = coord
+            annotation.title = post.getTitle()
+            
+            mapView.addAnnotation(annotation)
+        }
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         let prefs = UserDefaults.standard
         prefs.removeObject(forKey: "username")

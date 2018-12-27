@@ -6,7 +6,7 @@
 //  Copyright © 2018 Daniel. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 import UIKit
 import JVFloatLabeledTextField
 
@@ -118,8 +118,8 @@ public class RegisterViewController : UIViewController, RequestHandler {
         return params
     }
     
-    func success(response: [String: Any]) {
-        let status: String = (response["status"] as? String) ?? ""
+    func success(response: JSON) {
+        let status: String = response["status"].stringValue
         DispatchQueue.main.async {
             if status == "KO" {
                 self.showAlert(title: "Error", message: "This username is already taken. Please choose another one.", buttonText: "Ok", callback: nil)

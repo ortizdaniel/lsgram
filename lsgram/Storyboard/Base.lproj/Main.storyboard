@@ -52,14 +52,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map-icon" id="Xfm-cl-de3"/>
                     <navigationItem key="navigationItem" title="Map" id="Pkw-dp-a0Y">
-                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="0vD-YP-DMl">
-                            <connections>
-                                <segue destination="DQl-RS-f3j" kind="show" id="0pe-Cl-1v1"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Log out" id="efc-uo-9tN">
+                        <barButtonItem key="leftBarButtonItem" image="exit" id="efc-uo-9tN">
                             <connections>
                                 <action selector="logoutPressed:" destination="TY8-Mt-kNz" id="wDe-j1-Czf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="0vD-YP-DMl">
+                            <connections>
+                                <segue destination="DQl-RS-f3j" kind="show" id="0pe-Cl-1v1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -243,18 +243,19 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Posts" image="image-icon" id="AUA-FE-Z6h"/>
                     <navigationItem key="navigationItem" title="Recent Posts" id="jsS-hi-aNI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="hzN-SU-g3c">
-                            <connections>
-                                <segue destination="DQl-RS-f3j" kind="show" id="ala-ff-OVj"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Log out" image="exit" id="RBQ-IC-mqh">
+                        <barButtonItem key="leftBarButtonItem" image="exit" id="RBQ-IC-mqh">
                             <connections>
                                 <action selector="logoutPressed:" destination="dit-Ft-7As" id="my1-kT-fbv"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="hzN-SU-g3c">
+                            <connections>
+                                <segue destination="DQl-RS-f3j" kind="show" id="ala-ff-OVj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="DWt-vm-hsM" id="71J-ro-71s"/>
                         <segue destination="ZTT-Oz-EFx" kind="show" identifier="newpost" id="1Ed-mK-Q0K"/>
                         <segue destination="EVu-M4-5k3" kind="show" identifier="logout" id="mfO-Fr-Mf0"/>
                     </connections>
@@ -308,8 +309,8 @@
         <image name="map-icon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Ed-mK-Q0K"/>
-        <segue reference="mfO-Fr-Mf0"/>
-        <segue reference="ala-ff-OVj"/>
+        <segue reference="LTH-8J-Jqk"/>
+        <segue reference="Azg-27-jBp"/>
+        <segue reference="0pe-Cl-1v1"/>
     </inferredMetricsTieBreakers>
 </document>

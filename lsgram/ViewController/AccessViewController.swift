@@ -6,10 +6,10 @@
 //  Copyright © 2018 Daniel. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 import UIKit
 
-class AccessViewController : UIViewController  {
+class AccessViewController : UIViewController {
     
     @IBOutlet weak var accessButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
