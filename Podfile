@@ -8,4 +8,6 @@ target 'lsgram' do
   # Pods for lsgram
   pod 'JVFloatLabeledTextField'
   pod 'ImageSlideshow', '~> 1.6'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Alamofire', '~> 4.7.3'
 end

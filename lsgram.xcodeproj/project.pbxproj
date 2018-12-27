@@ -12,6 +12,7 @@
 		65159B6221A05AE200DAE44C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6021A05AE200DAE44C /* Main.storyboard */; };
 		65159B6421A05AE300DAE44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6321A05AE300DAE44C /* Assets.xcassets */; };
 		65159B6721A05AE300DAE44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6521A05AE300DAE44C /* LaunchScreen.storyboard */; };
+		656E0FA521D54207009788A5 /* Imgur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656E0FA421D54207009788A5 /* Imgur.swift */; };
 		657F74B021D4CEF00002B90B /* RecentPostsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F74AF21D4CEF00002B90B /* RecentPostsController.swift */; };
 		657F74B421D4D00E0002B90B /* PostCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F74B321D4D00E0002B90B /* PostCellController.swift */; };
 		65A37C5021D43BF5008A3E7C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A37C4F21D43BF5008A3E7C /* SettingsController.swift */; };
@@ -39,6 +40,7 @@
 		65159B6321A05AE300DAE44C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65159B6621A05AE300DAE44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65159B6821A05AE300DAE44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		656E0FA421D54207009788A5 /* Imgur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgur.swift; sourceTree = "<group>"; };
 		657F74AF21D4CEF00002B90B /* RecentPostsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPostsController.swift; sourceTree = "<group>"; };
 		657F74B321D4D00E0002B90B /* PostCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellController.swift; sourceTree = "<group>"; };
 		65A37C4F21D43BF5008A3E7C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		65A6789621D3760600EB72AE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				656E0FA421D54207009788A5 /* Imgur.swift */,
 				65A6789721D3763B00EB72AE /* LSGram.swift */,
 				65A6789921D3785000EB72AE /* RequestHandler.swift */,
 			);
@@ -276,15 +279,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -302,6 +309,7 @@
 				C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */,
 				C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */,
 				65159B5F21A05AE200DAE44C /* ViewController.swift in Sources */,
+				656E0FA521D54207009788A5 /* Imgur.swift in Sources */,
 				657F74B021D4CEF00002B90B /* RecentPostsController.swift in Sources */,
 				C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */,
 				657F74B421D4D00E0002B90B /* PostCellController.swift in Sources */,
