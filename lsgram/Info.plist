@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Your current location will be displayed on the map and used for nearby search results.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your current location will be displayed on the map and used for nearby search results.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -47,7 +51,8 @@
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	    <key>NSAllowsArbitraryLoads</key><true/>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

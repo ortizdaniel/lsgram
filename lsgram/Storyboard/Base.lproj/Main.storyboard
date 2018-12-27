@@ -34,8 +34,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ig6-WI-WYt">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ig6-WI-WYt">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="j2Y-ut-wHi" id="qla-5w-8ct"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,12 +60,13 @@
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="efc-uo-9tN">
                             <connections>
                                 <action selector="logoutPressed:" destination="TY8-Mt-kNz" id="wDe-j1-Czf"/>
-                                <segue destination="EVu-M4-5k3" kind="show" identifier="logoutMap" id="VIj-qJ-tlz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapView" destination="ig6-WI-WYt" id="glN-h2-Wri"/>
                         <segue destination="ZTT-Oz-EFx" kind="show" identifier="newpostMap" id="LTH-8J-Jqk"/>
+                        <segue destination="EVu-M4-5k3" kind="show" identifier="logoutMap" id="Azg-27-jBp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2v5-Fz-FkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -91,7 +95,7 @@
                 <viewControllerPlaceholder storyboardName="Login" id="EVu-M4-5k3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P04-Gn-DF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="-122"/>
+            <point key="canvasLocation" x="1134" y="-80"/>
         </scene>
         <!--New post-->
         <scene sceneID="q6a-5t-oaY">
@@ -100,7 +104,32 @@
                     <view key="view" contentMode="scaleToFill" id="NGs-cT-Gka">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIR-0h-OUI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tr3-9v-PSY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Tr3-9v-PSY" secondAttribute="trailing" id="F3C-a7-NFn"/>
+                                    <constraint firstItem="Tr3-9v-PSY" firstAttribute="top" secondItem="jIR-0h-OUI" secondAttribute="top" id="OZk-cY-ZVw"/>
+                                    <constraint firstItem="Tr3-9v-PSY" firstAttribute="leading" secondItem="jIR-0h-OUI" secondAttribute="leading" id="ReH-Ya-pH7"/>
+                                    <constraint firstItem="Tr3-9v-PSY" firstAttribute="width" secondItem="jIR-0h-OUI" secondAttribute="width" id="Ssa-wi-RMG"/>
+                                    <constraint firstItem="Tr3-9v-PSY" firstAttribute="height" secondItem="jIR-0h-OUI" secondAttribute="height" id="bgq-10-0cQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tr3-9v-PSY" secondAttribute="bottom" id="qFG-Xs-plC"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jIR-0h-OUI" firstAttribute="leading" secondItem="GEI-b8-44U" secondAttribute="leading" id="Y6B-2B-sK2"/>
+                            <constraint firstItem="GEI-b8-44U" firstAttribute="bottom" secondItem="jIR-0h-OUI" secondAttribute="bottom" id="bvX-RG-MZv"/>
+                            <constraint firstItem="GEI-b8-44U" firstAttribute="trailing" secondItem="jIR-0h-OUI" secondAttribute="trailing" id="vdW-e1-nDB"/>
+                            <constraint firstItem="jIR-0h-OUI" firstAttribute="top" secondItem="GEI-b8-44U" secondAttribute="top" id="zkL-8O-I0J"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GEI-b8-44U"/>
                     </view>
                     <navigationItem key="navigationItem" title="New post" id="CET-qt-vJ2"/>
@@ -279,7 +308,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LTH-8J-Jqk"/>
-        <segue reference="VIj-qJ-tlz"/>
+        <segue reference="Azg-27-jBp"/>
         <segue reference="0pe-Cl-1v1"/>
     </inferredMetricsTieBreakers>
 </document>
