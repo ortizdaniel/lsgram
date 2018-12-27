@@ -63,13 +63,13 @@ public class RegisterViewController : UIViewController, RequestHandler {
         }
     }
     
-    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "register") {
             let prefs = UserDefaults.standard
             prefs.set(tfName.text, forKey: "username")
             prefs.synchronize()
         }
-    }
+    }*/
     
     private func checkErrors() -> Bool {
         var error = false
@@ -124,7 +124,11 @@ public class RegisterViewController : UIViewController, RequestHandler {
             if status == "KO" {
                 self.showAlert(title: "Error", message: "This username is already taken. Please choose another one.", buttonText: "Ok", callback: nil)
             } else if status == "OK" {
-                self.performSegue(withIdentifier: "register", sender: self)
+                if let app = UIApplication.shared.delegate {
+                    if let win = app.window {
+                        self.switchToMainView(win: win!)
+                    }
+                }
             }
         }
     }
@@ -133,6 +137,25 @@ public class RegisterViewController : UIViewController, RequestHandler {
         DispatchQueue.main.async {
             self.showAlert(title: "Error", message: message, buttonText: "Ok", callback: nil)
         }
+    }
+    
+    func switchToMainView(win: UIWindow) {
+        //https://stackoverflow.com/questions/41144523/swap-rootviewcontroller-with-animation
+        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
+        vc.view.frame = (win.rootViewController?.view.frame)!
+        vc.view.layoutIfNeeded()
+        UIView.transition(with: win, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            win.rootViewController = vc
+        }, completion: nil)*/
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
+        present(vc, animated: true, completion: nil)
+        
+        let prefs = UserDefaults.standard
+        prefs.set(self.tfName.text, forKey: "username")
+        prefs.synchronize()
     }
     
 }

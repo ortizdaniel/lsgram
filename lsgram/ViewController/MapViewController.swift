@@ -1,26 +1,18 @@
 //
-//  RecentPostsController.swift
+//  MapViewController.swift
 //  lsgram
 //
-//  Created by Daniel on 27/12/2018.
+//  Created by Carla Vendrell on 27/12/2018.
 //  Copyright © 2018 Daniel. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MapViewController : UIViewController {
     
     var button: UIButton!
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCellController
-        return cell
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         createFloatingButton()
@@ -31,7 +23,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         prefs.removeObject(forKey: "username")
         prefs.synchronize()
         
-        performSegue(withIdentifier: "logout", sender: sender)
+        performSegue(withIdentifier: "logoutMap", sender: sender)
     }
     
     private func createFloatingButton() {
@@ -49,7 +41,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func addNewPost() {
-        performSegue(withIdentifier: "newpost", sender: self)
+        performSegue(withIdentifier: "newpostMap", sender: self)
         self.tabBarController?.tabBar.isHidden = true
     }
     

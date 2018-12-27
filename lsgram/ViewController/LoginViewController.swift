@@ -54,7 +54,9 @@ public class LoginViewController : UIViewController, RequestHandler {
     
     /*override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "login") {
-            
+            let prefs = UserDefaults.standard
+            prefs.set(self.tfName.text, forKey: "username")
+            prefs.synchronize()
         }
     }*/
     
@@ -107,13 +109,17 @@ public class LoginViewController : UIViewController, RequestHandler {
     
     func switchToMainView(win: UIWindow) {
         //https://stackoverflow.com/questions/41144523/swap-rootviewcontroller-with-animation
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
         vc.view.frame = (win.rootViewController?.view.frame)!
         vc.view.layoutIfNeeded()
         UIView.transition(with: win, duration: 0.3, options: .transitionCrossDissolve, animations: {
             win.rootViewController = vc
-        }, completion: nil)
+        }, completion: nil)*/
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
+        present(vc, animated: true, completion: nil)
         
         let prefs = UserDefaults.standard
         prefs.set(self.tfName.text, forKey: "username")

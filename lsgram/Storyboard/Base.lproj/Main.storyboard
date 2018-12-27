@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DBb-k0-mgH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DBb-k0-mgH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,12 +24,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2b-8I-nKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="358"/>
+            <point key="canvasLocation" x="-282" y="429"/>
         </scene>
         <!--Map-->
         <scene sceneID="qna-cE-zIt">
             <objects>
-                <viewController id="TY8-Mt-kNz" sceneMemberID="viewController">
+                <viewController id="TY8-Mt-kNz" customClass="MapViewController" customModule="lsgram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j2Y-ut-wHi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,12 +54,20 @@
                                 <segue destination="DQl-RS-f3j" kind="show" id="0pe-Cl-1v1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="efc-uo-9tN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="efc-uo-9tN">
+                            <connections>
+                                <action selector="logoutPressed:" destination="TY8-Mt-kNz" id="wDe-j1-Czf"/>
+                                <segue destination="EVu-M4-5k3" kind="show" identifier="logoutMap" id="VIj-qJ-tlz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ZTT-Oz-EFx" kind="show" identifier="newpostMap" id="LTH-8J-Jqk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2v5-Fz-FkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="358"/>
+            <point key="canvasLocation" x="585" y="429"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Trx-Fm-Rdh">
@@ -75,7 +83,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kho-Rf-dBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="9"/>
+            <point key="canvasLocation" x="1834" y="429"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="9rY-Pt-4cU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="EVu-M4-5k3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P04-Gn-DF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="-122"/>
+        </scene>
+        <!--New post-->
+        <scene sceneID="q6a-5t-oaY">
+            <objects>
+                <viewController title="New post" id="ZTT-Oz-EFx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NGs-cT-Gka">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GEI-b8-44U"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New post" id="CET-qt-vJ2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AgB-Yg-HwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="-367"/>
         </scene>
         <!--Recent Posts-->
         <scene sceneID="H6x-XN-9AZ">
@@ -187,12 +219,20 @@
                                 <segue destination="DQl-RS-f3j" kind="show" id="ala-ff-OVj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RBQ-IC-mqh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="RBQ-IC-mqh">
+                            <connections>
+                                <action selector="logoutPressed:" destination="dit-Ft-7As" id="my1-kT-fbv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ZTT-Oz-EFx" kind="show" identifier="newpost" id="1Ed-mK-Q0K"/>
+                        <segue destination="EVu-M4-5k3" kind="show" identifier="logout" id="mfO-Fr-Mf0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htR-hr-0Jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584.79999999999995" y="-306.29685157421289"/>
+            <point key="canvasLocation" x="585" y="-367"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bp8-Pn-BRq">
@@ -228,7 +268,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDR-WP-xN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="-306"/>
+            <point key="canvasLocation" x="-282" y="-367"/>
         </scene>
     </scenes>
     <resources>
@@ -238,6 +278,8 @@
         <image name="map-icon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ala-ff-OVj"/>
+        <segue reference="LTH-8J-Jqk"/>
+        <segue reference="VIj-qJ-tlz"/>
+        <segue reference="0pe-Cl-1v1"/>
     </inferredMetricsTieBreakers>
 </document>
