@@ -28,6 +28,11 @@
 		C347CAFA21D53CC9003FDF3D /* MapViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */; };
 		C347CAFC21D5544D003FDF3D /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */; };
 		C347CAFE21D57CD0003FDF3D /* PostDetailsViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAFD21D57CD0003FDF3D /* PostDetailsViewController+Location.swift */; };
+		C347CB0921D5902B003FDF3D /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CB0521D5902B003FDF3D /* PostList.swift */; };
+		C347CB0A21D5902B003FDF3D /* CachedPost+PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CB0621D5902B003FDF3D /* CachedPost+PostItem.swift */; };
+		C347CB0B21D5902B003FDF3D /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CB0721D5902B003FDF3D /* PostItem.swift */; };
+		C347CB0C21D5902B003FDF3D /* PostJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CB0821D5902B003FDF3D /* PostJSON.swift */; };
+		C347CB1221D591CF003FDF3D /* lsgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C347CB1021D591CF003FDF3D /* lsgram.xcdatamodeld */; };
 		C3A4DDD221D130A600B43DF8 /* Access.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A4DDD121D130A600B43DF8 /* Access.storyboard */; };
 		C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */; };
 		C3C6386721D374F600CA2CF6 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3C6386621D374F600CA2CF6 /* Pacifico.ttf */; };
@@ -58,6 +63,11 @@
 		C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Location.swift"; sourceTree = "<group>"; };
 		C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		C347CAFD21D57CD0003FDF3D /* PostDetailsViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostDetailsViewController+Location.swift"; sourceTree = "<group>"; };
+		C347CB0521D5902B003FDF3D /* PostList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
+		C347CB0621D5902B003FDF3D /* CachedPost+PostItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CachedPost+PostItem.swift"; sourceTree = "<group>"; };
+		C347CB0721D5902B003FDF3D /* PostItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		C347CB0821D5902B003FDF3D /* PostJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostJSON.swift; sourceTree = "<group>"; };
+		C347CB1121D591CF003FDF3D /* lsgram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = lsgram.xcdatamodel; sourceTree = "<group>"; };
 		C3A4DDD121D130A600B43DF8 /* Access.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Access.storyboard; sourceTree = "<group>"; };
 		C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
 		C3C6386621D374F600CA2CF6 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
@@ -106,11 +116,13 @@
 		65159B5B21A05AE200DAE44C /* lsgram */ = {
 			isa = PBXGroup;
 			children = (
+				C347CB1021D591CF003FDF3D /* lsgram.xcdatamodeld */,
 				65159B5C21A05AE200DAE44C /* AppDelegate.swift */,
 				65159B6321A05AE300DAE44C /* Assets.xcassets */,
 				65159B6821A05AE300DAE44C /* Info.plist */,
 				C303F01521D2CE2B00892EB4 /* Storyboard */,
 				C303F01621D2D1E000892EB4 /* ViewController */,
+				C347CB0421D5902B003FDF3D /* Util */,
 				65A6789621D3760600EB72AE /* Network */,
 				C303F01B21D2EF1100892EB4 /* Extensions */,
 				C3C6386521D374A000CA2CF6 /* Font */,
@@ -165,6 +177,18 @@
 			);
 			path = Extensions;
 			sourceTree = "<group>";
+		};
+		C347CB0421D5902B003FDF3D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				C347CB0521D5902B003FDF3D /* PostList.swift */,
+				C347CB0621D5902B003FDF3D /* CachedPost+PostItem.swift */,
+				C347CB0721D5902B003FDF3D /* PostItem.swift */,
+				C347CB0821D5902B003FDF3D /* PostJSON.swift */,
+			);
+			name = Util;
+			path = lsgram/Util;
+			sourceTree = SOURCE_ROOT;
 		};
 		C3C6386521D374A000CA2CF6 /* Font */ = {
 			isa = PBXGroup;
@@ -263,17 +287,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/INSPhotoGallery/INSPhotoGallery.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPhotoGallery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -309,7 +337,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C347CB0A21D5902B003FDF3D /* CachedPost+PostItem.swift in Sources */,
 				65A37C5021D43BF5008A3E7C /* SettingsController.swift in Sources */,
+				C347CB0B21D5902B003FDF3D /* PostItem.swift in Sources */,
+				C347CB0921D5902B003FDF3D /* PostList.swift in Sources */,
 				C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */,
 				C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */,
 				C347CAFA21D53CC9003FDF3D /* MapViewController+Location.swift in Sources */,
@@ -317,7 +348,9 @@
 				C347CAFC21D5544D003FDF3D /* PostDetailsViewController.swift in Sources */,
 				657F74B021D4CEF00002B90B /* RecentPostsController.swift in Sources */,
 				C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */,
+				C347CB1221D591CF003FDF3D /* lsgram.xcdatamodeld in Sources */,
 				657F74B421D4D00E0002B90B /* PostCellController.swift in Sources */,
+				C347CB0C21D5902B003FDF3D /* PostJSON.swift in Sources */,
 				C303F01421D2CE1B00892EB4 /* LoginAccessViewController.swift in Sources */,
 				65A6789C21D381EA00EB72AE /* UIViewController+Alert.swift in Sources */,
 				C347CAFE21D57CD0003FDF3D /* PostDetailsViewController+Location.swift in Sources */,
@@ -525,6 +558,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C347CB1021D591CF003FDF3D /* lsgram.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C347CB1121D591CF003FDF3D /* lsgram.xcdatamodel */,
+			);
+			currentVersion = C347CB1121D591CF003FDF3D /* lsgram.xcdatamodel */;
+			path = lsgram.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 65159B5121A05AE200DAE44C /* Project object */;
 }

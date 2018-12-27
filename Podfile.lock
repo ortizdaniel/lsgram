@@ -1,26 +1,34 @@
 PODS:
+  - Alamofire (4.7.3)
   - ImageSlideshow (1.7.0):
     - ImageSlideshow/Core (= 1.7.0)
   - ImageSlideshow/Core (1.7.0)
   - INSPhotoGallery (1.2.7)
   - JVFloatLabeledTextField (1.2.1)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7.3)
   - ImageSlideshow (~> 1.6)
   - INSPhotoGallery
   - JVFloatLabeledTextField
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - ImageSlideshow
     - INSPhotoGallery
     - JVFloatLabeledTextField
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
   INSPhotoGallery: a4e698e3d6338d9016328d6747488a2a111d94e2
   JVFloatLabeledTextField: cfc44e3c4d493b2ed92ede8035e8e89c2912ba64
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 1eda99af49eb1743acfc67442c0a522a40f220d6
+PODFILE CHECKSUM: 0baa3e01c6c51841a99bb653654eec23fed52f2d
 
 COCOAPODS: 1.5.3

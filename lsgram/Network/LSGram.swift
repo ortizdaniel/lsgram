@@ -6,7 +6,7 @@
 //  Copyright © 2018 Daniel. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 
 class LSGram {
     
@@ -37,9 +37,9 @@ class LSGram {
         URLSession.shared.dataTask(with: req) {
             (data, response, error) in
             do {
-                if data != nil {
-                    let out = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                    handler.success(response: out!)
+                if let json = data {
+                    //let out = try JSONSerialization.jsonObject(with: data!) as? [String: Any]
+                    handler.success(response: try JSON(data: json))
                 } else if error != nil {
                     handler.error(message: error!.localizedDescription)
                 }

@@ -9,5 +9,7 @@ target 'lsgram' do
   pod 'JVFloatLabeledTextField'
   pod 'ImageSlideshow', '~> 1.6'
   pod 'INSPhotoGallery'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Alamofire', '~> 4.7.3'
   
 end

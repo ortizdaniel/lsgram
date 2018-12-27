@@ -6,13 +6,13 @@
 //  Copyright © 2018 Daniel. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 
 protocol RequestHandler {
     
     func reqParameters() -> [String: Any]
     
-    func success(response: [String: Any])
+    func success(response: JSON)
     
     func error(message: String)
 }
