@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B77F9716CCE556DDE06CFD /* Pods_lsgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BB5D3737F7F0AF1C52694B /* Pods_lsgram.framework */; };
 		65159B5D21A05AE200DAE44C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65159B5C21A05AE200DAE44C /* AppDelegate.swift */; };
 		65159B5F21A05AE200DAE44C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65159B5E21A05AE200DAE44C /* ViewController.swift */; };
 		65159B6221A05AE200DAE44C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65159B6021A05AE200DAE44C /* Main.storyboard */; };
@@ -25,14 +26,15 @@
 		C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */; };
 		C347CAF821D4F768003FDF3D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAF721D4F768003FDF3D /* MapViewController.swift */; };
 		C347CAFA21D53CC9003FDF3D /* MapViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */; };
+		C347CAFC21D5544D003FDF3D /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */; };
+		C347CAFE21D57CD0003FDF3D /* PostDetailsViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAFD21D57CD0003FDF3D /* PostDetailsViewController+Location.swift */; };
 		C3A4DDD221D130A600B43DF8 /* Access.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A4DDD121D130A600B43DF8 /* Access.storyboard */; };
 		C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */; };
 		C3C6386721D374F600CA2CF6 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3C6386621D374F600CA2CF6 /* Pacifico.ttf */; };
-		FDCE18E92FE1E31FF6D45AD0 /* Pods_lsgram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED6BBB837D035909F64D09A /* Pods_lsgram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2ED6BBB837D035909F64D09A /* Pods_lsgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lsgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A2D3A6805C98F5DB632DD93 /* Pods-lsgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.debug.xcconfig"; sourceTree = "<group>"; };
 		65159B5921A05AE200DAE44C /* lsgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lsgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65159B5C21A05AE200DAE44C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65159B5E21A05AE200DAE44C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +48,7 @@
 		65A6789721D3763B00EB72AE /* LSGram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSGram.swift; sourceTree = "<group>"; };
 		65A6789921D3785000EB72AE /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
-		A199A9E501735D38E5D5B7BE /* Pods-lsgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.release.xcconfig"; sourceTree = "<group>"; };
+		6D31BBA54480D54F5E934FCC /* Pods-lsgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.release.xcconfig"; sourceTree = "<group>"; };
 		C303F01121D2CD0100892EB4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C303F01321D2CE1B00892EB4 /* LoginAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAccessViewController.swift; sourceTree = "<group>"; };
 		C303F01721D2DAEB00892EB4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -54,10 +56,12 @@
 		C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TextColor.swift"; sourceTree = "<group>"; };
 		C347CAF721D4F768003FDF3D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Location.swift"; sourceTree = "<group>"; };
+		C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		C347CAFD21D57CD0003FDF3D /* PostDetailsViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostDetailsViewController+Location.swift"; sourceTree = "<group>"; };
 		C3A4DDD121D130A600B43DF8 /* Access.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Access.storyboard; sourceTree = "<group>"; };
 		C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
 		C3C6386621D374F600CA2CF6 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
-		FCC2353CB02E39F519DACE74 /* Pods-lsgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.debug.xcconfig"; sourceTree = "<group>"; };
+		E1BB5D3737F7F0AF1C52694B /* Pods_lsgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lsgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,20 +69,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDCE18E92FE1E31FF6D45AD0 /* Pods_lsgram.framework in Frameworks */,
+				00B77F9716CCE556DDE06CFD /* Pods_lsgram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62D7D374CECEF7ACB22FE9F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A2D3A6805C98F5DB632DD93 /* Pods-lsgram.debug.xcconfig */,
+				6D31BBA54480D54F5E934FCC /* Pods-lsgram.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		65159B5021A05AE200DAE44C = {
 			isa = PBXGroup;
 			children = (
 				65159B5B21A05AE200DAE44C /* lsgram */,
 				65159B5A21A05AE200DAE44C /* Products */,
-				BB64658AA29312483673A7DA /* Pods */,
-				6884B5440EE4D8AE9C703E9C /* Frameworks */,
+				62D7D374CECEF7ACB22FE9F7 /* Pods */,
+				DA7A8E7EF43F237BBDE33B7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,23 +127,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		6884B5440EE4D8AE9C703E9C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2ED6BBB837D035909F64D09A /* Pods_lsgram.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BB64658AA29312483673A7DA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FCC2353CB02E39F519DACE74 /* Pods-lsgram.debug.xcconfig */,
-				A199A9E501735D38E5D5B7BE /* Pods-lsgram.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		C303F01521D2CE2B00892EB4 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +150,7 @@
 				657F74AF21D4CEF00002B90B /* RecentPostsController.swift */,
 				657F74B321D4D00E0002B90B /* PostCellController.swift */,
 				C347CAF721D4F768003FDF3D /* MapViewController.swift */,
+				C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -164,6 +161,7 @@
 				C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */,
 				65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */,
 				C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */,
+				C347CAFD21D57CD0003FDF3D /* PostDetailsViewController+Location.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -176,6 +174,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		DA7A8E7EF43F237BBDE33B7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1BB5D3737F7F0AF1C52694B /* Pods_lsgram.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,11 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65159B6B21A05AE300DAE44C /* Build configuration list for PBXNativeTarget "lsgram" */;
 			buildPhases = (
-				A2C83C04FC282CBE05AC5CAF /* [CP] Check Pods Manifest.lock */,
+				C03109DAAD97A3ED5123C3A9 /* [CP] Check Pods Manifest.lock */,
 				65159B5521A05AE200DAE44C /* Sources */,
 				65159B5621A05AE200DAE44C /* Frameworks */,
 				65159B5721A05AE200DAE44C /* Resources */,
-				C475EC7DAA0E97F304812772 /* [CP] Embed Pods Frameworks */,
+				09D0E77BA03BC9004E7F0FD6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,7 +254,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A2C83C04FC282CBE05AC5CAF /* [CP] Check Pods Manifest.lock */ = {
+		09D0E77BA03BC9004E7F0FD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/INSPhotoGallery/INSPhotoGallery.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPhotoGallery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C03109DAAD97A3ED5123C3A9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,30 +302,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C475EC7DAA0E97F304812772 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
-				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -306,11 +314,13 @@
 				C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */,
 				C347CAFA21D53CC9003FDF3D /* MapViewController+Location.swift in Sources */,
 				65159B5F21A05AE200DAE44C /* ViewController.swift in Sources */,
+				C347CAFC21D5544D003FDF3D /* PostDetailsViewController.swift in Sources */,
 				657F74B021D4CEF00002B90B /* RecentPostsController.swift in Sources */,
 				C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */,
 				657F74B421D4D00E0002B90B /* PostCellController.swift in Sources */,
 				C303F01421D2CE1B00892EB4 /* LoginAccessViewController.swift in Sources */,
 				65A6789C21D381EA00EB72AE /* UIViewController+Alert.swift in Sources */,
+				C347CAFE21D57CD0003FDF3D /* PostDetailsViewController+Location.swift in Sources */,
 				65A6789A21D3785000EB72AE /* RequestHandler.swift in Sources */,
 				65A6789821D3763B00EB72AE /* LSGram.swift in Sources */,
 				C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */,
@@ -459,7 +469,7 @@
 		};
 		65159B6C21A05AE300DAE44C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCC2353CB02E39F519DACE74 /* Pods-lsgram.debug.xcconfig */;
+			baseConfigurationReference = 5A2D3A6805C98F5DB632DD93 /* Pods-lsgram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -477,7 +487,7 @@
 		};
 		65159B6D21A05AE300DAE44C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A199A9E501735D38E5D5B7BE /* Pods-lsgram.release.xcconfig */;
+			baseConfigurationReference = 6D31BBA54480D54F5E934FCC /* Pods-lsgram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

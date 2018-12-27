@@ -2,21 +2,25 @@ PODS:
   - ImageSlideshow (1.7.0):
     - ImageSlideshow/Core (= 1.7.0)
   - ImageSlideshow/Core (1.7.0)
+  - INSPhotoGallery (1.2.7)
   - JVFloatLabeledTextField (1.2.1)
 
 DEPENDENCIES:
   - ImageSlideshow (~> 1.6)
+  - INSPhotoGallery
   - JVFloatLabeledTextField
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ImageSlideshow
+    - INSPhotoGallery
     - JVFloatLabeledTextField
 
 SPEC CHECKSUMS:
   ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
+  INSPhotoGallery: a4e698e3d6338d9016328d6747488a2a111d94e2
   JVFloatLabeledTextField: cfc44e3c4d493b2ed92ede8035e8e89c2912ba64
 
-PODFILE CHECKSUM: ae1411440993ed0008487dd2e3ee02215f9de547
+PODFILE CHECKSUM: 1eda99af49eb1743acfc67442c0a522a40f220d6
 
 COCOAPODS: 1.5.3
