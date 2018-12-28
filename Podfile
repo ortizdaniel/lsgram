@@ -12,4 +12,5 @@ target 'lsgram' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 4.8.0'
   pod 'AlamofireImage', '~> 3.5'
+  pod "ImageSlideshow/Alamofire"
 end
