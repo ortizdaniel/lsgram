@@ -28,6 +28,7 @@ class LSGram {
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
             do {
                 req.httpBody = try JSONSerialization.data(withJSONObject: handler.reqParameters())
+                //print(String(data: req.httpBody!, encoding: String.Encoding.utf8))
             } catch {
                 handler.error(message: "Could not serialize the request parameters.")
                 return
@@ -59,5 +60,13 @@ class LSGram {
     
     static func getPosts(handler: RequestHandler) {
         performRequest(method: "GET", url: BASE_URL + GET_POSTS, handler: handler)
+    }
+    
+    static func likePost(handler: RequestHandler) {
+        performRequest(method: "POST", url: BASE_URL + LIKE_UNLIKE, handler: handler)
+    }
+    
+    static func getFollowers(handler: RequestHandler) {
+        performRequest(method: "POST", url: BASE_URL + FOLLOWING, handler: handler)
     }
 }

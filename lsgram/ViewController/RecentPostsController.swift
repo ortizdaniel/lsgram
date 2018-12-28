@@ -14,11 +14,22 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let refreshControl: UIRefreshControl = UIRefreshControl()
     
     var button: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     private var theresInternet: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        createFloatingButton()
+        
+        LSGram.getFollowers(handler: FollowingRefresh())
+        LSGram.getPosts(handler: self)
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return PostList.instance().filtered().count
@@ -30,6 +41,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         if theresInternet {
             let finalCell = tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCellController
             finalCell.buildCell(post: PostList.instance().filtered()[indexPath.row])
+            finalCell.parent = self
             cell = finalCell
         } else {
             let finalCell = tableView.dequeueReusableCell(withIdentifier: "noInternetCell") as! NoInternetCellController
@@ -40,20 +52,16 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        createFloatingButton()
-        
+    @objc func refresh(_ sender: AnyObject) {
         LSGram.getPosts(handler: self)
     }
-    
-    
+
     func reqParameters() -> [String : Any] {
         return [:]
     }
     
     func success(response: JSON) {
-        
+        PostList.instance().clearAll()
         //load posts from API and cache them instantly
         if response["status"] == "OK" {
             theresInternet = true
@@ -78,9 +86,13 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             error(message: "There's no internet") //try to load from cache
         }
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+        }
     }
     
     func error(message: String) {
+        PostList.instance().clearAll()
         theresInternet = false
         //load posts from DB cache
         print(message)
@@ -94,6 +106,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         }*/
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     

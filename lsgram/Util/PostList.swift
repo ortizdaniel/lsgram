@@ -42,6 +42,11 @@ class PostList {
         allPosts.append(contentsOf: items)
     }
     
+    func clearAll() {
+        allPosts.removeAll()
+        filteredPosts.removeAll()
+    }
+    
     func noFilter() {
         filteredPosts.removeAll()
         filteredPosts.append(contentsOf: allPosts)
@@ -81,11 +86,11 @@ class PostList {
     func sort() {
         allPosts.sort {
             a, b in
-            return a.getTakenAt().compare(b.getTakenAt()) == .orderedAscending
+            return a.getTakenAt().compare(b.getTakenAt()) == .orderedDescending
         }
         filteredPosts.sort {
             a, b in
-            return a.getTakenAt().compare(b.getTakenAt()) == .orderedAscending
+            return a.getTakenAt().compare(b.getTakenAt()) == .orderedDescending
         }
     }
 }

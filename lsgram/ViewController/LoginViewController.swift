@@ -125,6 +125,7 @@ class LoginViewController : UIViewController, RequestHandler {
         
         let prefs = UserDefaults.standard
         prefs.set(self.tfName.text, forKey: "username")
+        prefs.set(self.tfPassword.text, forKey: "password")
         prefs.synchronize()
     }
     
