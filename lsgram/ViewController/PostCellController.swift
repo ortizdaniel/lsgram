@@ -21,9 +21,11 @@ class PostCellController: UITableViewCell {
     @IBOutlet weak var btnThumbsDown: UIButton!
     @IBOutlet weak var issPostImages: ImageSlideshow!
     @IBOutlet weak var lbPostLikes: UILabel!
+    @IBOutlet weak var btnFollow: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        btnFollow.layer.cornerRadius = 8
     }
     
     func buildCell(post: PostItem) {

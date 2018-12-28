@@ -297,9 +297,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zv5-EZ-qWr">
-                                                    <rect key="frame" x="347" y="15" width="52" height="29.5"/>
+                                                    <rect key="frame" x="339" y="15" width="60" height="29.5"/>
                                                     <color key="backgroundColor" red="0.21960784310000001" green="0.2901960784" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title=" Follow ">
+                                                    <state key="normal" title="  Follow  ">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
@@ -345,7 +345,7 @@
                                                     <state key="normal" image="thumbs-down"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMV-4M-1FV">
-                                                    <rect key="frame" x="20" y="19.5" width="255" height="21"/>
+                                                    <rect key="frame" x="20" y="19.5" width="247" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="3md-Sf-kqn"/>
                                                     </constraints>
@@ -354,7 +354,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtW-DT-eoP">
-                                                    <rect key="frame" x="290" y="19.5" width="42" height="21"/>
+                                                    <rect key="frame" x="282" y="19.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -385,6 +385,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btnFollow" destination="Zv5-EZ-qWr" id="oNa-sd-D5y"/>
                                             <outlet property="btnThumbsDown" destination="wWY-1y-doI" id="CAz-NA-vVN"/>
                                             <outlet property="btnThumbsUp" destination="sMR-Kw-GS8" id="NgZ-zV-neg"/>
                                             <outlet property="issPostImages" destination="8mw-qg-tqr" id="aJZ-Lq-AsB"/>
