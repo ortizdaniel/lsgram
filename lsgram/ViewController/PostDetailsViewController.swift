@@ -11,16 +11,22 @@ import UIKit
 import MapKit
 import INSPhotoGallery
 
-class PostDetailsViewController : UIViewController {
+class PostDetailsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var descTextView: UITextView!
     @IBOutlet weak var postImage: UIImageView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    var matchingItems: [MKMapItem] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    //var resultSearchController: UISearchController? = nil
     
     lazy var photos: [INSPhotoViewable] = {
         return [
@@ -38,7 +44,20 @@ class PostDetailsViewController : UIViewController {
         postImage.isUserInteractionEnabled = true
         postImage.addGestureRecognizer(tapGestureRecognizer)
         
+        setSearchController()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
+        
         requestLocationPermissions()
+    }
+    
+    private func setSearchController() {
+        searchController.searchResultsUpdater = self
+        
+        tableView.alpha = 0
+        mapView.alpha = 1
     }
     
     private func requestLocationPermissions() {
@@ -52,5 +71,50 @@ class PostDetailsViewController : UIViewController {
         //TODO INSPhotoGallery
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchText.count > 0) {
+            tableView.alpha = 1
+            mapView.alpha = 0
+            
+            updateSearchResults(for: self.searchController)
+        } else {
+            tableView.alpha = 0
+            mapView.alpha = 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matchingItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell")!
+        let selectedItem = matchingItems[indexPath.row].placemark
+        cell.textLabel?.text = selectedItem.name
+        cell.detailTextLabel?.text = ""
+        
+        return cell
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = searchBar?.text
+        request.region = mapView.region
+        
+        let search = MKLocalSearch(request: request)
+        
+        search.start(completionHandler: {(response, error) in
+            
+            if error != nil {
+                print("Error occurred in search: \(error!.localizedDescription)")
+            } else if response!.mapItems.count == 0 {
+                print("No matches found")
+            } else {
+                print("Matches found")
+                self.matchingItems = response!.mapItems
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
 }
-
