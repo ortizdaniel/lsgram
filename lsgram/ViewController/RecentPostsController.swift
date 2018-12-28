@@ -18,12 +18,19 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     var button: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    private var theresInternet: Bool = false
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return PostList.instance().filtered().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCellController
+        if theresInternet {
+            //TODO
+        } else {
+            //TODO
+        }
         return cell
     }
 
@@ -40,21 +47,35 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func success(response: JSON) {
-        //load posts from API
+        
+        //load posts from API and cache them instantly
         if response["status"] == "OK" {
+            theresInternet = true
+            clearCache()
+            
             let posts = PostList.instance()
             for jsonPost in response["data"].arrayValue {
-                posts.add(PostJSON(json: jsonPost))
+                let post: PostItem = PostJSON(json: jsonPost)
+                posts.add(post)
+                
+                //start adding them to DB
+                if !addToCache(post: post) {
+                    print("Error adding post to cache")
+                }
             }
             posts.noFilter()
+            print(posts.filtered().count)
             print("Finished loading posts")
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        } else {
+            error(message: "There's no internet") //try to load from cache
         }
     }
     
     func error(message: String) {
+        theresInternet = false
         //load posts from DB cache
         print(message)
         let posts: PostList = PostList.instance()
@@ -62,8 +83,54 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         posts.addAll(try! context.fetch(fetch) as! [PostItem])
         posts.noFilter()
         print("Finished loading posts from cache")
+        /*for post in posts.all() {
+            print(post.getLinks())
+        }*/
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    func clearCache() {
+        let req = NSFetchRequest<NSFetchRequestResult>(entityName: "CachedPost")
+        let deleteReq = NSBatchDeleteRequest(fetchRequest: req)
+        do {
+            try context.execute(deleteReq)
+            try context.save()
+        } catch {
+            print("Error deleting the cache")
+        }
+    }
+    
+    func addToCache(post: PostItem) -> Bool {
+        if let entity = NSEntityDescription.entity(forEntityName: "CachedPost", in: context) {
+            let cachedPost = NSManagedObject(entity: entity, insertInto: context)
+            cachedPost.setValue(post.getId(), forKey: "id")
+            cachedPost.setValue(post.getTitle(), forKey: "title")
+            cachedPost.setValue(post.getCaption(), forKey: "caption")
+            cachedPost.setValue(post.getLikes(), forKey: "likes")
+            cachedPost.setValue(post.getLatitude(), forKey: "lat")
+            cachedPost.setValue(post.getLongitude(), forKey: "lng")
+            cachedPost.setValue(post.getOwner(), forKey: "owner")
+            cachedPost.setValue(post.getTakenAt(), forKey: "takenAt")
+            var links: String = ""
+            let linkArray: [String] = post.getLinks()
+            for i in stride(from: 0, to: linkArray.count - 1, by: 1) {
+                links += "\(linkArray[i])#"
+            }
+            //because some people post images without a link
+            if linkArray.count > 0 {
+                links += "\(linkArray[linkArray.count - 1])"
+            }
+            cachedPost.setValue(links, forKey: "links")
+            do {
+                try context.save()
+                return true
+            } catch {
+                return false
+            }
+        } else {
+            return false
         }
     }
     
