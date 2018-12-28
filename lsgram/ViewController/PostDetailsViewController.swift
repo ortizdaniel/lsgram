@@ -26,7 +26,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     let locationManager = CLLocationManager()
     var matchingItems: [MKMapItem] = []
     let searchController = UISearchController(searchResultsController: nil)
-    //var resultSearchController: UISearchController? = nil
+    var selectedPin: MKPlacemark? = nil
     
     lazy var photos: [INSPhotoViewable] = {
         return [
@@ -49,6 +49,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        //tableView.handleMapSearchDelegate = self
         
         requestLocationPermissions()
     }
@@ -96,6 +97,15 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = matchingItems[indexPath.row].placemark
+        dropPinZoomIn(placemark: selectedItem)
+        
+        tableView.alpha = 0
+        mapView.alpha = 1
+        searchBar?.text = ""
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBar?.text
@@ -139,6 +149,24 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             selectedItem.administrativeArea ?? ""
         )
         return addressLine
+    }
+    
+    func dropPinZoomIn(placemark:MKPlacemark){
+        // cache the pin
+        selectedPin = placemark
+        // clear existing pins
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        if let city = placemark.locality,
+            let state = placemark.administrativeArea {
+            annotation.subtitle = "\(city) \(state)"
+        }
+        mapView.addAnnotation(annotation)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
     }
     
 }
