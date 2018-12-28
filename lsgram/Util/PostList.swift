@@ -45,6 +45,7 @@ class PostList {
     func noFilter() {
         filteredPosts.removeAll()
         filteredPosts.append(contentsOf: allPosts)
+        sort()
     }
     
     func filterFollowing(following: [String]) {
@@ -54,6 +55,7 @@ class PostList {
                 filteredPosts.append(post)
             }
         }
+        sort()
     }
     
     func filterMinLikes(amount: Int) {
@@ -63,6 +65,7 @@ class PostList {
                 filteredPosts.append(post)
             }
         }
+        sort()
     }
     
     func filterFollowingAndMinLikes(following: [String], amount: Int) {
@@ -71,6 +74,18 @@ class PostList {
             if post.getLikes() < amount {
                 filteredPosts.remove(at: i)
             }
+        }
+        sort()
+    }
+    
+    func sort() {
+        allPosts.sort {
+            a, b in
+            return a.getTakenAt().compare(b.getTakenAt()) == .orderedAscending
+        }
+        filteredPosts.sort {
+            a, b in
+            return a.getTakenAt().compare(b.getTakenAt()) == .orderedAscending
         }
     }
 }

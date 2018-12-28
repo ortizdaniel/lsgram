@@ -25,12 +25,18 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCellController
+        let cell: UITableViewCell
+
         if theresInternet {
-            //TODO
+            let finalCell = tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCellController
+            finalCell.buildCell(post: PostList.instance().filtered()[indexPath.row])
+            cell = finalCell
         } else {
-            //TODO
+            let finalCell = tableView.dequeueReusableCell(withIdentifier: "noInternetCell") as! NoInternetCellController
+            finalCell.buildCell(post: PostList.instance().filtered()[indexPath.row])
+            cell = finalCell
         }
+        
         return cell
     }
 
@@ -63,9 +69,9 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
                     print("Error adding post to cache")
                 }
             }
+            try? context.save()
             posts.noFilter()
-            print(posts.filtered().count)
-            print("Finished loading posts")
+            print("Finished loading posts (\(posts.all().count))")
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -82,7 +88,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         let fetch = NSFetchRequest<NSManagedObject>(entityName: "CachedPost")
         posts.addAll(try! context.fetch(fetch) as! [PostItem])
         posts.noFilter()
-        print("Finished loading posts from cache")
+        print("Finished loading posts from cache (\(posts.all().count))")
         /*for post in posts.all() {
             print(post.getLinks())
         }*/
@@ -97,7 +103,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         do {
             try context.execute(deleteReq)
             try context.save()
-        } catch {
+        } catch _ {
             print("Error deleting the cache")
         }
     }
@@ -123,15 +129,15 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
                 links += "\(linkArray[linkArray.count - 1])"
             }
             cachedPost.setValue(links, forKey: "links")
-            do {
-                try context.save()
-                return true
-            } catch {
-                return false
-            }
+            return true
         } else {
             return false
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
+        //TODO performSegue to post information
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
