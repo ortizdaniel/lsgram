@@ -19,6 +19,7 @@
 		65A6789821D3763B00EB72AE /* LSGram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789721D3763B00EB72AE /* LSGram.swift */; };
 		65A6789A21D3785000EB72AE /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789921D3785000EB72AE /* RequestHandler.swift */; };
 		65A6789C21D381EA00EB72AE /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */; };
+		65F3E07E21D63F7F0036B620 /* Imgur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F3E07D21D63F7F0036B620 /* Imgur.swift */; };
 		C303F01221D2CD0100892EB4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C303F01121D2CD0100892EB4 /* Login.storyboard */; };
 		C303F01421D2CE1B00892EB4 /* LoginAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01321D2CE1B00892EB4 /* LoginAccessViewController.swift */; };
 		C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01721D2DAEB00892EB4 /* LoginViewController.swift */; };
@@ -53,6 +54,7 @@
 		65A6789721D3763B00EB72AE /* LSGram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSGram.swift; sourceTree = "<group>"; };
 		65A6789921D3785000EB72AE /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		65F3E07D21D63F7F0036B620 /* Imgur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgur.swift; sourceTree = "<group>"; };
 		6D31BBA54480D54F5E934FCC /* Pods-lsgram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lsgram.release.xcconfig"; path = "Pods/Target Support Files/Pods-lsgram/Pods-lsgram.release.xcconfig"; sourceTree = "<group>"; };
 		C303F01121D2CD0100892EB4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C303F01321D2CE1B00892EB4 /* LoginAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAccessViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				65A6789721D3763B00EB72AE /* LSGram.swift */,
+				65F3E07D21D63F7F0036B620 /* Imgur.swift */,
 				65A6789921D3785000EB72AE /* RequestHandler.swift */,
 			);
 			path = Network;
@@ -288,6 +291,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-lsgram/Pods-lsgram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/INSPhotoGallery/INSPhotoGallery.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
@@ -298,6 +302,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPhotoGallery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
@@ -346,6 +351,7 @@
 				C347CAFA21D53CC9003FDF3D /* MapViewController+Location.swift in Sources */,
 				65159B5F21A05AE200DAE44C /* ViewController.swift in Sources */,
 				C347CAFC21D5544D003FDF3D /* PostDetailsViewController.swift in Sources */,
+				65F3E07E21D63F7F0036B620 /* Imgur.swift in Sources */,
 				657F74B021D4CEF00002B90B /* RecentPostsController.swift in Sources */,
 				C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */,
 				C347CB1221D591CF003FDF3D /* lsgram.xcdatamodeld in Sources */,

@@ -10,6 +10,6 @@ target 'lsgram' do
   pod 'ImageSlideshow', '~> 1.6'
   pod 'INSPhotoGallery'
   pod 'SwiftyJSON', '~> 4.0'
-  pod 'Alamofire', '~> 4.7.3'
-  
+  pod 'Alamofire', '~> 4.8.0'
+  pod 'AlamofireImage', '~> 3.5'
 end

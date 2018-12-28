@@ -34,6 +34,7 @@ class Imgur {
                         callback(nil)
                     }
         })
+        
     }
     
     static func downloadImage(url: String, callback: @escaping (UIImage?) -> Void) {
