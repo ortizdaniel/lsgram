@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 import INSPhotoGallery
 
-class PostDetailsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
+class PostDetailsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UITextViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -49,7 +49,9 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-        //tableView.handleMapSearchDelegate = self
+        
+        titleTextView.delegate = self
+        descTextView.delegate = self
         
         requestLocationPermissions()
     }
@@ -66,6 +68,24 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.textColor != UIColor.black) {
+            textView.textColor = UIColor.black
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if (textView.text.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
+            textView.textColor = UIColor.lightGray
+            if (textView.restorationIdentifier == "title") {
+                textView.text = "Add a title..."
+            } else {
+                textView.text = "Add a description..."
+            }
+        }
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
