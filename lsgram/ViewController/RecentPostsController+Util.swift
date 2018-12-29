@@ -34,7 +34,7 @@ extension RecentPostsController {
                 }
             }
             try? context.save()
-            posts.noFilter()
+            followOnlySwitchChanged(0)
             print("Finished loading posts (\(posts.all().count))")
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -55,7 +55,7 @@ extension RecentPostsController {
         let posts: PostList = PostList.instance()
         let fetch = NSFetchRequest<NSManagedObject>(entityName: "CachedPost")
         posts.addAll(try! context.fetch(fetch) as! [PostItem])
-        posts.noFilter()
+        followOnlySwitchChanged(0)
         print("Finished loading posts from cache (\(posts.all().count))")
         DispatchQueue.main.async {
             self.tableView.reloadData()

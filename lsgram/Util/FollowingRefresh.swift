@@ -24,7 +24,7 @@ class FollowingRefresh: RequestHandler {
             for subJson in response["data"].arrayValue {
                 FollowingList.instance().add(user: subJson["userId"].stringValue)
             }
-            print(FollowingList.instance().following())
+            //print(FollowingList.instance().following())
             print("Followers obtained successfully")
         }
     }

@@ -78,11 +78,7 @@ class PostList {
     
     func filterFollowingAndMinLikes(following: [String], amount: Int) {
         filterFollowing(following: following)
-        for (i, post) in filteredPosts.enumerated() {
-            if post.getLikes() < amount {
-                filteredPosts.remove(at: i)
-            }
-        }
+        filteredPosts = filteredPosts.filter{$0.getLikes() >= amount}
         sort()
     }
     

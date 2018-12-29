@@ -45,6 +45,9 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
         if FollowingList.instance().contains(post.getOwner()) {
             setHollowButton(btn: btnFollow)
             followSelected = true
+        } else {
+            setFilledButton(btn: btnFollow)
+            followSelected = false
         }
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostCellController.didTap))
         issPostImages.addGestureRecognizer(gestureRecognizer)
@@ -95,7 +98,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
                 sources.append(AlamofireSource(urlString: l)!)
             }
             issPostImages.setImageInputs(sources)
-            issPostImages.contentScaleMode = .scaleAspectFill //TODO
+            issPostImages.contentScaleMode = .scaleAspectFill
         } else {
             issPostImages.setImageInputs([])
         }

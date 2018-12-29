@@ -76,28 +76,30 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func followOnlySwitchChanged(_ sender: Any) {
-        let isOn: Bool = switchFollowing.isOn
-        if tfMinVotes!.text?.isEmpty ?? false {
-            if isOn {
-                PostList.instance().filterFollowing(
-                    following: FollowingList.instance().following()
-                )
-            } else {
-                PostList.instance().noFilter()
-            }
-        } else {
-            let minVotes: Int = Int(tfMinVotes.text!)!
-            if isOn {
-                PostList.instance().filterFollowingAndMinLikes(
-                    following: FollowingList.instance().following(),
-                    amount: minVotes
-                )
-            } else {
-                PostList.instance().filterMinLikes(amount: minVotes)
-            }
+        DispatchQueue.main.async {
+            let isOn: Bool = self.switchFollowing.isOn
+                if self.tfMinVotes!.text?.isEmpty ?? false {
+                    if isOn {
+                        PostList.instance().filterFollowing(
+                            following: FollowingList.instance().following()
+                        )
+                    } else {
+                        PostList.instance().noFilter()
+                    }
+                } else {
+                    let minVotes: Int = Int(self.tfMinVotes.text!)!
+                    if isOn {
+                        PostList.instance().filterFollowingAndMinLikes(
+                            following: FollowingList.instance().following(),
+                            amount: minVotes
+                        )
+                    } else {
+                        PostList.instance().filterMinLikes(amount: minVotes)
+                    }
+                }
+                //print(PostList.instance().filtered())
+            self.tableView!.reloadData()
         }
-        print(PostList.instance().filtered())
-        tableView!.reloadData()
     }
     
     @IBAction func minVotesChanged(_ sender: Any) {

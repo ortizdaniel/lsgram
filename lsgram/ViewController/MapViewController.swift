@@ -10,17 +10,27 @@ import Foundation
 import MapKit
 import UIKit
 
-class MapViewController : UIViewController {
+class MapViewController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
     var button: UIButton!
     let locationManager = CLLocationManager()
+    @IBOutlet weak var settingsStack: UIStackView!
+    @IBOutlet weak var settingsView: UIView!
+    @IBOutlet weak var switchFollowing: UISwitch!
+    @IBOutlet weak var tfMinVotes: UITextField!
+    
+    var settingsToggled: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createFloatingButton()
         requestLocationPermissions()
+        settingsStack.setView([settingsView], gone: true, animated: false)
+        settingsView.addBottomBorderWithColor(color: .lightGray, width: 1)
+        tfMinVotes!.keyboardType = .numberPad
+        tfMinVotes!.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +48,42 @@ class MapViewController : UIViewController {
             mapView.addAnnotation(annotation)
         }
     }
+    
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        settingsStack.setView([settingsView], gone: settingsToggled, animated: true)
+        settingsToggled = !settingsToggled
+    }
+    
+    @IBAction func switchFollowingChanged(_ sender: Any) {
+        DispatchQueue.main.async {
+            let isOn: Bool = self.switchFollowing.isOn
+            if self.tfMinVotes!.text?.isEmpty ?? false {
+                if isOn {
+                    PostList.instance().filterFollowing(
+                        following: FollowingList.instance().following()
+                    )
+                } else {
+                    PostList.instance().noFilter()
+                }
+            } else {
+                let minVotes: Int = Int(self.tfMinVotes.text!)!
+                if isOn {
+                    PostList.instance().filterFollowingAndMinLikes(
+                        following: FollowingList.instance().following(),
+                        amount: minVotes
+                    )
+                } else {
+                    PostList.instance().filterMinLikes(amount: minVotes)
+                }
+            }
+            self.viewDidAppear(false)
+        }
+    }
+    
+    @IBAction func minVotesChanged(_ sender: Any) {
+        switchFollowingChanged(sender)
+    }
+    
     
     @IBAction func logoutPressed(_ sender: Any) {
         let prefs = UserDefaults.standard
@@ -84,4 +130,8 @@ class MapViewController : UIViewController {
         locationManager.requestLocation()
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters) == nil
+    }
 }

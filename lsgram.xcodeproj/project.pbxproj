@@ -19,7 +19,6 @@
 		6568856021D66C630031EF66 /* NoInternetCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568855F21D66C630031EF66 /* NoInternetCellController.swift */; };
 		657F74B021D4CEF00002B90B /* RecentPostsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F74AF21D4CEF00002B90B /* RecentPostsController.swift */; };
 		657F74B421D4D00E0002B90B /* PostCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F74B321D4D00E0002B90B /* PostCellController.swift */; };
-		65A37C5021D43BF5008A3E7C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A37C4F21D43BF5008A3E7C /* SettingsController.swift */; };
 		65A6789821D3763B00EB72AE /* LSGram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789721D3763B00EB72AE /* LSGram.swift */; };
 		65A6789A21D3785000EB72AE /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789921D3785000EB72AE /* RequestHandler.swift */; };
 		65A6789C21D381EA00EB72AE /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */; };
@@ -61,7 +60,6 @@
 		6568855F21D66C630031EF66 /* NoInternetCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetCellController.swift; sourceTree = "<group>"; };
 		657F74AF21D4CEF00002B90B /* RecentPostsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPostsController.swift; sourceTree = "<group>"; };
 		657F74B321D4D00E0002B90B /* PostCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellController.swift; sourceTree = "<group>"; };
-		65A37C4F21D43BF5008A3E7C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		65A6789721D3763B00EB72AE /* LSGram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSGram.swift; sourceTree = "<group>"; };
 		65A6789921D3785000EB72AE /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				C303F01321D2CE1B00892EB4 /* LoginAccessViewController.swift */,
 				C303F01721D2DAEB00892EB4 /* LoginViewController.swift */,
 				C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */,
-				65A37C4F21D43BF5008A3E7C /* SettingsController.swift */,
 				657F74AF21D4CEF00002B90B /* RecentPostsController.swift */,
 				657F74B321D4D00E0002B90B /* PostCellController.swift */,
 				C347CAF721D4F768003FDF3D /* MapViewController.swift */,
@@ -366,7 +363,6 @@
 				65CFF5D521D7866F006763D8 /* UIStackView+Util.swift in Sources */,
 				65CFF5D321D784E7006763D8 /* RecentPostsController+Util.swift in Sources */,
 				C347CB0A21D5902B003FDF3D /* CachedPost+PostItem.swift in Sources */,
-				65A37C5021D43BF5008A3E7C /* SettingsController.swift in Sources */,
 				C347CB0B21D5902B003FDF3D /* PostItem.swift in Sources */,
 				C347CB0921D5902B003FDF3D /* PostList.swift in Sources */,
 				C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */,
