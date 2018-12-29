@@ -42,6 +42,7 @@
 		C347CB1221D591CF003FDF3D /* lsgram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C347CB1021D591CF003FDF3D /* lsgram.xcdatamodeld */; };
 		C3A4DDD221D130A600B43DF8 /* Access.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3A4DDD121D130A600B43DF8 /* Access.storyboard */; };
 		C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */; };
+		C3B99D1121D7EC25005B9A37 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B99D1021D7EC25005B9A37 /* CameraViewController.swift */; };
 		C3C6386721D374F600CA2CF6 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3C6386621D374F600CA2CF6 /* Pacifico.ttf */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		C347CB1121D591CF003FDF3D /* lsgram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = lsgram.xcdatamodel; sourceTree = "<group>"; };
 		C3A4DDD121D130A600B43DF8 /* Access.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Access.storyboard; sourceTree = "<group>"; };
 		C3A4DDD321D1328700B43DF8 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
+		C3B99D1021D7EC25005B9A37 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C3C6386621D374F600CA2CF6 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		E1BB5D3737F7F0AF1C52694B /* Pods_lsgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lsgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -180,6 +182,7 @@
 				C3104B8221D6341A0017B3AD /* LocationSearchTableViewController.swift */,
 				6568855F21D66C630031EF66 /* NoInternetCellController.swift */,
 				65CFF5D221D784E7006763D8 /* RecentPostsController+Util.swift */,
+				C3B99D1021D7EC25005B9A37 /* CameraViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				"${BUILT_PRODUCTS_DIR}/INSPhotoGallery/INSPhotoGallery.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/OpalImagePicker/OpalImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -324,6 +328,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPhotoGallery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpalImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +376,7 @@
 				65159B5F21A05AE200DAE44C /* ViewController.swift in Sources */,
 				C347CAFC21D5544D003FDF3D /* PostDetailsViewController.swift in Sources */,
 				65162A5321D6C0E0007A3BFF /* FollowingRefresh.swift in Sources */,
+				C3B99D1121D7EC25005B9A37 /* CameraViewController.swift in Sources */,
 				65F3E07E21D63F7F0036B620 /* Imgur.swift in Sources */,
 				657F74B021D4CEF00002B90B /* RecentPostsController.swift in Sources */,
 				C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */,
@@ -536,6 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M2T4379R6J;
 				INFOPLIST_FILE = lsgram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -554,6 +561,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M2T4379R6J;
 				INFOPLIST_FILE = lsgram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

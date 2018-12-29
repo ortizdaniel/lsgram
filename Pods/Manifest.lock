@@ -10,6 +10,7 @@ PODS:
   - ImageSlideshow/Core (1.7.0)
   - INSPhotoGallery (1.2.7)
   - JVFloatLabeledTextField (1.2.1)
+  - OpalImagePicker (2.0.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - ImageSlideshow/Alamofire
   - INSPhotoGallery
   - JVFloatLabeledTextField
+  - OpalImagePicker
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -28,6 +30,7 @@ SPEC REPOS:
     - ImageSlideshow
     - INSPhotoGallery
     - JVFloatLabeledTextField
+    - OpalImagePicker
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -36,8 +39,9 @@ SPEC CHECKSUMS:
   ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
   INSPhotoGallery: a4e698e3d6338d9016328d6747488a2a111d94e2
   JVFloatLabeledTextField: cfc44e3c4d493b2ed92ede8035e8e89c2912ba64
+  OpalImagePicker: efc91612ef5b3849314801f68fddc26200da9435
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: c556c28f89bec084df722b56cfe0955a6ba5d098
+PODFILE CHECKSUM: 311e71bfb09b0c6ec694d33abe22ffd290de1471
 
 COCOAPODS: 1.5.3
