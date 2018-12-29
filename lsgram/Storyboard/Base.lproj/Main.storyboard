@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DBb-k0-mgH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DBb-k0-mgH">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -262,7 +262,11 @@
                         <viewLayoutGuide key="safeArea" id="GEI-b8-44U"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Post" id="CET-qt-vJ2">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="oRJ-5n-WyA"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="oRJ-5n-WyA">
+                            <connections>
+                                <action selector="postClicked:" destination="ZTT-Oz-EFx" id="Ced-pD-T9t"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descTextView" destination="vpB-eT-FjK" id="xAB-q6-5EP"/>

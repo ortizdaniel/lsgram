@@ -72,18 +72,29 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if (textView.textColor != UIColor.black) {
-            textView.textColor = UIColor.black
-            textView.text = ""
+            DispatchQueue.main.async{
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            }
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if (textView.text.trimmingCharacters(in: .whitespacesAndNewlines) == "") {
-            textView.textColor = UIColor.lightGray
-            if (textView.restorationIdentifier == "title") {
-                textView.text = "Add a title..."
-            } else {
-                textView.text = "Add a description..."
+    func textViewDidChange(_ textView: UITextView) {
+        if (textView.textColor != UIColor.black) {
+            textView.textColor = UIColor.black
+            let text = textView.text
+            
+            textView.text = "\(text!.prefix(1))"
+        } else {
+            if (textView.text == "") {
+                textView.textColor = UIColor.lightGray
+                if (textView.restorationIdentifier == "title") {
+                    textView.text = "Add a title..."
+                } else {
+                    textView.text = "Add a description..."
+                }
+                DispatchQueue.main.async{
+                    textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+                }
             }
         }
     }
@@ -189,4 +200,11 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         mapView.setRegion(region, animated: true)
     }
     
+    @IBAction func postClicked(_ sender: Any) {
+        if (titleTextView.textColor != UIColor.black) {
+            self.showAlert(title: "No title", message: "A title for this post must be specified.", buttonText: "OK", callback: nil)
+        } else {
+            //TODO check map coordinates
+        }
+    }
 }
