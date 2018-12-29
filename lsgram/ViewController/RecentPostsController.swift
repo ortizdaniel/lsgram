@@ -111,6 +111,8 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         prefs.removeObject(forKey: "username")
         prefs.removeObject(forKey: "password")
         prefs.synchronize()
+        PostList.instance().clearAll()
+        FollowingList.instance().removeAll()
         clearCache()
         
         performSegue(withIdentifier: "logout", sender: sender)
