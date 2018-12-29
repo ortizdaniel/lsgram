@@ -46,6 +46,12 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
             setHollowButton(btn: btnFollow)
             followSelected = true
         }
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostCellController.didTap))
+        issPostImages.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    @objc func didTap() {
+        issPostImages.presentFullScreenController(from: parent)
     }
     
     func notifyFollowChanged() {
@@ -80,6 +86,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
                 sources.append(AlamofireSource(urlString: l)!)
             }
             issPostImages.setImageInputs(sources)
+            issPostImages.contentScaleMode = .scaleAspectFill //TODO
         }
     }
 
