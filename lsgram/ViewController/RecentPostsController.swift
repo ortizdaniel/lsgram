@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import CoreData
 
-class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestHandler {
+class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestHandler, UITextFieldDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -20,6 +20,8 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var settingsStack: UIStackView!
     @IBOutlet weak var settingsView: UIView!
+    @IBOutlet weak var tfMinVotes: UITextField!
+    @IBOutlet weak var switchFollowing: UISwitch!
     
     var theresInternet: Bool = false
     var settingsToggled: Bool = false
@@ -34,6 +36,8 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.addSubview(refreshControl)
         settingsStack.setView([settingsView], gone: true, animated: false)
         settingsView.addBottomBorderWithColor(color: .lightGray, width: 1)
+        tfMinVotes!.keyboardType = .numberPad
+        tfMinVotes!.delegate = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,11 +75,41 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         settingsToggled = !settingsToggled
     }
     
+    @IBAction func followOnlySwitchChanged(_ sender: Any) {
+        let isOn: Bool = switchFollowing.isOn
+        if tfMinVotes!.text?.isEmpty ?? false {
+            if isOn {
+                PostList.instance().filterFollowing(
+                    following: FollowingList.instance().following()
+                )
+            } else {
+                PostList.instance().noFilter()
+            }
+        } else {
+            let minVotes: Int = Int(tfMinVotes.text!)!
+            if isOn {
+                PostList.instance().filterFollowingAndMinLikes(
+                    following: FollowingList.instance().following(),
+                    amount: minVotes
+                )
+            } else {
+                PostList.instance().filterMinLikes(amount: minVotes)
+            }
+        }
+        print(PostList.instance().filtered())
+        tableView!.reloadData()
+    }
+    
+    @IBAction func minVotesChanged(_ sender: Any) {
+        followOnlySwitchChanged(sender)
+    }
     
     @IBAction func logoutPressed(_ sender: Any) {
         let prefs = UserDefaults.standard
         prefs.removeObject(forKey: "username")
+        prefs.removeObject(forKey: "password")
         prefs.synchronize()
+        clearCache()
         
         performSegue(withIdentifier: "logout", sender: sender)
     }
@@ -95,5 +129,4 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         button.isHidden = true
         button.isEnabled = false
     }
-    
 }

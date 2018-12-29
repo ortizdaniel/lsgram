@@ -38,7 +38,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
         lbPostTitle.text = post.getTitle()
         lbPostOwner.text = post.getOwner()
         lbPostDescription.text = post.getCaption()
-        lbPostLikes.text = "\(post.getLikes()) \(post.getLikes() == 1 ? "like" : "likes")"
+        lbPostLikes.text = "\(post.getLikes()) \(abs(post.getLikes()) == 1 ? "like" : "likes")"
         loadImages(links: post.getLinks())
         issPostImages.circular = false
         FollowingList.instance().subscribe(self)
@@ -48,6 +48,11 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
         }
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostCellController.didTap))
         issPostImages.addGestureRecognizer(gestureRecognizer)
+        if let user: String = UserDefaults.standard.object(forKey: "username") as? String, post.getOwner() == user {
+            btnFollow.isHidden = true
+        } else {
+            btnFollow.isHidden = false
+        }
     }
     
     @objc func didTap() {
@@ -65,18 +70,22 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     }
     
     func setHollowButton(btn: UIButton) {
-        btn.setTitle("  Unfollow  ", for: .normal)
-        btn.layer.borderColor = PostCellController.blueColor.cgColor
-        btn.backgroundColor = .clear
-        btn.layer.borderWidth = 2
-        btn.setTitleColor(PostCellController.blueColor, for: .normal)
+        DispatchQueue.main.async {
+            btn.setTitle("  Unfollow  ", for: .normal)
+            btn.layer.borderColor = PostCellController.blueColor.cgColor
+            btn.backgroundColor = .clear
+            btn.layer.borderWidth = 2
+            btn.setTitleColor(PostCellController.blueColor, for: .normal)
+        }
     }
     
     func setFilledButton(btn: UIButton) {
-        btn.setTitle("  Follow  ", for: .normal)
-        btn.backgroundColor = PostCellController.blueColor
-        btn.layer.borderWidth = 0
-        btn.setTitleColor(.white, for: .normal)
+        DispatchQueue.main.async {
+            btn.setTitle("  Follow  ", for: .normal)
+            btn.backgroundColor = PostCellController.blueColor
+            btn.layer.borderWidth = 0
+            btn.setTitleColor(.white, for: .normal)
+        }
     }
     
     func loadImages(links: [String]) {
@@ -87,6 +96,8 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
             }
             issPostImages.setImageInputs(sources)
             issPostImages.contentScaleMode = .scaleAspectFill //TODO
+        } else {
+            issPostImages.setImageInputs([])
         }
     }
 
@@ -110,25 +121,31 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     
     @IBAction func followPressed(_ sender: UIButton) {
         followSelected = !followSelected
-        if followSelected {
-            setHollowButton(btn: sender)
-            FollowingList.instance().add(user: post!.getOwner())
-        } else {
-            setFilledButton(btn: sender)
-            FollowingList.instance().remove(user: post!.getOwner())
-        }
+        LSGram.follow(handler: self)
     }
     
     func reqParameters() -> [String : Any] {
-        return [:]
+        let user = UserDefaults.standard.object(forKey: "username") as! String
+        return ["who-follows": "\(user)",
+                "who-following": "\(post!.getOwner())",
+                "follow": "\(followSelected)"]
     }
     
     func success(response: JSON) {
-        
+        if response["status"].stringValue == "OK" {
+            if response["message"].stringValue.contains("un") {
+                followSelected = false
+                self.setFilledButton(btn: self.btnFollow)
+            } else {
+                followSelected = true
+                setHollowButton(btn: self.btnFollow)
+            }
+            LSGram.getFollowers(handler: FollowingRefresh())
+        }
     }
     
     func error(message: String) {
-        
+        print("Error following/unfollowing user")
     }
 }
 
@@ -163,7 +180,7 @@ class LikeHandler: RequestHandler {
                     for: UIControl.State.normal
                 )
                 let likes = response["data"]["likes"].intValue
-                self.lbLikes.text = "\(likes) \(likes == 1 ? "like" : "likes")"
+                self.lbLikes.text = "\(likes) \(abs(likes) == 1 ? "like" : "likes")"
             }
         }
     }

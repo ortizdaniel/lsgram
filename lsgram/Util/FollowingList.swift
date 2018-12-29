@@ -52,6 +52,12 @@ class FollowingList {
         subscribers.append(who)
     }
     
+    func following() -> [String] {
+        //DO NOT ATTEMPT UNDER ANY CIRCUMSTANCE TO USE THIS LIST AFTER
+        //GETTING IT FROM THIS FUNCTION, USE IT ONLY FOR READING NOT WRITING
+        return list
+    }
+    
     private func notifyAll() {
         for sub in subscribers {
             sub.notifyFollowChanged()

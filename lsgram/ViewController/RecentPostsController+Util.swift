@@ -114,4 +114,9 @@ extension RecentPostsController {
         
         self.navigationController?.view.addSubview(button)
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters) == nil
+    }
 }

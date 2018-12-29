@@ -20,9 +20,11 @@ class FollowingRefresh: RequestHandler {
     
     func success(response: JSON) {
         if response["status"] == "OK" {
+            FollowingList.instance().removeAll()
             for subJson in response["data"].arrayValue {
                 FollowingList.instance().add(user: subJson["userId"].stringValue)
             }
+            print(FollowingList.instance().following())
             print("Followers obtained successfully")
         }
     }

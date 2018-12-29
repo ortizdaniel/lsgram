@@ -6,6 +6,8 @@
 //  Copyright © 2018 Daniel. All rights reserved.
 //
 
+import UIKit
+
 class PostList {
     
     private static var inst: PostList? = nil
@@ -55,8 +57,9 @@ class PostList {
     
     func filterFollowing(following: [String]) {
         filteredPosts.removeAll()
+        let me: String = UserDefaults.standard.object(forKey: "username") as! String
         for post in allPosts {
-            if following.contains(post.getOwner()) {
+            if following.contains(post.getOwner()) || me == post.getOwner() {
                 filteredPosts.append(post)
             }
         }
