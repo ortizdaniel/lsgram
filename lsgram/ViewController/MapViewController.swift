@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import UIKit
 
-class MapViewController : UIViewController, UITextFieldDelegate {
+class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -25,6 +25,7 @@ class MapViewController : UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         createFloatingButton()
         requestLocationPermissions()
         settingsStack.setView([settingsView], gone: true, animated: false)
@@ -40,12 +41,27 @@ class MapViewController : UIViewController, UITextFieldDelegate {
             let lat = post.getLatitude()
             let lng = post.getLongitude()
             
-            let annotation = MKPointAnnotation()
+            let annotation = PostMapPoint(post: post)
             let coord = CLLocationCoordinate2D(latitude: lat, longitude: lng)
             annotation.coordinate = coord
             annotation.title = post.getTitle()
             
             mapView.addAnnotation(annotation)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let point = view.annotation as? PostMapPoint {
+            let post = point.post
+            performSegue(withIdentifier: "postDetailFromMap", sender: post)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "postDetailFromMap",
+            let dest = segue.destination as? PostViewController,
+            let post = sender as? PostItem {
+            dest.buildView(post: post)
         }
     }
     

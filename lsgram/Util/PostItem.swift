@@ -27,4 +27,15 @@ protocol PostItem {
     func getTakenAt() -> String
     
     func getLinks() -> [String]
+    
+    //current running instance only, not stored
+    func setLiked(b: Bool)
+    
+    func setDisliked(b: Bool)
+    
+    func liked() -> Bool
+    
+    func disliked() -> Bool
+    
+    func setLikes(l: Int)
 }
