@@ -161,7 +161,6 @@
                         <outlet property="switchFollowing" destination="icd-l1-S1p" id="VCj-Sk-wj5"/>
                         <outlet property="tfMinVotes" destination="bjx-kf-7jH" id="ZO6-LR-9Jo"/>
                         <segue destination="EVu-M4-5k3" kind="show" identifier="logoutMap" id="Azg-27-jBp"/>
-                        <segue destination="n95-km-N92" kind="show" identifier="newpostMap" id="1uc-3M-fb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2v5-Fz-FkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -370,10 +369,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfy-ZH-pOC" userLabel="Camera">
-                                <rect key="frame" x="0.0" y="138" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKU-uy-IDQ" userLabel="Controls">
-                                        <rect key="frame" x="24" y="638" width="366" height="70"/>
+                                        <rect key="frame" x="24" y="682" width="366" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccl-IH-jhU">
                                                 <rect key="frame" x="148" y="0.0" width="70" height="70"/>
@@ -422,7 +421,7 @@
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-camera" translatesAutoresizingMaskIntoConstraints="NO" id="Vd1-I2-lRr">
-                                        <rect key="frame" x="157" y="329" width="100" height="100"/>
+                                        <rect key="frame" x="157" y="351" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="8j5-YQ-0AO"/>
                                             <constraint firstAttribute="width" constant="100" id="gwf-lN-GGB"/>
@@ -439,7 +438,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="seR-EW-1c0" userLabel="Header">
-                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3Kq-n6-Lhc"/>
@@ -788,7 +787,6 @@
                         <outlet property="tableView" destination="DWt-vm-hsM" id="Ads-ZT-jyD"/>
                         <outlet property="tfMinVotes" destination="pCU-eK-8WA" id="5BO-g6-CPa"/>
                         <segue destination="EVu-M4-5k3" kind="show" identifier="logout" id="mfO-Fr-Mf0"/>
-                        <segue destination="n95-km-N92" kind="show" identifier="newpost" id="0t5-HR-KxN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htR-hr-0Jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -842,7 +840,6 @@
         <image name="thumbs-up-outline" width="181.89472961425781" height="181.89472961425781"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1uc-3M-fb7"/>
         <segue reference="Azg-27-jBp"/>
     </inferredMetricsTieBreakers>
 </document>
