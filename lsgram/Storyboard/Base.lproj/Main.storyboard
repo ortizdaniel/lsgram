@@ -117,13 +117,6 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOJ-U9-9QG">
                                                         <rect key="frame" x="16" y="16" width="382" height="60"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_no_text" translatesAutoresizingMaskIntoConstraints="NO" id="zXR-Ou-eZ7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="60" id="Q56-Dg-XR9"/>
-                                                                    <constraint firstAttribute="height" constant="60" id="wt3-c2-zpg"/>
-                                                                </constraints>
-                                                            </imageView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="title" text="Add a title..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="O6A-wQ-HY8">
                                                                 <rect key="frame" x="68" y="0.0" width="314" height="60"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,16 +124,23 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Lz-Rt-X82" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="60" id="7Dg-Ks-Pda"/>
+                                                                    <constraint firstAttribute="width" constant="60" id="Aco-28-pqv"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="O6A-wQ-HY8" firstAttribute="leading" secondItem="zXR-Ou-eZ7" secondAttribute="trailing" constant="8" id="4nt-hb-IDU"/>
-                                                            <constraint firstItem="zXR-Ou-eZ7" firstAttribute="leading" secondItem="bOJ-U9-9QG" secondAttribute="leading" id="99V-Io-H1y"/>
+                                                            <constraint firstAttribute="bottom" secondItem="3Lz-Rt-X82" secondAttribute="bottom" id="8pW-pI-t1J"/>
+                                                            <constraint firstItem="3Lz-Rt-X82" firstAttribute="top" secondItem="bOJ-U9-9QG" secondAttribute="top" id="Hbb-oO-0bz"/>
                                                             <constraint firstItem="O6A-wQ-HY8" firstAttribute="top" secondItem="bOJ-U9-9QG" secondAttribute="top" id="KUg-8d-851"/>
-                                                            <constraint firstAttribute="bottom" secondItem="zXR-Ou-eZ7" secondAttribute="bottom" id="Lsj-y1-1Fq"/>
                                                             <constraint firstAttribute="trailing" secondItem="O6A-wQ-HY8" secondAttribute="trailing" id="TQV-GO-ZUH"/>
                                                             <constraint firstAttribute="bottom" secondItem="O6A-wQ-HY8" secondAttribute="bottom" id="nSP-Nm-p9J"/>
-                                                            <constraint firstItem="zXR-Ou-eZ7" firstAttribute="top" secondItem="bOJ-U9-9QG" secondAttribute="top" id="wNk-lv-9ns"/>
+                                                            <constraint firstItem="O6A-wQ-HY8" firstAttribute="leading" secondItem="3Lz-Rt-X82" secondAttribute="trailing" constant="8" id="tCK-6L-emr"/>
+                                                            <constraint firstItem="3Lz-Rt-X82" firstAttribute="leading" secondItem="bOJ-U9-9QG" secondAttribute="leading" id="tyC-06-l8p"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opy-1A-l8S" userLabel="Separator1">
@@ -271,7 +271,7 @@
                     <connections>
                         <outlet property="descTextView" destination="vpB-eT-FjK" id="xAB-q6-5EP"/>
                         <outlet property="mapView" destination="ol1-fl-D6b" id="KJJ-JZ-kQe"/>
-                        <outlet property="postImage" destination="zXR-Ou-eZ7" id="hgj-ti-og3"/>
+                        <outlet property="postImage" destination="3Lz-Rt-X82" id="Z5j-ah-qsJ"/>
                         <outlet property="scrollView" destination="jIR-0h-OUI" id="SyM-b5-P3P"/>
                         <outlet property="searchBar" destination="Efp-Wr-Z6Y" id="xoz-V4-uM3"/>
                         <outlet property="tableView" destination="Wjv-qd-Vb5" id="AY9-GB-51n"/>
@@ -280,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AgB-Yg-HwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832.8" y="-367.46626686656674"/>
+            <point key="canvasLocation" x="1831.8840579710147" y="-367.63392857142856"/>
         </scene>
         <!--Recent Posts-->
         <scene sceneID="H6x-XN-9AZ">
@@ -552,7 +552,6 @@
     <resources>
         <image name="exit" width="36" height="36"/>
         <image name="image-icon" width="36" height="36"/>
-        <image name="logo_no_text" width="150" height="150"/>
         <image name="map-icon" width="36" height="36"/>
         <image name="thumbs-down-outline" width="181.89472961425781" height="181.89472961425781"/>
         <image name="thumbs-up-outline" width="181.89472961425781" height="181.89472961425781"/>

@@ -69,4 +69,8 @@ class LSGram {
     static func getFollowers(handler: RequestHandler) {
         performRequest(method: "POST", url: BASE_URL + FOLLOWING, handler: handler)
     }
+    
+    static func post(handler: RequestHandler) {
+        performRequest(method: "POST", url: BASE_URL + POST, handler: handler)
+    }
 }

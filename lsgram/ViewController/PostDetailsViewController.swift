@@ -9,15 +9,16 @@
 import Foundation
 import UIKit
 import MapKit
-import INSPhotoGallery
+import ImageSlideshow
+import SwiftyJSON
 
-class PostDetailsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UITextViewDelegate {
+class PostDetailsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UITextViewDelegate, RequestHandler {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var descTextView: UITextView!
-    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var postImage: ImageSlideshow!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -28,32 +29,34 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     let searchController = UISearchController(searchResultsController: nil)
     var selectedPin: MKPlacemark? = nil
     
-    lazy var photos: [INSPhotoViewable] = {
-        return [
-            INSPhoto(image: UIImage(named: "fullSizeImage")!, thumbnailImage: UIImage(named: "logo")!),
-            INSPhoto(image: UIImage(named: "fullSizeImage")!, thumbnailImage: UIImage(named: "logo")!),
-            INSPhoto(image: UIImage(named: "fullSizeImage")!, thumbnailImage: UIImage(named: "logo")!),
-            INSPhoto(image: UIImage(named: "fullSizeImage")!, thumbnailImage: UIImage(named: "logo")!),
-            ]
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        postImage.isUserInteractionEnabled = true
-        postImage.addGestureRecognizer(tapGestureRecognizer)
-        
+        initImage()
         setSearchController()
         
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-        
         titleTextView.delegate = self
         descTextView.delegate = self
         
         requestLocationPermissions()
+    }
+    
+    private func initImage() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        postImage.isUserInteractionEnabled = true
+        postImage.addGestureRecognizer(tapGestureRecognizer)
+        postImage.circular = false
+        postImage.pageIndicator = nil
+        postImage.draggingEnabled = false
+        
+        postImage.setImageInputs([
+            ImageSource(image: UIImage(named: "logo")!),
+            ImageSource(image: UIImage(named: "logo_hex")!),
+        ])
+        postImage.contentScaleMode = .scaleAspectFill //TODO
     }
     
     private func setSearchController() {
@@ -78,6 +81,14 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    /*func textViewDidChangeSelection(_ textView: UITextView) {
+        if (textView.textColor != UIColor.black) {
+            DispatchQueue.main.async{
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            }
+        }
+    }*/
+    
     func textViewDidChange(_ textView: UITextView) {
         if (textView.textColor != UIColor.black) {
             textView.textColor = UIColor.black
@@ -100,7 +111,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        //TODO INSPhotoGallery
+        postImage.presentFullScreenController(from: self)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -151,7 +162,6 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             } else if response!.mapItems.count == 0 {
                 print("No matches found")
             } else {
-                print("Matches found")
                 self.matchingItems = response!.mapItems
                 self.tableView.reloadData()
             }
@@ -204,7 +214,51 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         if (titleTextView.textColor != UIColor.black) {
             self.showAlert(title: "No title", message: "A title for this post must be specified.", buttonText: "OK", callback: nil)
         } else {
-            //TODO check map coordinates
+            if (mapView.annotations.count == 0) {
+                self.showAlert(title: "No location specified", message: "Without a location, other users won't be able to find your post through the map view. Please specify a location.", buttonText: "Post", callback: nil)
+            } else {
+                LSGram.post(handler: self)
+            }
+        }
+    }
+    
+    func makePost(coordinates: CLLocationCoordinate2D?) {
+        
+    }
+    
+    func reqParameters() -> [String: Any] {
+        var params: [String: Any] = [:]
+        params["title"] = titleTextView.text
+        if (descTextView.textColor == UIColor.black) {
+            params["caption"] = descTextView.text
+        } else {
+            params["caption"] = ""
+        }
+        //TODO poner las imagenes bien
+        params["links"] = ["https://i.imgur.com/whPBT1D.jpg"]
+        params["latitude"] = mapView.annotations[0].coordinate.latitude
+        params["longitude"] = mapView.annotations[0].coordinate.longitude
+        params["owner"] = UserDefaults.standard.object(forKey: "username")
+        
+        return params
+    }
+    
+    func success(response: JSON) {
+        let status: String = response["status"].stringValue
+        DispatchQueue.main.async {
+            if status == "KO" {
+                //error
+            } else if status == "OK" {
+                //TODO hacer pop de las pantallas de foto
+                //TODO refresh
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    func error(message: String) {
+        DispatchQueue.main.async {
+            self.showAlert(title: "Error", message: message, buttonText: "Ok", callback: nil)
         }
     }
 }
