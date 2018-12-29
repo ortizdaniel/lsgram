@@ -67,7 +67,17 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
-        //TODO performSegue to post information
+        performSegue(withIdentifier: "postDetailFromList",
+                     sender: PostList.instance().filtered()[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "postDetailFromList",
+            let dest = segue.destination as? PostViewController,
+            let post = sender as? PostItem {
+            dest.buildView(post: post)
+            dest.postsView = self
+        }
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {

@@ -23,16 +23,16 @@ class Imgur {
                 multipartFormData.append((value?.data(using: .utf8))!, withName: key)
             }}, to: UPLOAD_URL, method: .post, headers: ["Authorization": "Client-ID " + CLIENT_ID],
                 encodingCompletion: { encodingResult in
-                    switch encodingResult {
-                    case .success(let upload, _, _):
-                        upload.response { response in
-                            let json = try? JSONSerialization.jsonObject(with: response.data!, options: .allowFragments) as! [String:Any]
-                            let imageDic = json?["data"] as? [String:Any]
-                            callback(imageDic?["link"] as? String)
-                        }
-                    case .failure:
-                        callback(nil)
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.response { response in
+                        let json = try? JSONSerialization.jsonObject(with: response.data!, options: .allowFragments) as! [String:Any]
+                        let imageDic = json?["data"] as? [String:Any]
+                        callback(imageDic?["link"] as? String)
                     }
+                case .failure:
+                    callback(nil)
+                }
         })
         
     }

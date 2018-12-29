@@ -10,7 +10,10 @@ import SwiftyJSON
 
 class PostJSON: PostItem {
     
-    private let json: JSON
+    private var lk: Bool = false
+    private var dlk: Bool = false
+    
+    private var json: JSON
     
     init(json: JSON) {
         self.json = json
@@ -54,5 +57,25 @@ class PostJSON: PostItem {
             links.append(subJson["link"].stringValue)
         }
         return links
+    }
+    
+    func setLiked(b: Bool) {
+        lk = b
+    }
+    
+    func setDisliked(b: Bool) {
+        dlk = b
+    }
+    
+    func liked() -> Bool {
+        return lk
+    }
+    
+    func disliked() -> Bool {
+        return dlk
+    }
+    
+    func setLikes(l: Int) {
+        json["likes"] = JSON(l)
     }
 }

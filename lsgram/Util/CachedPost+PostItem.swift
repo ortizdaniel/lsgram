@@ -52,4 +52,18 @@ extension CachedPost: PostItem {
         }
         return out
     }
+    
+    func setLiked(b: Bool) {}
+    
+    func setDisliked(b: Bool) {}
+    
+    func liked() -> Bool {
+        return false
+    }
+    
+    func disliked() -> Bool {
+        return false
+    }
+    
+    func setLikes(l: Int) {}
 }

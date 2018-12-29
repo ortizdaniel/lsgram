@@ -22,8 +22,6 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     @IBOutlet weak var issPostImages: ImageSlideshow!
     @IBOutlet weak var lbPostLikes: UILabel!
     @IBOutlet weak var btnFollow: UIButton!
-    var thumbsUpSelected: Bool = false
-    var thumbsDownSelected: Bool = false
     var followSelected: Bool = false
     var parent: RecentPostsController!
     private static var blueColor = UIColor(red: 49.0 / 255, green: 65.0 / 255, blue: 78.0 / 255, alpha: 1.0)
@@ -34,6 +32,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     }
     
     func buildCell(post: PostItem) {
+        //print("called (\(thumbsUpSelected))")
         self.post = post
         lbPostTitle.text = post.getTitle()
         lbPostOwner.text = post.getOwner()
@@ -56,6 +55,14 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
         } else {
             btnFollow.isHidden = false
         }
+        btnThumbsUp.setImage(
+            UIImage(named: post.liked() ? "thumbs-up" : "thumbs-up-outline"),
+            for: UIControl.State.normal
+        )
+        btnThumbsDown.setImage(
+            UIImage(named: post.disliked() ? "thumbs-down" : "thumbs-down-outline"),
+            for: UIControl.State.normal
+        )
     }
     
     @objc func didTap() {
@@ -109,17 +116,25 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     }
     
     @IBAction func thumbsUpPressed(_ sender: Any) {
-        thumbsUpSelected = !thumbsUpSelected
-        let handler = LikeHandler(post!.getId(), thumbsUpSelected,
-                                  btnThumbsUp, "thumbs-up", "thumbs-up-outline", lbPostLikes)
-        LSGram.likePost(handler: handler)
+        if post!.disliked() {
+            showAlert(title: "Can't do that!", message: "You can't like a post you disliked", buttonText: "Ok", whoPresents: parent, callback: nil)
+        } else {
+            post!.setLiked(b: !post!.liked())
+            let handler = LikeHandler(post!.getId(), post!.liked(),
+                                      btnThumbsUp, "thumbs-up", "thumbs-up-outline", lbPostLikes, post!)
+            LSGram.likePost(handler: handler)
+        }
     }
     
     @IBAction func thumbsDownPressed(_ sender: Any) {
-        let handler = LikeHandler(post!.getId(), thumbsDownSelected,
-                                  btnThumbsDown, "thumbs-down-outline", "thumbs-down", lbPostLikes)
-        LSGram.likePost(handler: handler)
-        thumbsDownSelected = !thumbsDownSelected
+        if post!.liked() {
+            showAlert(title: "Can't do that!", message: "You can't dislike a post you liked", buttonText: "Ok", whoPresents: parent, callback: nil)
+        } else {
+            let handler = LikeHandler(post!.getId(), post!.disliked(),
+                                      btnThumbsDown, "thumbs-down-outline", "thumbs-down", lbPostLikes, post!)
+            LSGram.likePost(handler: handler)
+            post!.setDisliked(b: !post!.disliked())
+        }
     }
     
     @IBAction func followPressed(_ sender: UIButton) {
@@ -160,14 +175,16 @@ class LikeHandler: RequestHandler {
     var filled: String
     var outline: String
     var lbLikes: UILabel
+    var post: PostItem
     
-    init(_ id: Int, _ liked: Bool, _ button: UIButton, _ filled: String, _ outline: String, _ lbLikes: UILabel) {
+    init(_ id: Int, _ liked: Bool, _ button: UIButton, _ filled: String, _ outline: String, _ lbLikes: UILabel, _ post: PostItem) {
         self.id = id
         self.liked = liked
         self.button = button
         self.filled = filled
         self.outline = outline
         self.lbLikes = lbLikes
+        self.post = post
     }
     
     func reqParameters() -> [String : Any] {
@@ -183,6 +200,7 @@ class LikeHandler: RequestHandler {
                     for: UIControl.State.normal
                 )
                 let likes = response["data"]["likes"].intValue
+                self.post.setLikes(l: likes)
                 self.lbLikes.text = "\(likes) \(abs(likes) == 1 ? "like" : "likes")"
             }
         }
