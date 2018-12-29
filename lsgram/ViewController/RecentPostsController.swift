@@ -75,7 +75,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "postDetailFromList",
             let dest = segue.destination as? PostViewController,
             let post = sender as? PostItem {
-            dest.buildView(post: post)
+            dest.post = post
             dest.postsView = self
         }
     }

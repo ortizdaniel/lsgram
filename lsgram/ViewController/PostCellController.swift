@@ -24,7 +24,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     @IBOutlet weak var btnFollow: UIButton!
     var followSelected: Bool = false
     var parent: RecentPostsController!
-    private static var blueColor = UIColor(red: 49.0 / 255, green: 65.0 / 255, blue: 78.0 / 255, alpha: 1.0)
+    static var blueColor = UIColor(red: 49.0 / 255, green: 65.0 / 255, blue: 78.0 / 255, alpha: 1.0)
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -61,7 +61,7 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
         if segue.identifier == "postDetailFromMap",
             let dest = segue.destination as? PostViewController,
             let post = sender as? PostItem {
-            dest.buildView(post: post)
+            dest.post = post
         }
     }
     
