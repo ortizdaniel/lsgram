@@ -38,7 +38,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
         lbPostTitle.text = post.getTitle()
         lbPostOwner.text = post.getOwner()
         lbPostDescription.text = post.getCaption()
-        lbPostLikes.text = "\(post.getLikes()) likes"
+        lbPostLikes.text = "\(post.getLikes()) \(post.getLikes() == 1 ? "like" : "likes")"
         loadImages(links: post.getLinks())
         issPostImages.circular = false
         FollowingList.instance().subscribe(self)
@@ -162,7 +162,8 @@ class LikeHandler: RequestHandler {
                     UIImage(named: self.liked ? self.filled : self.outline),
                     for: UIControl.State.normal
                 )
-                self.lbLikes.text = "\(response["data"]["likes"].intValue) likes"
+                let likes = response["data"]["likes"].intValue
+                self.lbLikes.text = "\(likes) \(likes == 1 ? "like" : "likes")"
             }
         }
     }
