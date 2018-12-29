@@ -222,10 +222,6 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func makePost(coordinates: CLLocationCoordinate2D?) {
-        
-    }
-    
     func reqParameters() -> [String: Any] {
         var params: [String: Any] = [:]
         params["title"] = titleTextView.text
