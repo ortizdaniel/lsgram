@@ -10,5 +10,6 @@ import UIKit
 
 protocol MorePhotosListener {
     func addMorePhotos(images: [UIImage])
+    func removeAllPhotos()
 }
 

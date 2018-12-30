@@ -11,30 +11,40 @@ import UIKit
 import AVFoundation
 import OpalImagePicker
 import Photos
+import ImageSlideshow
 
 class CameraViewController : UIViewController, OpalImagePickerControllerDelegate, UIImagePickerControllerDelegate, MorePhotosListener {
     
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var galleryButton: UIButton!
-    @IBOutlet weak var previewButton: UIButton!
+    @IBOutlet weak var previewButton: ImageSlideshow!
+    @IBOutlet weak var previewIndicator: UILabel!
     
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var selectedImages: [UIImage]?
+    
+    var selectedImages = Array<UIImage>()
     
     @IBOutlet weak var cameraView: UIView!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
     
     override func viewDidLoad() {
         cameraButton.layer.cornerRadius = 70 / 2
         cameraButton.layer.borderWidth = 3
+        
+        previewIndicator.layer.masksToBounds = true
+        previewIndicator.layer.cornerRadius = 10
+        previewIndicator.isHidden = true
+        
         previewButton.layer.cornerRadius = 20
         previewButton.isHidden = true
-        previewButton.isEnabled = false
+        previewButton.circular = false
+        previewButton.pageIndicator = nil
+        previewButton.draggingEnabled = false
+        previewButton.contentScaleMode = .scaleAspectFill //TODO
         
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(previewClicked))
+        previewButton.addGestureRecognizer(gestureRecognizer)
+    
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             authorisationStatusCamera()
         } else {
@@ -155,24 +165,33 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     }
     
     func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
-        self.selectedImages = images
+        self.selectedImages.append(contentsOf: images)
         performSegue(withIdentifier: "preview", sender: self)
         
         picker.dismiss(animated: true)
     }
     
-    @IBAction func previewClicked(_ sender: Any) {
+    @objc func previewClicked(_ sender: Any) {
         performSegue(withIdentifier: "preview", sender: self)
     }
     
     func addMorePhotos(images: [UIImage]) {
         if (images.count > 0) {
             previewButton.isHidden = false
-            previewButton.isEnabled = true
+            previewButton.setImageInputs([ImageSource(image: images[0])])
+            
+            previewIndicator.isHidden = false
+            previewIndicator.text = String(images.count)
         }
         
         selectedImages = images
-        //TODO actualizar preview
+    }
+    
+    func removeAllPhotos() {
+        selectedImages.removeAll()
+        previewButton.isHidden = true
+        previewIndicator.isHidden = true
+        
     }
     
 }

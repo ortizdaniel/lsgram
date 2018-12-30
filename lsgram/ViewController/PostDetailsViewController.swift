@@ -28,6 +28,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     var matchingItems: [MKMapItem] = []
     let searchController = UISearchController(searchResultsController: nil)
     var selectedPin: MKPlacemark? = nil
+    var images: Array<UIImage>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +53,11 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         postImage.pageIndicator = nil
         postImage.draggingEnabled = false
         
-        postImage.setImageInputs([
-            ImageSource(image: UIImage(named: "logo")!),
-            ImageSource(image: UIImage(named: "logo_hex")!),
-        ])
+        var sources = Array<ImageSource>()
+        for image in images {
+            sources.append(ImageSource(image: image))
+        }
+        postImage.setImageInputs(sources)
         postImage.contentScaleMode = .scaleAspectFill //TODO
     }
     

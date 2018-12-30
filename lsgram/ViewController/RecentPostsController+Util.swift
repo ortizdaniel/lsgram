@@ -101,20 +101,6 @@ extension RecentPostsController {
         }
     }
     
-    func createFloatingButton() {
-        let buttonSize = 48
-        let buttonX = self.view.frame.width - 70
-        let buttonY = self.view.frame.height - 70 - (self.tabBarController?.tabBar.frame.height)!
-        
-        button = UIButton(frame: CGRect(origin: CGPoint(x: buttonX, y: buttonY), size: CGSize(width: buttonSize, height: buttonSize)))
-        button.backgroundColor = UIColor(red: 238.0 / 255.0, green: 88.0 / 255.0, blue: 108.0 / 255.0, alpha: 1.0)
-        button.layer.cornerRadius = CGFloat(buttonSize / 2)
-        button.setImage(UIImage(named: "plus-icon-white") as UIImage?, for: .normal)
-        button.addTarget(self, action: #selector(addNewPost), for: .touchUpInside)
-        
-        self.navigationController?.view.addSubview(button)
-    }
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
         return string.rangeOfCharacter(from: invalidCharacters) == nil

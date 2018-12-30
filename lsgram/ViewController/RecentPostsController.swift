@@ -16,7 +16,6 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let refreshControl: UIRefreshControl = UIRefreshControl()
     
-    var button: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var settingsStack: UIStackView!
     @IBOutlet weak var settingsView: UIView!
@@ -28,7 +27,6 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createFloatingButton()
         
         LSGram.getFollowers(handler: FollowingRefresh())
         LSGram.getPosts(handler: self)
@@ -80,6 +78,12 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    @IBAction func addNewPost(_ sender: Any) {
+        performSegue(withIdentifier: "newpost", sender: sender)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
         settingsStack.setView([settingsView], gone: settingsToggled, animated: true)
         settingsToggled = !settingsToggled
@@ -128,19 +132,8 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: "logout", sender: sender)
     }
     
-    @objc func addNewPost() {
-        performSegue(withIdentifier: "newpost", sender: self)
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
-        button.isHidden = false
-        button.isEnabled = true
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        button.isHidden = true
-        button.isEnabled = false
-    }
 }
