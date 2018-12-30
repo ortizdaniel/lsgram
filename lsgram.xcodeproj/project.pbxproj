@@ -31,7 +31,6 @@
 		C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01721D2DAEB00892EB4 /* LoginViewController.swift */; };
 		C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */; };
 		C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */; };
-		C3104B8321D6341A0017B3AD /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3104B8221D6341A0017B3AD /* LocationSearchTableViewController.swift */; };
 		C347CAF821D4F768003FDF3D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAF721D4F768003FDF3D /* MapViewController.swift */; };
 		C347CAFA21D53CC9003FDF3D /* MapViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */; };
 		C347CAFC21D5544D003FDF3D /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */; };
@@ -77,7 +76,6 @@
 		C303F01721D2DAEB00892EB4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TextColor.swift"; sourceTree = "<group>"; };
-		C3104B8221D6341A0017B3AD /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		C347CAF721D4F768003FDF3D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Location.swift"; sourceTree = "<group>"; };
 		C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 				657F74B321D4D00E0002B90B /* PostCellController.swift */,
 				C347CAF721D4F768003FDF3D /* MapViewController.swift */,
 				C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */,
-				C3104B8221D6341A0017B3AD /* LocationSearchTableViewController.swift */,
 				6568855F21D66C630031EF66 /* NoInternetCellController.swift */,
 				65CFF5D221D784E7006763D8 /* RecentPostsController+Util.swift */,
 				C3B99D1021D7EC25005B9A37 /* CameraViewController.swift */,
@@ -411,7 +408,6 @@
 				C347CAFE21D57CD0003FDF3D /* PostDetailsViewController+Location.swift in Sources */,
 				65A6789A21D3785000EB72AE /* RequestHandler.swift in Sources */,
 				65A6789821D3763B00EB72AE /* LSGram.swift in Sources */,
-				C3104B8321D6341A0017B3AD /* LocationSearchTableViewController.swift in Sources */,
 				C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */,
 				65159B5D21A05AE200DAE44C /* AppDelegate.swift in Sources */,
 				C347CAF821D4F768003FDF3D /* MapViewController.swift in Sources */,

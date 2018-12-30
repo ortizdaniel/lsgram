@@ -29,6 +29,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     let searchController = UISearchController(searchResultsController: nil)
     var selectedPin: MKPlacemark? = nil
     var images: Array<UIImage>!
+    var imagesImgur = Array<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -214,12 +215,27 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     
     @IBAction func postClicked(_ sender: Any) {
         if (titleTextView.textColor != UIColor.black) {
-            self.showAlert(title: "No title", message: "A title for this post must be specified.", buttonText: "OK", callback: nil)
+            self.showAlert(title: "No title specified", message: "Without a title, other users won't know what your post is about", buttonText: "OK", callback: nil)
         } else {
             if (mapView.annotations.count == 0) {
                 self.showAlert(title: "No location specified", message: "Without a location, other users won't be able to find your post through the map view. Please specify a location.", buttonText: "Post", callback: nil)
             } else {
-                LSGram.post(handler: self)
+                var responses = images.count
+                imagesImgur.removeAll()
+                for image in images {
+                    Imgur.uploadImage(image: image) { (response) in
+                        if (response == nil) {
+                            responses -= 1
+                        } else {
+                            self.imagesImgur.append(response!)
+                            responses -= 1
+                            if (responses == 0) {
+                                LSGram.post(handler: self)
+                            }
+                        }
+                    }
+                }
+                //LSGram.post(handler: self)
             }
         }
     }
@@ -233,7 +249,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             params["caption"] = ""
         }
         //TODO poner las imagenes bien
-        params["links"] = ["https://i.imgur.com/whPBT1D.jpg"]
+        params["links"] = imagesImgur
         params["latitude"] = mapView.annotations[0].coordinate.latitude
         params["longitude"] = mapView.annotations[0].coordinate.longitude
         params["owner"] = UserDefaults.standard.object(forKey: "username")
@@ -247,9 +263,9 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             if status == "KO" {
                 //error
             } else if status == "OK" {
-                //TODO hacer pop de las pantallas de foto
                 //TODO refresh
-                self.navigationController?.popViewController(animated: true)
+                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
             }
         }
     }

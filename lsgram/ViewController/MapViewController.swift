@@ -30,6 +30,12 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
         settingsView.addBottomBorderWithColor(color: .lightGray, width: 1)
         tfMinVotes!.keyboardType = .numberPad
         tfMinVotes!.delegate = self
+        
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.isOpaque = true
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
