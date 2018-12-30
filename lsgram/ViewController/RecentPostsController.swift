@@ -75,6 +75,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
             let post = sender as? PostItem {
             dest.post = post
             dest.postsView = self
+            dest.theresInternet = theresInternet
         }
     }
     

@@ -26,6 +26,10 @@ class PostViewController: UIViewController, RequestHandler {
     @IBOutlet weak var issPostImages: ImageSlideshow!
     @IBOutlet weak var mapView: MKMapView!
     var followSelected: Bool = false
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var viewInsideStack: UIView!
+    var theresInternet: Bool = false
+    @IBOutlet weak var issPostImagesHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +40,7 @@ class PostViewController: UIViewController, RequestHandler {
     func buildView(post: PostItem) {
         lbOwner.text = post.getOwner()
         lbTitle.text = post.getTitle()
-        lbLikes.text = "\(post.getLikes()) \(abs(post.getLikes()) == 1 ? "like" : "likes"))"
+        lbLikes.text = "\(post.getLikes()) \(abs(post.getLikes()) == 1 ? "like" : "likes")"
         lbCaption.text = post.getCaption()
         loadImages(links: post.getLinks())
         issPostImages.circular = false
@@ -75,6 +79,14 @@ class PostViewController: UIViewController, RequestHandler {
         
         mapView.setRegion(region, animated: false)
         mapView.addAnnotation(annotation)
+        
+        if !theresInternet {
+            stackView.setView([viewInsideStack], gone: true, animated: false)
+            btnFollow.isHidden = true
+            btnThumbsUp.isHidden = true
+            btnThumbsDown.isHidden = true
+            issPostImagesHeight.constant = 0
+        }
     }
     
     @objc func didTap() {

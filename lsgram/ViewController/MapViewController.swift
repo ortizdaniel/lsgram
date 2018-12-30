@@ -60,6 +60,7 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
             let dest = segue.destination as? PostViewController,
             let post = sender as? PostItem {
             dest.post = post
+            dest.theresInternet = post is PostJSON
         }
     }
     
