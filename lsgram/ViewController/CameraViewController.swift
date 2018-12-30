@@ -24,6 +24,7 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
     var selectedImages = Array<UIImage>()
+    var refreshListener: RefreshListener!
     
     @IBOutlet weak var cameraView: UIView!
     
@@ -161,6 +162,7 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
             let preview: PreviewViewController = segue.destination as! PreviewViewController
             preview.images = self.selectedImages
             preview.listener = self
+            preview.refreshListener = self.refreshListener
         }
     }
     

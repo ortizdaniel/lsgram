@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import UIKit
 
-class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelegate {
+class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelegate, RefreshListener {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -67,6 +67,9 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
             let post = sender as? PostItem {
             dest.post = post
             dest.theresInternet = post is PostJSON
+        } else if (segue.identifier == "newpostMap") {
+            let camera: CameraViewController = segue.destination as! CameraViewController
+            camera.refreshListener = self
         }
     }
     
@@ -133,5 +136,9 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
         return string.rangeOfCharacter(from: invalidCharacters) == nil
+    }
+    
+    func refreshPosts() {
+        //refresh
     }
 }

@@ -18,6 +18,7 @@ class PreviewViewController : UIViewController {
     
     var images: [UIImage]!
     var listener: MorePhotosListener!
+    var refreshListener: RefreshListener!
     var goBack: Bool!
     
     override func viewDidLoad() {
@@ -58,6 +59,7 @@ class PreviewViewController : UIViewController {
             goBack = false
             let postDetails: PostDetailsViewController = segue.destination as! PostDetailsViewController
             postDetails.images = self.images
+            postDetails.refreshListener = self.refreshListener
         }
     }
     

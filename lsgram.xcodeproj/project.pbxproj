@@ -46,6 +46,7 @@
 		C3B99D1321D82B8E005B9A37 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B99D1221D82B8E005B9A37 /* PreviewViewController.swift */; };
 		C3B99D1821D834D9005B9A37 /* MorePhotosListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B99D1721D834D9005B9A37 /* MorePhotosListener.swift */; };
 		C3C6386721D374F600CA2CF6 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3C6386621D374F600CA2CF6 /* Pacifico.ttf */; };
+		C3CDBAE321D94E2E000AD57B /* RefreshListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CDBAE221D94E2E000AD57B /* RefreshListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		C3B99D1221D82B8E005B9A37 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		C3B99D1721D834D9005B9A37 /* MorePhotosListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePhotosListener.swift; sourceTree = "<group>"; };
 		C3C6386621D374F600CA2CF6 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		C3CDBAE221D94E2E000AD57B /* RefreshListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshListener.swift; sourceTree = "<group>"; };
 		E1BB5D3737F7F0AF1C52694B /* Pods_lsgram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lsgram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				C3B99D1721D834D9005B9A37 /* MorePhotosListener.swift */,
+				C3CDBAE221D94E2E000AD57B /* RefreshListener.swift */,
 			);
 			path = Listeners;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				C3B99D1321D82B8E005B9A37 /* PreviewViewController.swift in Sources */,
 				65162A5721D6D801007A3BFF /* FollowSubscriber.swift in Sources */,
 				C347CAFE21D57CD0003FDF3D /* PostDetailsViewController+Location.swift in Sources */,
+				C3CDBAE321D94E2E000AD57B /* RefreshListener.swift in Sources */,
 				65A6789A21D3785000EB72AE /* RequestHandler.swift in Sources */,
 				65A6789821D3763B00EB72AE /* LSGram.swift in Sources */,
 				C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import CoreData
 
-class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestHandler, UITextFieldDelegate {
+class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestHandler, UITextFieldDelegate, RefreshListener {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -82,6 +82,9 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
             dest.post = post
             dest.postsView = self
             dest.theresInternet = theresInternet
+        } else if (segue.identifier == "newpost") {
+            let camera: CameraViewController = segue.destination as! CameraViewController
+            camera.refreshListener = self
         }
     }
     
@@ -141,6 +144,10 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    func refreshPosts() {
+        LSGram.getPosts(handler: self)
     }
     
 }

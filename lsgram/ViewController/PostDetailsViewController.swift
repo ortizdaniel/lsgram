@@ -31,6 +31,8 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     var images: Array<UIImage>!
     var imagesImgur = Array<String>()
     
+    var refreshListener: RefreshListener!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -235,7 +237,6 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
                         }
                     }
                 }
-                //LSGram.post(handler: self)
             }
         }
     }
@@ -263,7 +264,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             if status == "KO" {
                 //error
             } else if status == "OK" {
-                //TODO refresh
+                self.refreshListener.refreshPosts()
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                 self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
             }
