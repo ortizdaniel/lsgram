@@ -36,6 +36,11 @@ extension RecentPostsController {
             try? context.save()
             followOnlySwitchChanged(0)
             print("Finished loading posts (\(posts.all().count))")
+            if let mapView = (tabBarController?.viewControllers?[1] as? UINavigationController)?.viewControllers[0] as? MapViewController {
+                if mapView.mapView != nil {
+                    mapView.viewDidAppear(false)
+                }
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

@@ -149,5 +149,4 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     func refreshPosts() {
         LSGram.getPosts(handler: self)
     }
-    
 }

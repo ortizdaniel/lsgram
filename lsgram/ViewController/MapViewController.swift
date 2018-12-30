@@ -40,17 +40,19 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
     
     override func viewDidAppear(_ animated: Bool) {
         //load waypoints
-        mapView.removeAnnotations(mapView.annotations)
-        for post in PostList.instance().filtered() {
-            let lat = post.getLatitude()
-            let lng = post.getLongitude()
-            
-            let annotation = PostMapPoint(post: post)
-            let coord = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-            annotation.coordinate = coord
-            annotation.title = post.getTitle()
-            
-            mapView.addAnnotation(annotation)
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            for post in PostList.instance().filtered() {
+                let lat = post.getLatitude()
+                let lng = post.getLongitude()
+                
+                let annotation = PostMapPoint(post: post)
+                let coord = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+                annotation.coordinate = coord
+                annotation.title = post.getTitle()
+                
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
     
@@ -139,6 +141,8 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
     }
     
     func refreshPosts() {
-        //refresh
+        if let handler = (tabBarController?.viewControllers?[0] as? UINavigationController)?.viewControllers[0] as? RecentPostsController {
+            LSGram.getPosts(handler: handler)
+        }
     }
 }
