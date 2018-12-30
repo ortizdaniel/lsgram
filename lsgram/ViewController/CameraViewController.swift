@@ -12,19 +12,28 @@ import AVFoundation
 import OpalImagePicker
 import Photos
 
-class CameraViewController : UIViewController, OpalImagePickerControllerDelegate, UIImagePickerControllerDelegate {
+class CameraViewController : UIViewController, OpalImagePickerControllerDelegate, UIImagePickerControllerDelegate, MorePhotosListener {
     
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var galleryButton: UIButton!
+    @IBOutlet weak var previewButton: UIButton!
     
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    var selectedImages: [UIImage]?
     
     @IBOutlet weak var cameraView: UIView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     
     override func viewDidLoad() {
         cameraButton.layer.cornerRadius = 70 / 2
         cameraButton.layer.borderWidth = 3
+        previewButton.layer.cornerRadius = 20
+        previewButton.isHidden = true
+        previewButton.isEnabled = false
         
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             authorisationStatusCamera()
@@ -90,9 +99,13 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     private func checkPhotosAvaliability() {
         switch PHPhotoLibrary.authorizationStatus() {
             case .authorized, .notDetermined:
-                galleryButton.setBackgroundImage(UIImage(named: "gallery") as UIImage?, for: .normal)
+                DispatchQueue.main.async {
+                    self.galleryButton.setBackgroundImage(UIImage(named: "gallery") as UIImage?, for: .normal)
+                }
             case .denied, .restricted:
-                galleryButton.setBackgroundImage(UIImage(named: "no-gallery") as UIImage?, for: .normal)
+                DispatchQueue.main.async {
+                    self.galleryButton.setBackgroundImage(UIImage(named: "no-gallery") as UIImage?, for: .normal)
+                }
             default:
                 break
         }
@@ -118,19 +131,48 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     
     private func noPhotos() {
         self.showAlert(title: "No access to Photo Gallery", message: "This app does not have access to the photo gallery. To upload images, be sure to activate the permissions at the phone's settings", buttonText: "OK", callback: nil)
-        galleryButton.setBackgroundImage(UIImage(named: "no-gallery") as UIImage?, for: .normal)
+        DispatchQueue.main.async {
+            self.galleryButton.setBackgroundImage(UIImage(named: "no-gallery") as UIImage?, for: .normal)
+        }
     }
     
     private func displayPhotoLibrary() {
-        galleryButton.setBackgroundImage(UIImage(named: "gallery") as UIImage?, for: .normal)
+        DispatchQueue.main.async {
+            self.galleryButton.setBackgroundImage(UIImage(named: "gallery") as UIImage?, for: .normal)
+        }
         
         let imagePicker = OpalImagePickerController()
         imagePicker.imagePickerDelegate = self
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
-        picker.dismiss(animated: true)
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "preview") {
+            let preview: PreviewViewController = segue.destination as! PreviewViewController
+            preview.images = self.selectedImages
+            preview.listener = self
+        }
     }
+    
+    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
+        self.selectedImages = images
+        performSegue(withIdentifier: "preview", sender: self)
+        
+        picker.dismiss(animated: true)
+    }
+    
+    @IBAction func previewClicked(_ sender: Any) {
+        performSegue(withIdentifier: "preview", sender: self)
+    }
+    
+    func addMorePhotos(images: [UIImage]) {
+        if (images.count > 0) {
+            previewButton.isHidden = false
+            previewButton.isEnabled = true
+        }
+        
+        selectedImages = images
+        //TODO actualizar preview
+    }
+    
 }
