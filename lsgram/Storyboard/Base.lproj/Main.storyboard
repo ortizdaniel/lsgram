@@ -412,7 +412,7 @@
                                             <constraint firstAttribute="width" constant="30" id="Jbr-5t-UTo"/>
                                             <constraint firstAttribute="height" constant="30" id="wLL-0X-ev3"/>
                                         </constraints>
-                                        <state key="normal" image="cross"/>
+                                        <state key="normal" image="trash-can"/>
                                         <connections>
                                             <action selector="deleteImage:" destination="ICP-ZX-o8t" eventType="touchUpInside" id="EAO-Iz-vVg"/>
                                         </connections>
@@ -1160,7 +1160,6 @@
     </scenes>
     <resources>
         <image name="check" width="181.89472961425781" height="181.89472961425781"/>
-        <image name="cross" width="181.89472961425781" height="181.89472961425781"/>
         <image name="exit" width="36" height="36"/>
         <image name="gallery" width="181.89472961425781" height="181.89472961425781"/>
         <image name="image-icon" width="36" height="36"/>
@@ -1169,6 +1168,7 @@
         <image name="no-camera" width="181.89472961425781" height="181.89472961425781"/>
         <image name="thumbs-down-outline" width="181.89472961425781" height="181.89472961425781"/>
         <image name="thumbs-up-outline" width="181.89472961425781" height="181.89472961425781"/>
+        <image name="trash-can" width="181.89472961425781" height="181.89472961425781"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IfS-O6-cFz"/>
