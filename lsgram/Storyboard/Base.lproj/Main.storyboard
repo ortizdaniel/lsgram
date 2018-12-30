@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DBb-k0-mgH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DBb-k0-mgH">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -154,7 +154,7 @@
                                     <action selector="addNewPost:" destination="TY8-Mt-kNz" id="ZOs-It-LyC"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="compose" id="9Vm-r4-ewV">
+                            <barButtonItem image="settings" id="9Vm-r4-ewV">
                                 <connections>
                                     <action selector="settingsButtonPressed:" destination="TY8-Mt-kNz" id="bVk-NW-ioc"/>
                                 </connections>
@@ -1125,7 +1125,7 @@
                                     <action selector="addNewPost:" destination="dit-Ft-7As" id="lQl-CQ-fUY"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="compose" id="hzN-SU-g3c">
+                            <barButtonItem image="settings" id="hzN-SU-g3c">
                                 <connections>
                                     <action selector="settingsButtonPressed:" destination="dit-Ft-7As" id="BYf-kS-cwt"/>
                                 </connections>
@@ -1193,6 +1193,7 @@
         <image name="map-icon" width="36" height="36"/>
         <image name="more-images" width="181.89472961425781" height="181.89472961425781"/>
         <image name="no-camera" width="181.89472961425781" height="181.89472961425781"/>
+        <image name="settings" width="36" height="36"/>
         <image name="thumbs-down-outline" width="181.89472961425781" height="181.89472961425781"/>
         <image name="thumbs-up-outline" width="181.89472961425781" height="181.89472961425781"/>
         <image name="trash-can" width="181.89472961425781" height="181.89472961425781"/>
