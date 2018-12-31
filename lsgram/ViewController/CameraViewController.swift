@@ -6,14 +6,13 @@
 //  Copyright © 2018 Daniel. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import AVFoundation
 import OpalImagePicker
 import Photos
 import ImageSlideshow
 
-class CameraViewController : UIViewController, OpalImagePickerControllerDelegate, UIImagePickerControllerDelegate, MorePhotosListener {
+class CameraViewController : UIViewController, OpalImagePickerControllerDelegate, UIImagePickerControllerDelegate, MorePhotosListener, AVCapturePhotoCaptureDelegate {
     
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var galleryButton: UIButton!
@@ -22,11 +21,13 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    var capturePhotoOutput: AVCapturePhotoOutput?
     
     var selectedImages = Array<UIImage>()
     var refreshListener: RefreshListener!
     
     @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var noCameraIcon: UIImageView!
     
     override func viewDidLoad() {
         cameraButton.layer.cornerRadius = 70 / 2
@@ -85,7 +86,13 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
-            cameraView.layer.addSublayer(videoPreviewLayer!)
+            cameraView.layer.insertSublayer(videoPreviewLayer!, at: 0)
+            
+            capturePhotoOutput = AVCapturePhotoOutput()
+            capturePhotoOutput?.isHighResolutionCaptureEnabled = true
+            captureSession?.addOutput(capturePhotoOutput!)
+            
+            captureSession?.startRunning()
         } catch {
             print(error)
         }
@@ -95,12 +102,85 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
         cameraButton.isEnabled = false
         cameraButton.backgroundColor = UIColor.lightGray
         cameraButton.layer.borderColor = UIColor.darkGray.cgColor
+        self.noCameraIcon.isHidden = false
     }
     
     private func cameraAvailable() {
-        cameraButton.isEnabled = true
-        cameraButton.backgroundColor = UIColor.white
-        cameraButton.layer.borderColor = UIColor(red: 238.0 / 255.0, green: 88.0 / 255.0, blue: 108.0 / 255.0, alpha: 1.0).cgColor
+        DispatchQueue.main.async {
+            self.cameraButton.isEnabled = true
+            self.cameraButton.backgroundColor = UIColor.white
+            self.cameraButton.layer.borderColor = UIColor(red: 238.0 / 255.0, green: 88.0 / 255.0, blue: 108.0 / 255.0, alpha: 1.0).cgColor
+            self.noCameraIcon.isHidden = true
+        }
+    }
+    
+    private func takePhotoAuthorization() -> Bool {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .authorized:
+                return true
+            case .denied, .restricted, .notDetermined:
+                return false
+            default:
+                break
+        }
+        return false
+    }
+    
+    @IBAction func takePhoto(_ sender: Any) {
+        self.cameraButton.backgroundColor = UIColor.white
+        if (takePhotoAuthorization()) {
+            guard let capturePhotoOutput = self.capturePhotoOutput else { return }
+            let photoSettings = AVCapturePhotoSettings()
+            photoSettings.isAutoStillImageStabilizationEnabled = true
+            photoSettings.isHighResolutionPhotoEnabled = true
+            photoSettings.flashMode = .auto
+            capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
+        } else {
+            self.showAlert(title: "No access to Camera", message: "This app does not have access to the camera. To take pictures, be sure to activate the permissions at the phone's settings", buttonText: "OK", callback: nil)
+        }
+    }
+    
+    @IBAction func cameraButtonPressed(_ sender: Any) {
+        self.cameraButton.backgroundColor = UIColor.lightGray
+    }
+    
+    
+    //https://stackoverrun.com/es/q/12745048
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        // Make sure we get some photo sample buffer
+        guard error == nil else {
+            print("Fail to capture photo: \(String(describing: error))")
+            return
+        }
+        
+        // Convert photo same buffer to a jpeg image data by using // AVCapturePhotoOutput
+        guard let imageData = photo.fileDataRepresentation() else {
+                return
+        }
+        
+        // Check if UIImage could be initialized with image data
+        guard let capturedImage = UIImage.init(data: imageData , scale: 1.0) else {
+            print("Fail to convert image data to UIImage")
+            return
+        }
+        
+        // Get original image width/height
+        let imgWidth = capturedImage.size.width
+        let imgHeight = capturedImage.size.height
+        // Get origin of cropped image
+        let imgOrigin = CGPoint(x: (imgWidth - imgHeight)/2, y: (imgHeight - imgHeight)/2)
+        // Get size of cropped iamge
+        let imgSize = CGSize(width: imgHeight, height: imgHeight)
+        
+        // Check if image could be cropped successfully
+        guard let imageRef = capturedImage.cgImage?.cropping(to: CGRect(origin: imgOrigin, size: imgSize)) else {
+            print("Fail to crop image")
+            return
+        }
+        
+        let imageToSave = UIImage(cgImage: imageRef, scale: 1.0, orientation: .right)
+        self.selectedImages.append(imageToSave)
+        performSegue(withIdentifier: "preview", sender: self)
     }
     
     @IBAction func galleryClicked(_ sender: Any) {
@@ -133,6 +213,8 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
                 PHPhotoLibrary.requestAuthorization({ (status) in
                     if status == PHAuthorizationStatus.authorized {
                         self.displayPhotoLibrary()
+                    } else {
+                        self.galleryButton.setBackgroundImage(UIImage(named: "no-gallery") as UIImage?, for: .normal)
                     }
                 })
             default:
