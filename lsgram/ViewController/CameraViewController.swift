@@ -26,10 +26,14 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     var selectedImages = Array<UIImage>()
     var refreshListener: RefreshListener!
     
+    var flash: AVCaptureDevice.FlashMode = .auto
+    @IBOutlet weak var flashIcon: UIButton!
+    
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var noCameraIcon: UIImageView!
     
     override func viewDidLoad() {
+        flash = .auto
         cameraButton.layer.cornerRadius = 70 / 2
         cameraButton.layer.borderWidth = 3
         
@@ -126,6 +130,19 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
         return false
     }
     
+    @IBAction func flashChanged(_ sender: Any) {
+        if (flash == .auto) {
+            flash = .on
+            flashIcon.setImage(UIImage(named: "flash-on"), for: .normal)
+        } else if (flash == .on) {
+            flash = .off
+            flashIcon.setImage(UIImage(named: "flash-off"), for: .normal)
+        } else {
+            flash = .auto
+            flashIcon.setImage(UIImage(named: "flash-auto"), for: .normal)
+        }
+    }
+    
     @IBAction func takePhoto(_ sender: Any) {
         self.cameraButton.backgroundColor = UIColor.white
         if (takePhotoAuthorization()) {
@@ -133,7 +150,7 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
             let photoSettings = AVCapturePhotoSettings()
             photoSettings.isAutoStillImageStabilizationEnabled = true
             photoSettings.isHighResolutionPhotoEnabled = true
-            photoSettings.flashMode = .auto
+            photoSettings.flashMode = flash
             capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
         } else {
             self.showAlert(title: "No access to Camera", message: "This app does not have access to the camera. To take pictures, be sure to activate the permissions at the phone's settings", buttonText: "OK", callback: nil)
@@ -214,7 +231,9 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
                     if status == PHAuthorizationStatus.authorized {
                         self.displayPhotoLibrary()
                     } else {
-                        self.galleryButton.setBackgroundImage(UIImage(named: "no-gallery") as UIImage?, for: .normal)
+                        DispatchQueue.main.async {
+                            self.galleryButton.setBackgroundImage(UIImage(named: "no-gallery") as UIImage?, for: .normal)
+                        }
                     }
                 })
             default:

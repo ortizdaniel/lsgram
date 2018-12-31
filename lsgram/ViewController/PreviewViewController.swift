@@ -36,6 +36,7 @@ class PreviewViewController : UIViewController {
             sources.append(ImageSource(image: image))
         }
         imageSlider.setImageInputs(sources)
+        imageSlider.setCurrentPage(sources.count - 1, animated: false)
         
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
         statusBar.backgroundColor = UIColor.white

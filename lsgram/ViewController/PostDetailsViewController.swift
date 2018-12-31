@@ -86,14 +86,6 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    /*func textViewDidChangeSelection(_ textView: UITextView) {
-        if (textView.textColor != UIColor.black) {
-            DispatchQueue.main.async{
-                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-            }
-        }
-    }*/
-    
     func textViewDidChange(_ textView: UITextView) {
         if (textView.textColor != UIColor.black) {
             textView.textColor = UIColor.black
@@ -222,6 +214,8 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             if (mapView.annotations.count == 0) {
                 self.showAlert(title: "No location specified", message: "Without a location, other users won't be able to find your post through the map view. Please specify a location.", buttonText: "Post", callback: nil)
             } else {
+                //TODO show dialog
+        
                 var responses = images.count
                 imagesImgur.removeAll()
                 for image in images {
@@ -249,7 +243,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         } else {
             params["caption"] = ""
         }
-        //TODO poner las imagenes bien
+
         params["links"] = imagesImgur
         params["latitude"] = mapView.annotations[0].coordinate.latitude
         params["longitude"] = mapView.annotations[0].coordinate.longitude
@@ -262,7 +256,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         let status: String = response["status"].stringValue
         DispatchQueue.main.async {
             if status == "KO" {
-                //error
+                self.showAlert(title: "Unable to publish post", message: "There was an error with the server. Please try again.", buttonText: "OK", callback: nil)
             } else if status == "OK" {
                 self.refreshListener.refreshPosts()
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
