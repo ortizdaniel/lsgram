@@ -25,15 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Access", bundle: nil)
             vc = storyboard.instantiateViewController(withIdentifier: "access") as UIViewController
         } else {
-            /*let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            vc = storyboard.instantiateViewController(withIdentifier: "login") as UIViewController*/
-            let prefs = UserDefaults.standard
-            prefs.set("admin", forKey: "username")
-            prefs.set("admin", forKey: "password")
-            prefs.synchronize()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
-            
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            vc = storyboard.instantiateViewController(withIdentifier: "login") as UIViewController
         }
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()

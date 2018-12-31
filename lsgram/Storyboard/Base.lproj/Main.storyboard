@@ -184,10 +184,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxj-Ko-ztf">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oxj-Ko-ztf">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSZ-iP-pAG">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSZ-iP-pAG">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="User" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Liz-NS-9Y2">
@@ -317,8 +317,6 @@
                                     <constraint firstItem="fSZ-iP-pAG" firstAttribute="top" secondItem="oxj-Ko-ztf" secondAttribute="top" id="BE7-US-Kcg"/>
                                     <constraint firstAttribute="bottom" secondItem="fSZ-iP-pAG" secondAttribute="bottom" id="gNW-rM-Rql"/>
                                     <constraint firstAttribute="trailing" secondItem="fSZ-iP-pAG" secondAttribute="trailing" id="h1f-bT-PGR"/>
-                                    <constraint firstItem="fSZ-iP-pAG" firstAttribute="width" secondItem="oxj-Ko-ztf" secondAttribute="width" id="lEN-bG-OeZ"/>
-                                    <constraint firstItem="fSZ-iP-pAG" firstAttribute="height" secondItem="oxj-Ko-ztf" secondAttribute="height" id="yAG-Ve-6st"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
