@@ -103,7 +103,6 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     }
     
     private func noCameraAvaliable() {
-        cameraButton.isEnabled = false
         cameraButton.backgroundColor = UIColor.lightGray
         cameraButton.layer.borderColor = UIColor.darkGray.cgColor
         self.noCameraIcon.isHidden = false
@@ -144,7 +143,9 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     }
     
     @IBAction func takePhoto(_ sender: Any) {
-        self.cameraButton.backgroundColor = UIColor.white
+        if (cameraButton.layer.borderColor != UIColor.darkGray.cgColor) { //esta disponible
+            self.cameraButton.backgroundColor = UIColor.white
+        }
         if (takePhotoAuthorization()) {
             guard let capturePhotoOutput = self.capturePhotoOutput else { return }
             let photoSettings = AVCapturePhotoSettings()
