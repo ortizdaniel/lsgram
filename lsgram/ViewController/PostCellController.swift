@@ -195,10 +195,14 @@ class LikeHandler: RequestHandler {
     func success(response: JSON) {
         if (response["status"].stringValue == "OK") {
             DispatchQueue.main.async {
-                self.button.setImage(
+                UIView.transition(with: self.button as UIView, duration: 0.3, options: .transitionFlipFromRight, animations: {
+                    self.button.setImage(UIImage(named: self.liked ? self.filled : self.outline), for: .normal)
+                }, completion: nil)
+                
+                /*self.button.setImage(
                     UIImage(named: self.liked ? self.filled : self.outline),
                     for: UIControl.State.normal
-                )
+                )*/
                 let likes = response["data"]["likes"].intValue
                 self.post.setLikes(l: likes)
                 self.lbLikes.text = "\(likes) \(abs(likes) == 1 ? "like" : "likes")"
