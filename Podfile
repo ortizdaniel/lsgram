@@ -14,5 +14,6 @@ target 'lsgram' do
   pod 'AlamofireImage', '~> 3.5'
   pod "ImageSlideshow/Alamofire"
   pod 'OpalImagePicker'
+  pod 'KMPlaceholderTextView', '~> 1.4.0'
   
 end

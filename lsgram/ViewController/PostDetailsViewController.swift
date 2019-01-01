@@ -42,8 +42,6 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-        titleTextView.delegate = self
-        descTextView.delegate = self
         
         requestLocationPermissions()
     }
@@ -76,35 +74,6 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if (textView.textColor != UIColor.black) {
-            DispatchQueue.main.async{
-                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-            }
-        }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if (textView.textColor != UIColor.black) {
-            textView.textColor = UIColor.black
-            let text = textView.text
-            
-            textView.text = "\(text!.prefix(1))"
-        } else {
-            if (textView.text == "") {
-                textView.textColor = UIColor.lightGray
-                if (textView.restorationIdentifier == "title") {
-                    textView.text = "Add a title..."
-                } else {
-                    textView.text = "Add a description..."
-                }
-                DispatchQueue.main.async{
-                    textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-                }
-            }
-        }
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -238,12 +207,8 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     func reqParameters() -> [String: Any] {
         var params: [String: Any] = [:]
         params["title"] = titleTextView.text
-        if (descTextView.textColor == UIColor.black) {
-            params["caption"] = descTextView.text
-        } else {
-            params["caption"] = ""
-        }
-
+        params["caption"] = descTextView.text ?? ""
+        
         params["links"] = imagesImgur
         params["latitude"] = mapView.annotations[0].coordinate.latitude
         params["longitude"] = mapView.annotations[0].coordinate.longitude
