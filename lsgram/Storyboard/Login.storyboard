@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -325,6 +326,8 @@
                         <outlet property="errorNameLabel" destination="d7y-pf-vix" id="Exy-T8-h8e"/>
                         <outlet property="errorPassword2Label" destination="txd-CS-mHO" id="5XW-jc-dIE"/>
                         <outlet property="errorPasswordLabel" destination="SQr-dB-AbM" id="zny-Os-lIB"/>
+                        <outlet property="formView" destination="YJu-hb-DIW" id="EXS-7I-Xx8"/>
+                        <outlet property="scrollView" destination="0TP-TK-0eE" id="Fcu-cM-6E0"/>
                         <outlet property="signUpButton" destination="Ck8-6q-HkE" id="2L1-ng-gYG"/>
                         <outlet property="tfName" destination="KRo-7r-rs4" id="Oac-8t-5Pb"/>
                         <outlet property="tfPassword" destination="Dlq-jX-Vj2" id="5SB-uU-PYg"/>
@@ -516,6 +519,8 @@
                         <outlet property="constraintErrorPassword" destination="FzP-7D-ABf" id="NKe-in-nlf"/>
                         <outlet property="errorNameLabel" destination="btg-E1-uET" id="xTW-xP-Xgj"/>
                         <outlet property="errorPasswordLabel" destination="MYh-fO-fEY" id="Utm-Wy-VXP"/>
+                        <outlet property="formView" destination="UgY-aN-SKE" id="P7N-Eg-Oy1"/>
+                        <outlet property="scrollView" destination="Lpd-MW-T7e" id="LaD-hY-wuf"/>
                         <outlet property="signInButton" destination="x0d-oL-GVl" id="t8N-iE-ugv"/>
                         <outlet property="tfName" destination="VLi-LZ-AsV" id="bck-rh-DbE"/>
                         <outlet property="tfPassword" destination="HoN-9o-L80" id="log-6e-vea"/>
@@ -540,7 +545,7 @@
         <image name="logo_white" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FeA-1A-jcv"/>
+        <segue reference="S4d-OS-PHh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.21960784310000001" green="0.2901960784" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

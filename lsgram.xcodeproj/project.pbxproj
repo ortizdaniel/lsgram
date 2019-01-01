@@ -31,6 +31,7 @@
 		C303F01821D2DAEB00892EB4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01721D2DAEB00892EB4 /* LoginViewController.swift */; };
 		C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */; };
 		C303F01D21D2EFB600892EB4 /* UILabel+TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */; };
+		C30654FC21DBEBD400B9235B /* UIView+Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30654FB21DBEBD400B9235B /* UIView+Tap.swift */; };
 		C347CAF821D4F768003FDF3D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAF721D4F768003FDF3D /* MapViewController.swift */; };
 		C347CAFA21D53CC9003FDF3D /* MapViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */; };
 		C347CAFC21D5544D003FDF3D /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */; };
@@ -77,6 +78,7 @@
 		C303F01721D2DAEB00892EB4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C303F01921D2DB0F00892EB4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C303F01C21D2EFB600892EB4 /* UILabel+TextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TextColor.swift"; sourceTree = "<group>"; };
+		C30654FB21DBEBD400B9235B /* UIView+Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Tap.swift"; sourceTree = "<group>"; };
 		C347CAF721D4F768003FDF3D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Location.swift"; sourceTree = "<group>"; };
 		C347CAFB21D5544D003FDF3D /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				65A6789B21D381EA00EB72AE /* UIViewController+Alert.swift */,
 				C347CAF921D53CC9003FDF3D /* MapViewController+Location.swift */,
 				C347CAFD21D57CD0003FDF3D /* PostDetailsViewController+Location.swift */,
+				C30654FB21DBEBD400B9235B /* UIView+Tap.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				C347CB0A21D5902B003FDF3D /* CachedPost+PostItem.swift in Sources */,
 				C347CB0B21D5902B003FDF3D /* PostItem.swift in Sources */,
 				C347CB0921D5902B003FDF3D /* PostList.swift in Sources */,
+				C30654FC21DBEBD400B9235B /* UIView+Tap.swift in Sources */,
 				C303F01A21D2DB0F00892EB4 /* RegisterViewController.swift in Sources */,
 				C3A4DDD421D1328700B43DF8 /* AccessViewController.swift in Sources */,
 				C347CAFA21D53CC9003FDF3D /* MapViewController+Location.swift in Sources */,

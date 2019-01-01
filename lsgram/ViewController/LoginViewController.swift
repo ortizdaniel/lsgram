@@ -17,12 +17,17 @@ class LoginViewController : UIViewController, RequestHandler {
     @IBOutlet weak var tfName: JVFloatLabeledTextField!
     @IBOutlet weak var tfPassword: JVFloatLabeledTextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var formView: UIView!
+    
     @IBOutlet weak var errorNameLabel: UILabel!
     @IBOutlet weak var errorPasswordLabel: UILabel!
     @IBOutlet weak var constraintErrorName: NSLayoutConstraint!
     @IBOutlet weak var constraintErrorPassword: NSLayoutConstraint!
     
     @IBOutlet weak var signInButton: UIButton!
+    
+    var scrollViewHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +41,30 @@ class LoginViewController : UIViewController, RequestHandler {
         errorPasswordLabel.isHidden = true
         constraintErrorName.priority = UILayoutPriority(rawValue: 10)
         constraintErrorPassword.priority = UILayoutPriority(rawValue: 10)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = UIEdgeInsets.zero
+            scrollView.contentSize.height = scrollViewHeight
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            scrollViewHeight = scrollView.contentSize.height
+            scrollView.contentSize.height = formView.frame.size.height + formView.frame.origin.y + 16
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
     
     @IBAction func nameChanged(_ sender: Any) {
@@ -53,14 +82,6 @@ class LoginViewController : UIViewController, RequestHandler {
             LSGram.login(handler: self)
         }
     }
-    
-    /*override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "login") {
-            let prefs = UserDefaults.standard
-            prefs.set(self.tfName.text, forKey: "username")
-            prefs.synchronize()
-        }
-    }*/
     
     private func checkErrors() -> Bool {
         var error = false
@@ -110,15 +131,6 @@ class LoginViewController : UIViewController, RequestHandler {
     }
     
     func switchToMainView(win: UIWindow) {
-        //https://stackoverflow.com/questions/41144523/swap-rootviewcontroller-with-animation
-        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
-        vc.view.frame = (win.rootViewController?.view.frame)!
-        vc.view.layoutIfNeeded()
-        UIView.transition(with: win, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            win.rootViewController = vc
-        }, completion: nil)*/
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
         present(vc, animated: true, completion: nil)
@@ -129,32 +141,4 @@ class LoginViewController : UIViewController, RequestHandler {
         prefs.synchronize()
     }
     
-    /*override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        registerKeyboardNotifications()
-    }
-    
-    func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardInfo = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
-        let keyboardSize = keyboardInfo.cgRectValue.size
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        scrollView.contentInset = .zero
-        scrollView.scrollIndicatorInsets = .zero
-    }*/
 }

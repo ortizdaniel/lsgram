@@ -26,6 +26,10 @@ public class RegisterViewController : UIViewController, RequestHandler {
     
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var formView: UIView!
+    var scrollViewHeight: CGFloat = 0
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
@@ -40,6 +44,30 @@ public class RegisterViewController : UIViewController, RequestHandler {
         constraintErrorName.priority = UILayoutPriority(rawValue: 10)
         constraintErrorPassword.priority = UILayoutPriority(rawValue: 10)
         constraintErrorPassword2.priority = UILayoutPriority(rawValue: 10)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = UIEdgeInsets.zero
+            scrollView.contentSize.height = scrollViewHeight
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            scrollViewHeight = scrollView.contentSize.height
+            scrollView.contentSize.height = formView.frame.size.height + formView.frame.origin.y + 16
+        }
+        
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
     
     @IBAction func nameChanged(_ sender: Any) {
@@ -62,14 +90,6 @@ public class RegisterViewController : UIViewController, RequestHandler {
             LSGram.register(handler: self)
         }
     }
-    
-    /*override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "register") {
-            let prefs = UserDefaults.standard
-            prefs.set(tfName.text, forKey: "username")
-            prefs.synchronize()
-        }
-    }*/
     
     private func checkErrors() -> Bool {
         var error = false
@@ -140,15 +160,6 @@ public class RegisterViewController : UIViewController, RequestHandler {
     }
     
     func switchToMainView(win: UIWindow) {
-        //https://stackoverflow.com/questions/41144523/swap-rootviewcontroller-with-animation
-        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
-        vc.view.frame = (win.rootViewController?.view.frame)!
-        vc.view.layoutIfNeeded()
-        UIView.transition(with: win, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            win.rootViewController = vc
-        }, completion: nil)*/
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "main") as UIViewController
         present(vc, animated: true, completion: nil)
