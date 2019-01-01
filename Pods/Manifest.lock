@@ -9,6 +9,7 @@ PODS:
     - ImageSlideshow/Core
   - ImageSlideshow/Core (1.7.0)
   - INSPhotoGallery (1.2.7)
+  - JGProgressHUD (2.0.3)
   - JVFloatLabeledTextField (1.2.1)
   - KMPlaceholderTextView (1.4.0)
   - OpalImagePicker (2.0.0)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - ImageSlideshow (~> 1.6)
   - ImageSlideshow/Alamofire
   - INSPhotoGallery
+  - JGProgressHUD
   - JVFloatLabeledTextField
   - KMPlaceholderTextView (~> 1.4.0)
   - OpalImagePicker
@@ -31,6 +33,7 @@ SPEC REPOS:
     - AlamofireImage
     - ImageSlideshow
     - INSPhotoGallery
+    - JGProgressHUD
     - JVFloatLabeledTextField
     - KMPlaceholderTextView
     - OpalImagePicker
@@ -41,11 +44,12 @@ SPEC CHECKSUMS:
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
   ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
   INSPhotoGallery: a4e698e3d6338d9016328d6747488a2a111d94e2
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   JVFloatLabeledTextField: cfc44e3c4d493b2ed92ede8035e8e89c2912ba64
   KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   OpalImagePicker: efc91612ef5b3849314801f68fddc26200da9435
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: cbaf312e1380cdd9720aa8f8a3b32c8552bb5bf5
+PODFILE CHECKSUM: 65e885159c31e8766460f005c76b171e45c2715d
 
 COCOAPODS: 1.5.3

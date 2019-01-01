@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 import ImageSlideshow
 import SwiftyJSON
+import JGProgressHUD
 
 class PostDetailsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UITextViewDelegate, RequestHandler {
     
@@ -30,6 +31,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     var selectedPin: MKPlacemark? = nil
     var images: Array<UIImage>!
     var imagesImgur = Array<String>()
+    let hud = JGProgressHUD(style: .dark)
     
     var refreshListener: RefreshListener!
     
@@ -44,6 +46,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         searchBar.delegate = self
         
         requestLocationPermissions()
+        hud.textLabel.text = "Publishing..."
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -185,8 +188,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             if (mapView.annotations.count == 0) {
                 self.showAlert(title: "No location specified", message: "Without a location, other users won't be able to find your post through the map view. Please specify a location.", buttonText: "Post", callback: nil)
             } else {
-                //TODO show dialog
-        
+                hud.show(in: self.view)
                 var responses = images.count
                 imagesImgur.removeAll()
                 for image in images {
@@ -222,12 +224,16 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     func success(response: JSON) {
         let status: String = response["status"].stringValue
         DispatchQueue.main.async {
+            self.hud.progress = 1
             if status == "KO" {
+                self.hud.dismiss()
                 self.showAlert(title: "Unable to publish post", message: "There was an error with the server. Please try again.", buttonText: "OK", callback: nil)
             } else if status == "OK" {
+                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
                 self.refreshListener.refreshPosts()
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                 self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+                self.hud.dismiss()
             }
         }
     }

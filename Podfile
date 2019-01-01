@@ -15,5 +15,5 @@ target 'lsgram' do
   pod "ImageSlideshow/Alamofire"
   pod 'OpalImagePicker'
   pod 'KMPlaceholderTextView', '~> 1.4.0'
-  
+  pod 'JGProgressHUD'  
 end
