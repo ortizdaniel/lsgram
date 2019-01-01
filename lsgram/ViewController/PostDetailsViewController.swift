@@ -44,6 +44,8 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         searchBar.delegate = self
         
         requestLocationPermissions()
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     private func initImage() {
