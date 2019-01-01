@@ -184,11 +184,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oxj-Ko-ztf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxj-Ko-ztf">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSZ-iP-pAG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSZ-iP-pAG">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="User" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Liz-NS-9Y2">
                                                 <rect key="frame" x="15" y="20" width="309" height="20.5"/>
@@ -315,17 +315,19 @@
                                 <constraints>
                                     <constraint firstItem="fSZ-iP-pAG" firstAttribute="leading" secondItem="oxj-Ko-ztf" secondAttribute="leading" id="9Zb-NV-yt4"/>
                                     <constraint firstItem="fSZ-iP-pAG" firstAttribute="top" secondItem="oxj-Ko-ztf" secondAttribute="top" id="BE7-US-Kcg"/>
-                                    <constraint firstAttribute="bottom" secondItem="fSZ-iP-pAG" secondAttribute="bottom" id="gNW-rM-Rql"/>
+                                    <constraint firstAttribute="bottom" secondItem="fSZ-iP-pAG" secondAttribute="bottom" id="C8s-3A-BXA"/>
+                                    <constraint firstItem="fSZ-iP-pAG" firstAttribute="width" secondItem="oxj-Ko-ztf" secondAttribute="width" id="UA2-Qp-SWi"/>
                                     <constraint firstAttribute="trailing" secondItem="fSZ-iP-pAG" secondAttribute="trailing" id="h1f-bT-PGR"/>
+                                    <constraint firstItem="fSZ-iP-pAG" firstAttribute="height" secondItem="oxj-Ko-ztf" secondAttribute="height" id="ydd-Z3-OJ1"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oxj-Ko-ztf" firstAttribute="leading" secondItem="fWv-E8-lIe" secondAttribute="leading" id="6cB-Ee-dzv"/>
+                            <constraint firstItem="fWv-E8-lIe" firstAttribute="bottom" secondItem="oxj-Ko-ztf" secondAttribute="bottom" id="8vD-Qb-4D0"/>
                             <constraint firstItem="fWv-E8-lIe" firstAttribute="trailing" secondItem="oxj-Ko-ztf" secondAttribute="trailing" id="SbK-0p-9QJ"/>
                             <constraint firstItem="oxj-Ko-ztf" firstAttribute="top" secondItem="fWv-E8-lIe" secondAttribute="top" id="dyS-vS-T7T"/>
-                            <constraint firstAttribute="bottom" secondItem="oxj-Ko-ztf" secondAttribute="bottom" id="xMV-jb-a2W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fWv-E8-lIe"/>
                     </view>
@@ -1219,9 +1221,9 @@
         <image name="trash-can" width="181.89472961425781" height="181.89472961425781"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FY8-aA-YCG"/>
-        <segue reference="mfO-Fr-Mf0"/>
-        <segue reference="MuU-0d-Cvz"/>
+        <segue reference="IfS-O6-cFz"/>
+        <segue reference="Azg-27-jBp"/>
+        <segue reference="Qli-tU-o2M"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.21960784310000001" green="0.2901960784" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
