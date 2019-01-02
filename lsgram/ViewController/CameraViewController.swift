@@ -196,8 +196,8 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
             return
         }
         
-        let imageToSave = UIImage(cgImage: imageRef, scale: 1.0, orientation: .right)
-        self.selectedImages.append(imageToSave)
+        let imageToSave = UIImage(cgImage: imageRef, scale: 1.0, orientation: .right).fixedOrientation()
+        self.selectedImages.append(imageToSave!)
         performSegue(withIdentifier: "preview", sender: self)
     }
     

@@ -31,7 +31,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     var selectedPin: MKPlacemark? = nil
     var images: Array<UIImage>!
     var imagesImgur = Array<String>()
-    let hud = JGProgressHUD(style: .dark)
+    let hud = JGProgressHUD()
     
     var refreshListener: RefreshListener!
     
@@ -64,7 +64,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             sources.append(ImageSource(image: image))
         }
         postImage.setImageInputs(sources)
-        postImage.contentScaleMode = .scaleAspectFill //TODO
+        postImage.contentScaleMode = .scaleAspectFill
     }
     
     private func setSearchController() {
@@ -195,6 +195,8 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
                     Imgur.uploadImage(image: image) { (response) in
                         if (response == nil) {
                             responses -= 1
+                            self.hud.dismiss()
+                            self.showAlert(title: "Image could not be uploaded", message: "The maximum size per image is 10MB. Make sure no images surpass the limit.", buttonText: "OK", callback: nil)
                         } else {
                             self.imagesImgur.append(response!)
                             responses -= 1
