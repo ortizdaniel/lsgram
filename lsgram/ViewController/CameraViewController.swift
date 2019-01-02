@@ -87,14 +87,17 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
             captureSession = AVCaptureSession()
             captureSession?.addInput(input)
             
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            cameraView.layer.insertSublayer(videoPreviewLayer!, at: 0)
+            DispatchQueue.main.async {
+                self.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession!)
+                self.videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                self.videoPreviewLayer?.frame = self.view.layer.bounds
             
-            capturePhotoOutput = AVCapturePhotoOutput()
-            capturePhotoOutput?.isHighResolutionCaptureEnabled = true
-            captureSession?.addOutput(capturePhotoOutput!)
+                self.cameraView.layer.insertSublayer(self.videoPreviewLayer!, at: 0)
+                
+                self.capturePhotoOutput = AVCapturePhotoOutput()
+                self.capturePhotoOutput?.isHighResolutionCaptureEnabled = true
+                self.captureSession?.addOutput(self.capturePhotoOutput!)
+            }
             
             captureSession?.startRunning()
         } catch {
