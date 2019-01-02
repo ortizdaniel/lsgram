@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +44,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EBW-Pg-dVH">
                                 <rect key="frame" x="0.0" y="64" width="414" height="132"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" horizontalHuggingPriority="245" verticalHuggingPriority="240" translatesAutoresizingMaskIntoConstraints="NO" id="nTh-Wf-VD6">
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="245" verticalHuggingPriority="240" translatesAutoresizingMaskIntoConstraints="NO" id="nTh-Wf-VD6" customClass="SettingsThingView" customModule="lsgram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxp-Xc-sbJ">
@@ -1227,9 +1228,9 @@
         <image name="trash-can" width="178.75862121582031" height="178.75862121582031"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FY8-aA-YCG"/>
-        <segue reference="mfO-Fr-Mf0"/>
-        <segue reference="MuU-0d-Cvz"/>
+        <segue reference="IfS-O6-cFz"/>
+        <segue reference="Azg-27-jBp"/>
+        <segue reference="Qli-tU-o2M"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.21960784310000001" green="0.2901960784" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
