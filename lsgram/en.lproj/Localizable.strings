@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  lsgram
+
+  Created by Carla Vendrell on 02/01/2019.
+  Copyright © 2019 Daniel. All rights reserved.
+*/
+
+"welcome" = "Welcome back, ";
+"error_empty_field" = "Field cannot be empty";
+"error_username" = "This username is already taken. Please choose another one.";
+"error_password" = "Password must be at least 6 characters long";
+"error_password2" = "Passwords no not match";
+
+"invalid_credentials_title" = "Invalid Credentials";
+"invalid_credentials_message" = "The credentials you've introduced are incorrect.";
+
+"error_json_parse" = "Could not parse the response correctly.";
+"error_json_serialize" = "Could not serialize the request parameters.";
+
+"oops" = "Oops!";
+"oops_dislike" = "You can't like a post you disliked";
+"oops_like" = "You can't dislike a post you liked";
+
+"follow" = " Follow ";
+"unfollow" = " Unfollow ";
+"error_follow" = "Error following/unfollowing user";
+
+"post_title_placeholder" = "Add a title...";
+"post_desc_placeholder" = "Add a description...";
+"dialog_publishing" = "Publishing...";
+"post_title_error" = "No title specified";
+"post_title_error_message" = "Without a title, other users won't know what your post is about.";
+"post_location_error" = "No location specified";
+"post_location_error_message" = "Without a location, other users won't be able to find your post through the map view. Please specify a location.";
+"post_image_error" = "Image could not be uploaded";
+"post_image_error_message" = "The maximum size per image is 10MB. Make sure no images surpass the limit.";
+"post_server_error" = "Unable to publish post";
+"post_server_error_message" = "There was an error with the server. Please try again.";
+
+"camera_no_access" = "No access to Camera";
+"camera_no_access_message" = "This app does not have access to the camera. To take pictures, be sure to activate the permissions at the phone's settings";
+"gallery_no_access" = "No access to Photo Gallery";
+"gallery_no_access_message" = "This app does not have access to the photo gallery. To upload images, be sure to activate the permissions at the phone's settings";
+
+"image_delete" = "Do you want to delete this picture?";
+"image_delete_title" = "The picture will be removed from the set of selected images.";
+"image_delete_action" = "Delete";
+"image_cancel_action" = "Cancel";

@@ -1,0 +1,108 @@
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "1Ng-ZH-WyS"; */
+"1Ng-ZH-WyS.text" = "Descripción";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "2mL-a2-FCT"; */
+"2mL-a2-FCT.text" = "Descripción";
+
+/* Class = "UIViewController"; title = "Post Details"; ObjectID = "6GB-bL-jSo"; */
+"6GB-bL-jSo.title" = "Publicación";
+
+/* Class = "UITabBarItem"; title = "Posts"; ObjectID = "AUA-FE-Z6h"; */
+"AUA-FE-Z6h.title" = "Publicaciones";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "Avd-kM-l2n"; */
+"Avd-kM-l2n.text" = "Subtítulo";
+
+/* Class = "UINavigationItem"; title = "New Post"; ObjectID = "CET-qt-vJ2"; */
+"CET-qt-vJ2.title" = "Nueva Publicación";
+
+/* Class = "UISearchBar"; placeholder = "Search for locations..."; ObjectID = "Efp-Wr-Z6Y"; */
+"Efp-Wr-Z6Y.placeholder" = "Buscar una localización...";
+
+/* Class = "UILabel"; text = "User"; ObjectID = "FJs-76-iVc"; */
+"FJs-76-iVc.text" = "Usuario";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "Fif-qv-m9D"; */
+"Fif-qv-m9D.text" = "Descripción";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "GXc-Rx-yry"; */
+"GXc-Rx-yry.text" = "Título";
+
+/* Class = "UILabel"; text = "Post Settings"; ObjectID = "Hxp-Xc-sbJ"; */
+"Hxp-Xc-sbJ.text" = "Ajustes de publicación";
+
+/* Class = "UIViewController"; title = "Preview"; ObjectID = "ICP-ZX-o8t"; */
+"ICP-ZX-o8t.title" = "Vista previa";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Idb-Io-WRd"; */
+"Idb-Io-WRd.title" = "Item";
+
+/* Class = "UILabel"; text = "User"; ObjectID = "Liz-NS-9Y2"; */
+"Liz-NS-9Y2.text" = "Usuario";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "NNO-tN-65s"; */
+"NNO-tN-65s.text" = "3";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PhW-9g-iMC"; */
+"PhW-9g-iMC.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Map"; ObjectID = "Pkw-dp-a0Y"; */
+"Pkw-dp-a0Y.title" = "Mapa";
+
+/* Class = "UIButton"; normalTitle = "  Follow  "; ObjectID = "QHy-Z4-cPa"; */
+"QHy-Z4-cPa.normalTitle" = "  Seguir  ";
+
+/* Class = "UILabel"; text = "User"; ObjectID = "SMV-4M-1FV"; */
+"SMV-4M-1FV.text" = "Usuario";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "WUH-Ro-Kqb"; */
+"WUH-Ro-Kqb.text" = "Título";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "Xfm-cl-de3"; */
+"Xfm-cl-de3.title" = "Mapa";
+
+/* Class = "UIViewController"; title = "New post"; ObjectID = "ZTT-Oz-EFx"; */
+"ZTT-Oz-EFx.title" = "Nueva Publicación";
+
+/* Class = "UIButton"; normalTitle = "  Follow  "; ObjectID = "Zv5-EZ-qWr"; */
+"Zv5-EZ-qWr.normalTitle" = "  Seguir  ";
+
+/* Class = "UILabel"; text = "Following only"; ObjectID = "aKe-2x-rvx"; */
+"aKe-2x-rvx.text" = "Solo siguiendo";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "eFc-rb-tRX"; */
+"eFc-rb-tRX.text" = "Título";
+
+/* Class = "UILabel"; text = "Post Settings"; ObjectID = "eqE-3O-sxl"; */
+"eqE-3O-sxl.text" = "Ajustes de publicación";
+
+/* Class = "UINavigationItem"; title = "Recent Posts"; ObjectID = "jsS-hi-aNI"; */
+"jsS-hi-aNI.title" = "Publicaciones";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "k6w-XM-oYu"; */
+"k6w-XM-oYu.title" = "Item";
+
+/* Class = "UILabel"; text = "Minimum votes"; ObjectID = "kW7-Ew-VGV"; */
+"kW7-Ew-VGV.text" = "Votos mínimos";
+
+/* Class = "UIViewController"; title = "Photo Chooser"; ObjectID = "n95-km-N92"; */
+"n95-km-N92.title" = "Selección de imágen";
+
+/* Class = "UIBarButtonItem"; title = "Post"; ObjectID = "oRJ-5n-WyA"; */
+"oRJ-5n-WyA.title" = "Publicar";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "sVN-gM-Bfa"; */
+"sVN-gM-Bfa.text" = "Título";
+
+/* Class = "UILabel"; text = "Minimum votes"; ObjectID = "vEV-L3-J6F"; */
+"vEV-L3-J6F.text" = "Votos mínimos";
+
+/* Class = "UILabel"; text = "Following only"; ObjectID = "vT8-SE-hsh"; */
+"vT8-SE-hsh.text" = "Solo siguiendo";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wtW-DT-eoP"; */
+"wtW-DT-eoP.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zJl-jv-HG1"; */
+"zJl-jv-HG1.text" = "Label";

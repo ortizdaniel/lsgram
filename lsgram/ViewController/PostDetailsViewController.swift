@@ -12,13 +12,14 @@ import MapKit
 import ImageSlideshow
 import SwiftyJSON
 import JGProgressHUD
+import KMPlaceholderTextView
 
 class PostDetailsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UITextViewDelegate, RequestHandler {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var titleTextView: UITextView!
-    @IBOutlet weak var descTextView: UITextView!
+    @IBOutlet weak var titleTextView: KMPlaceholderTextView!
+    @IBOutlet weak var descTextView: KMPlaceholderTextView!
     @IBOutlet weak var postImage: ImageSlideshow!
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -45,8 +46,11 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         searchBar.delegate = self
         
+        titleTextView.placeholder = "post_title_placeholder".localize()
+        descTextView.placeholder = "post_desc_placeholder".localize()
+        
         requestLocationPermissions()
-        hud.textLabel.text = "Publishing..."
+        hud.textLabel.text = "dialog_publishing".localize()
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -182,11 +186,11 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func postClicked(_ sender: Any) {
-        if (titleTextView.textColor != UIColor.black) {
-            self.showAlert(title: "No title specified", message: "Without a title, other users won't know what your post is about", buttonText: "OK", callback: nil)
+        if (titleTextView.text.isEmpty) {
+            self.showAlert(title: "post_title_error".localize(), message: "post_title_error_message".localize(), buttonText: "OK", callback: nil)
         } else {
             if (mapView.annotations.count == 0) {
-                self.showAlert(title: "No location specified", message: "Without a location, other users won't be able to find your post through the map view. Please specify a location.", buttonText: "Post", callback: nil)
+                self.showAlert(title: "post_location_error".localize(), message: "post_location_error_message".localize(), buttonText: "OK", callback: nil)
             } else {
                 hud.show(in: self.view)
                 var responses = images.count
@@ -196,7 +200,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
                         if (response == nil) {
                             responses -= 1
                             self.hud.dismiss()
-                            self.showAlert(title: "Image could not be uploaded", message: "The maximum size per image is 10MB. Make sure no images surpass the limit.", buttonText: "OK", callback: nil)
+                            self.showAlert(title: "post_image_error".localize(), message: "post_image_error_message".localize(), buttonText: "OK", callback: nil)
                         } else {
                             self.imagesImgur.append(response!)
                             responses -= 1
@@ -229,7 +233,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
             self.hud.progress = 1
             if status == "KO" {
                 self.hud.dismiss()
-                self.showAlert(title: "Unable to publish post", message: "There was an error with the server. Please try again.", buttonText: "OK", callback: nil)
+                self.showAlert(title: "post_server_error".localize(), message: "post_server_error_message".localize(), buttonText: "OK", callback: nil)
             } else if status == "OK" {
                 self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
                 self.refreshListener.refreshPosts()
@@ -242,7 +246,7 @@ class PostDetailsViewController : UIViewController, UITableViewDelegate, UITable
     
     func error(message: String) {
         DispatchQueue.main.async {
-            self.showAlert(title: "Error", message: message, buttonText: "Ok", callback: nil)
+            self.showAlert(title: "Error", message: message, buttonText: "OK", callback: nil)
         }
     }
 }

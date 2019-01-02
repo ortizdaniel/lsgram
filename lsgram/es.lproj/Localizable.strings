@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  lsgram
+
+  Created by Carla Vendrell on 02/01/2019.
+  Copyright © 2019 Daniel. All rights reserved.
+*/
+
+"welcome" = "Bienvenido, ";
+"error_empty_field" = "El campo no puede estar vacío";
+"error_username" = "Este usario ya está en uso. Por favor, escoge otro.";
+"error_password" = "La contraseña debe tener al menos 6 caracteres";
+"error_password2" = "Las contraseñas no coinciden";
+
+"invalid_credentials_title" = "Credenciales incorrectas";
+"invalid_credentials_message" = "Las credenciales introducidas no son correctas.";
+
+"error_json_parse" = "No se ha podido parsear la respuesta correctamente.";
+"error_json_serialize" = "No se han podido serializar los parámetros de la petición.";
+
+"oops" = "Oops!";
+"oops_dislike" = "No puedes darle like a un post al que ya le has dado dislike.";
+"oops_like" = "No puedes darle dislike a un post al que ya le has dado like";
+
+"follow" = " Seguir ";
+"unfollow" = " Deseguir ";
+"error_follow" = "Error al seguir/dejar de seguir el usuario";
+
+"post_title_placeholder" = "Añade un título...";
+"post_desc_placeholder" = "Añade una descripción...";
+"dialog_publishing" = "Publicando...";
+"post_title_error" = "No se ha especificado título";
+"post_title_error_message" = "Sin título, otros usuarios no podrán saber de qué trata tu post.";
+"post_location_error" = "No se ha especificado localización";
+"post_location_error_message" = "Sin localización, otros usuarios no podrán encontrar la publicación a través del mapa. Por favor, especifica una localización.";
+"post_image_error" = "La imagen no se ha podido subir";
+"post_image_error_message" = "El tamaño máximo por imágen es de 10MB. Asegúrate que ninguna imagen supera el límite.";
+"post_server_error" = "No se ha podido publicar la publicación";
+"post_server_error_message" = "Ha habido un error al conectase con el servidor. Inténtalo de nuevo más tarde.";
+
+"camera_no_access" = "Sin acceso a la camara";
+"camera_no_access_message" = "Esta aplicación no tiene aceso a la camara. Para poder hacer fotos, asegúrate de activar los permisos en los ajustes del teléfono.";
+"gallery_no_access" = "Sin acceso a la galeria de fotos";
+"gallery_no_access_message" = "Esta aplicación no tiene aceso a la galeria de fotos. Para poder subir imágenes, asegúrate de activar los permisos en los ajustes del teléfono.";
+
+"image_delete" = "¿Quiéres eliminar esta imágen?";
+"image_delete_title" = "La foto se eliminará del conjunto de fotos seleccionadas hasta el momento.";
+"image_delete_action" = "Eliminar";
+"image_cancel_action" = "Cancelar";

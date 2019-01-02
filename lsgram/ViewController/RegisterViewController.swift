@@ -97,20 +97,20 @@ public class RegisterViewController : UIViewController, RequestHandler {
             errorNameLabel.isHidden = false
             constraintErrorName.priority = UILayoutPriority(rawValue: 999)
             error = true
-            errorNameLabel.text = "Field cannot be empty"
+            errorNameLabel.text = "error_empty_field".localize()
         }
         
         if (tfPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
             errorPasswordLabel.isHidden = false
             constraintErrorPassword.priority = UILayoutPriority(rawValue: 999)
             error = true
-            errorPasswordLabel.text = "Field cannot be empty"
+            errorPasswordLabel.text = "error_empty_field".localize()
         } else {
             if (tfPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines).count < 6) {
                 errorPasswordLabel.isHidden = false
                 constraintErrorPassword.priority = UILayoutPriority(rawValue: 999)
                 error = true
-                errorPasswordLabel.text = "Password must be at least 6 characters long"
+                errorPasswordLabel.text = "error_password".localize()
             }
         }
         
@@ -118,13 +118,13 @@ public class RegisterViewController : UIViewController, RequestHandler {
             errorPassword2Label.isHidden = false
             constraintErrorPassword2.priority = UILayoutPriority(rawValue: 999)
             error = true
-            errorPassword2Label.text = "Field cannot be empty"
+            errorPassword2Label.text = "error_empty_field".localize()
         } else {
             if (tfPassword2.text!.trimmingCharacters(in: .whitespacesAndNewlines) != tfPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines)) {
                 errorPassword2Label.isHidden = false
                 constraintErrorPassword2.priority = UILayoutPriority(rawValue: 999)
                 error = true
-                errorPassword2Label.text = "Passwords do not match"
+                errorPassword2Label.text = "error_password2".localize()
             }
         }
         
@@ -142,7 +142,7 @@ public class RegisterViewController : UIViewController, RequestHandler {
         let status: String = response["status"].stringValue
         DispatchQueue.main.async {
             if status == "KO" {
-                self.showAlert(title: "Error", message: "This username is already taken. Please choose another one.", buttonText: "Ok", callback: nil)
+                self.showAlert(title: "Error", message: "error_username".localize(), buttonText: "OK", callback: nil)
             } else if status == "OK" {
                 if let app = UIApplication.shared.delegate {
                     if let win = app.window {
@@ -155,7 +155,7 @@ public class RegisterViewController : UIViewController, RequestHandler {
     
     func error(message: String) {
         DispatchQueue.main.async {
-            self.showAlert(title: "Error", message: message, buttonText: "Ok", callback: nil)
+            self.showAlert(title: "Error", message: message, buttonText: "OK", callback: nil)
         }
     }
     

@@ -1,0 +1,57 @@
+
+/* Class = "UIButton"; normalTitle = "SIGN IN"; ObjectID = "4zd-p1-6G8"; */
+"4zd-p1-6G8.normalTitle" = "ENTRAR";
+
+/* Class = "UIButton"; normalTitle = "SIGN UP"; ObjectID = "Ck8-6q-HkE"; */
+"Ck8-6q-HkE.normalTitle" = "REGISTRARSE";
+
+/* Class = "UITextField"; accessibilityHint = "Password"; ObjectID = "Dlq-jX-Vj2"; */
+"Dlq-jX-Vj2.accessibilityHint" = "Contraseña";
+
+/* Class = "UITextField"; accessibilityLabel = "Password"; ObjectID = "Dlq-jX-Vj2"; */
+"Dlq-jX-Vj2.accessibilityLabel" = "Contraseña";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Dlq-jX-Vj2"; */
+"Dlq-jX-Vj2.placeholder" = "Contraseña";
+
+/* Class = "UITextField"; accessibilityHint = "Password"; ObjectID = "HoN-9o-L80"; */
+"HoN-9o-L80.accessibilityHint" = "Contraseña";
+
+/* Class = "UITextField"; accessibilityLabel = "Password"; ObjectID = "HoN-9o-L80"; */
+"HoN-9o-L80.accessibilityLabel" = "Contraseña";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "HoN-9o-L80"; */
+"HoN-9o-L80.placeholder" = "Contraseña";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "KRo-7r-rs4"; */
+"KRo-7r-rs4.placeholder" = "Nombre";
+
+/* Class = "UILabel"; text = "Field cannot be empty"; ObjectID = "MYh-fO-fEY"; */
+"MYh-fO-fEY.text" = "El campo no puede estar vacío";
+
+/* Class = "UILabel"; text = "Field cannot be empty"; ObjectID = "SQr-dB-AbM"; */
+"SQr-dB-AbM.text" = "El campo no puede estar vacío";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "VLi-LZ-AsV"; */
+"VLi-LZ-AsV.placeholder" = "Nombre";
+
+/* Class = "UIViewController"; title = "Login"; ObjectID = "Vmk-ec-YUQ"; */
+"Vmk-ec-YUQ.title" = "Login";
+
+/* Class = "UIButton"; normalTitle = "SIGN UP"; ObjectID = "aWT-x7-2hY"; */
+"aWT-x7-2hY.normalTitle" = "REGISTRARSE";
+
+/* Class = "UILabel"; text = "Field cannot be empty"; ObjectID = "btg-E1-uET"; */
+"btg-E1-uET.text" = "El campo no puede estar vacío";
+
+/* Class = "UILabel"; text = "Field cannot be empty"; ObjectID = "d7y-pf-vix"; */
+"d7y-pf-vix.text" = "El campo no puede estar vacío";
+
+/* Class = "UITextField"; placeholder = "Repeat Password"; ObjectID = "jaA-sB-unY"; */
+"jaA-sB-unY.placeholder" = "Repetir contraseña";
+
+/* Class = "UILabel"; text = "Passwords do not match"; ObjectID = "txd-CS-mHO"; */
+"txd-CS-mHO.text" = "Las contraseñas no coinciden";
+
+/* Class = "UIButton"; normalTitle = "SIGN IN"; ObjectID = "x0d-oL-GVl"; */
+"x0d-oL-GVl.normalTitle" = "ENTRAR";

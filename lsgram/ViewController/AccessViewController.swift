@@ -21,7 +21,7 @@ class AccessViewController : UIViewController {
         super.viewDidLoad()
         accessButton.layer.cornerRadius = 8
         logoutButton.layer.cornerRadius = 8
-        welcomeBackLabel.text = "Welcome back, \(UserDefaults.standard.object(forKey: "username") as? String ?? "")!"
+        welcomeBackLabel.text = "\("welcome".localize())\(UserDefaults.standard.object(forKey: "username") as? String ?? "")!"
     }
     
     override func viewWillAppear(_ animated: Bool) {
