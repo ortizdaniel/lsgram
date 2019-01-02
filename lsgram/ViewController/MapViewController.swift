@@ -19,6 +19,7 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
     @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var switchFollowing: UISwitch!
     @IBOutlet weak var tfMinVotes: UITextField!
+    var rpc: RecentPostsController?
     
     var settingsToggled: Bool = false
     
@@ -38,6 +39,11 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
         self.navigationController?.navigationBar.isTranslucent = false
         
         self.hideKeyboardWhenTappedAround()
+        
+        rpc = (tabBarController?.viewControllers?[0] as? UINavigationController)?.viewControllers[0] as? RecentPostsController
+        if let thing = settingsView as? SettingsThingView {
+            thing.mapView = self
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,6 +96,8 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
     @IBAction func switchFollowingChanged(_ sender: Any) {
         DispatchQueue.main.async {
             let isOn: Bool = self.switchFollowing.isOn
+            self.rpc?.tfMinVotes?.text = self.tfMinVotes.text ?? ""
+            self.rpc?.switchFollowing?.setOn(isOn, animated: true)
             if self.tfMinVotes!.text?.isEmpty ?? false {
                 if isOn {
                     PostList.instance().filterFollowing(
@@ -109,6 +117,7 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
                     PostList.instance().filterMinLikes(amount: minVotes)
                 }
             }
+            self.rpc?.tableView?.reloadData()
             self.viewDidAppear(false)
         }
     }
@@ -143,7 +152,7 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
     }
     
     func refreshPosts() {
-        if let handler = (tabBarController?.viewControllers?[0] as? UINavigationController)?.viewControllers[0] as? RecentPostsController {
+        if let handler = rpc {
             LSGram.getPosts(handler: handler)
         }
     }

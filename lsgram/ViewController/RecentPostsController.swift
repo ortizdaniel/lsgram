@@ -24,6 +24,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     
     var theresInternet: Bool = false
     var settingsToggled: Bool = false
+    var mvc: MapViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.isOpaque = true
         self.navigationController?.navigationBar.isTranslucent = false
+        mvc = (tabBarController?.viewControllers?[1] as? UINavigationController)?.viewControllers[0] as? MapViewController
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -104,6 +106,8 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func followOnlySwitchChanged(_ sender: Any) {
         DispatchQueue.main.async {
             let isOn: Bool = self.switchFollowing.isOn
+            self.mvc?.switchFollowing?.setOn(isOn, animated: true)
+            self.mvc?.tfMinVotes?.text = self.tfMinVotes.text ?? ""
                 if self.tfMinVotes!.text?.isEmpty ?? false {
                     if isOn {
                         PostList.instance().filterFollowing(
@@ -123,7 +127,6 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
                         PostList.instance().filterMinLikes(amount: minVotes)
                     }
                 }
-                //print(PostList.instance().filtered())
             self.tableView!.reloadData()
         }
     }
