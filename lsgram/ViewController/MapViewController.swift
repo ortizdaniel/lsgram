@@ -19,6 +19,7 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
     @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var switchFollowing: UISwitch!
     @IBOutlet weak var tfMinVotes: UITextField!
+    @IBOutlet var btnPost: UIBarButtonItem!
     var rpc: RecentPostsController?
     
     var settingsToggled: Bool = false

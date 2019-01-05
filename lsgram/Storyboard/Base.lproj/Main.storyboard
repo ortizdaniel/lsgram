@@ -163,6 +163,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnPost" destination="tns-oD-ES1" id="6Ak-gq-f17"/>
                         <outlet property="mapView" destination="ig6-WI-WYt" id="glN-h2-Wri"/>
                         <outlet property="settingsStack" destination="EBW-Pg-dVH" id="E3E-F4-9K3"/>
                         <outlet property="settingsView" destination="nTh-Wf-VD6" id="Opy-cz-Qi2"/>
@@ -1161,6 +1162,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnPost" destination="Pni-we-NT2" id="RWg-PL-qbW"/>
                         <outlet property="settingsStack" destination="xlq-hm-01B" id="gnp-79-GEZ"/>
                         <outlet property="settingsView" destination="rH9-z4-uSB" id="YN7-Ld-jzj"/>
                         <outlet property="switchFollowing" destination="7JO-2P-Cka" id="Na7-5e-z7s"/>

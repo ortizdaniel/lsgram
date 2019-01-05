@@ -102,7 +102,9 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
         if links.count > 0 {
             var sources: [AlamofireSource] = []
             for l in links {
-                sources.append(AlamofireSource(urlString: l)!)
+                if !l.isEmpty {
+                    sources.append(AlamofireSource(urlString: l)!)
+                }
             }
             issPostImages.setImageInputs(sources)
             issPostImages.contentScaleMode = .scaleAspectFill

@@ -12,6 +12,16 @@ import CoreData
 
 extension RecentPostsController {
     
+    func showHidePostButton() {
+        if !theresInternet && navigationItem.rightBarButtonItems?.count == 2 {
+            navigationItem.rightBarButtonItem = nil
+            mvc?.navigationItem.rightBarButtonItem = nil
+        } else if theresInternet && navigationItem.rightBarButtonItems?.count == 1 {
+            navigationItem.rightBarButtonItems?.insert(btnPost, at: 0)
+            mvc?.navigationItem.rightBarButtonItems?.insert((mvc?.btnPost)!, at: 0)
+        }
+    }
+    
     func reqParameters() -> [String : Any] {
         return [:]
     }
@@ -49,6 +59,7 @@ extension RecentPostsController {
         }
         DispatchQueue.main.async {
             self.refreshControl.endRefreshing()
+            self.showHidePostButton()
         }
     }
     
@@ -65,6 +76,7 @@ extension RecentPostsController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
+            self.showHidePostButton()
         }
     }
     

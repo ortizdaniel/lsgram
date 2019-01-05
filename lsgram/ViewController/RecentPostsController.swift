@@ -21,6 +21,7 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var tfMinVotes: UITextField!
     @IBOutlet weak var switchFollowing: UISwitch!
+    @IBOutlet var btnPost: UIBarButtonItem!
     
     var theresInternet: Bool = false
     var settingsToggled: Bool = false
@@ -54,15 +55,25 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-
+        let list = PostList.instance().filtered()
+        let index = indexPath.row
+        
         if theresInternet {
             let finalCell = tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCellController
-            finalCell.buildCell(post: PostList.instance().filtered()[indexPath.row])
+            if index < list.count {
+                finalCell.buildCell(post: list[index])
+            } else {
+                finalCell.buildCell(post: list[0])
+            }
             finalCell.parent = self
             cell = finalCell
         } else {
             let finalCell = tableView.dequeueReusableCell(withIdentifier: "noInternetCell") as! NoInternetCellController
-            finalCell.buildCell(post: PostList.instance().filtered()[indexPath.row])
+            if index < list.count {
+                finalCell.buildCell(post: list[index])
+            } else {
+                finalCell.buildCell(post: list[0])
+            }
             cell = finalCell
         }
         
