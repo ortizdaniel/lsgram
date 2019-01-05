@@ -76,11 +76,11 @@ class PreviewViewController : UIViewController {
     }
     
     @IBAction func deleteImage(_ sender: Any) {
-        let alert = UIAlertController(title: "Do you want to delete this picture?",
-                                      message: "The picture will be removed from the set of selected images.",
+        let alert = UIAlertController(title: "image_delete".localize(),
+                                      message: "image_delete_title" .localize(),
                                       preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { (alert) in
+        alert.addAction(UIAlertAction(title: "image_cancel_action".localize(), style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "image_delete_action".localize(), style: UIAlertAction.Style.destructive, handler: { (alert) in
             self.images.remove(at: self.imageSlider.currentPage)
             if (self.images.count > 0) {
                 let index = self.imageSlider.currentPage

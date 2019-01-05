@@ -1,0 +1,108 @@
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "1Ng-ZH-WyS"; */
+"1Ng-ZH-WyS.text" = "Description";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "2mL-a2-FCT"; */
+"2mL-a2-FCT.text" = "Description";
+
+/* Class = "UIViewController"; title = "Post Details"; ObjectID = "6GB-bL-jSo"; */
+"6GB-bL-jSo.title" = "Post Details";
+
+/* Class = "UITabBarItem"; title = "Posts"; ObjectID = "AUA-FE-Z6h"; */
+"AUA-FE-Z6h.title" = "Posts";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "Avd-kM-l2n"; */
+"Avd-kM-l2n.text" = "Subtitle";
+
+/* Class = "UINavigationItem"; title = "New Post"; ObjectID = "CET-qt-vJ2"; */
+"CET-qt-vJ2.title" = "New Post";
+
+/* Class = "UISearchBar"; placeholder = "Search for locations..."; ObjectID = "Efp-Wr-Z6Y"; */
+"Efp-Wr-Z6Y.placeholder" = "Search for locations...";
+
+/* Class = "UILabel"; text = "User"; ObjectID = "FJs-76-iVc"; */
+"FJs-76-iVc.text" = "User";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "Fif-qv-m9D"; */
+"Fif-qv-m9D.text" = "Description";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "GXc-Rx-yry"; */
+"GXc-Rx-yry.text" = "Title";
+
+/* Class = "UILabel"; text = "Post Settings"; ObjectID = "Hxp-Xc-sbJ"; */
+"Hxp-Xc-sbJ.text" = "Post Settings";
+
+/* Class = "UIViewController"; title = "Preview"; ObjectID = "ICP-ZX-o8t"; */
+"ICP-ZX-o8t.title" = "Preview";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Idb-Io-WRd"; */
+"Idb-Io-WRd.title" = "Item";
+
+/* Class = "UILabel"; text = "User"; ObjectID = "Liz-NS-9Y2"; */
+"Liz-NS-9Y2.text" = "User";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "NNO-tN-65s"; */
+"NNO-tN-65s.text" = "3";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PhW-9g-iMC"; */
+"PhW-9g-iMC.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Map"; ObjectID = "Pkw-dp-a0Y"; */
+"Pkw-dp-a0Y.title" = "Map";
+
+/* Class = "UIButton"; normalTitle = "  Follow  "; ObjectID = "QHy-Z4-cPa"; */
+"QHy-Z4-cPa.normalTitle" = "  Follow  ";
+
+/* Class = "UILabel"; text = "User"; ObjectID = "SMV-4M-1FV"; */
+"SMV-4M-1FV.text" = "User";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "WUH-Ro-Kqb"; */
+"WUH-Ro-Kqb.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "Xfm-cl-de3"; */
+"Xfm-cl-de3.title" = "Map";
+
+/* Class = "UIViewController"; title = "New post"; ObjectID = "ZTT-Oz-EFx"; */
+"ZTT-Oz-EFx.title" = "New post";
+
+/* Class = "UIButton"; normalTitle = "  Follow  "; ObjectID = "Zv5-EZ-qWr"; */
+"Zv5-EZ-qWr.normalTitle" = "  Follow  ";
+
+/* Class = "UILabel"; text = "Following only"; ObjectID = "aKe-2x-rvx"; */
+"aKe-2x-rvx.text" = "Following only";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "eFc-rb-tRX"; */
+"eFc-rb-tRX.text" = "Title";
+
+/* Class = "UILabel"; text = "Post Settings"; ObjectID = "eqE-3O-sxl"; */
+"eqE-3O-sxl.text" = "Post Settings";
+
+/* Class = "UINavigationItem"; title = "Recent Posts"; ObjectID = "jsS-hi-aNI"; */
+"jsS-hi-aNI.title" = "Recent Posts";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "k6w-XM-oYu"; */
+"k6w-XM-oYu.title" = "Item";
+
+/* Class = "UILabel"; text = "Minimum votes"; ObjectID = "kW7-Ew-VGV"; */
+"kW7-Ew-VGV.text" = "Minimum votes";
+
+/* Class = "UIViewController"; title = "Photo Chooser"; ObjectID = "n95-km-N92"; */
+"n95-km-N92.title" = "Photo Chooser";
+
+/* Class = "UIBarButtonItem"; title = "Post"; ObjectID = "oRJ-5n-WyA"; */
+"oRJ-5n-WyA.title" = "Post";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "sVN-gM-Bfa"; */
+"sVN-gM-Bfa.text" = "Title";
+
+/* Class = "UILabel"; text = "Minimum votes"; ObjectID = "vEV-L3-J6F"; */
+"vEV-L3-J6F.text" = "Minimum votes";
+
+/* Class = "UILabel"; text = "Following only"; ObjectID = "vT8-SE-hsh"; */
+"vT8-SE-hsh.text" = "Following only";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wtW-DT-eoP"; */
+"wtW-DT-eoP.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zJl-jv-HG1"; */
+"zJl-jv-HG1.text" = "Label";

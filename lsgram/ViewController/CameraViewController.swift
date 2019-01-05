@@ -87,14 +87,17 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
             captureSession = AVCaptureSession()
             captureSession?.addInput(input)
             
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            cameraView.layer.insertSublayer(videoPreviewLayer!, at: 0)
+            DispatchQueue.main.async {
+                self.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession!)
+                self.videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                self.videoPreviewLayer?.frame = self.view.layer.bounds
             
-            capturePhotoOutput = AVCapturePhotoOutput()
-            capturePhotoOutput?.isHighResolutionCaptureEnabled = true
-            captureSession?.addOutput(capturePhotoOutput!)
+                self.cameraView.layer.insertSublayer(self.videoPreviewLayer!, at: 0)
+                
+                self.capturePhotoOutput = AVCapturePhotoOutput()
+                self.capturePhotoOutput?.isHighResolutionCaptureEnabled = true
+                self.captureSession?.addOutput(self.capturePhotoOutput!)
+            }
             
             captureSession?.startRunning()
         } catch {
@@ -154,7 +157,7 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
             photoSettings.flashMode = flash
             capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
         } else {
-            self.showAlert(title: "No access to Camera", message: "This app does not have access to the camera. To take pictures, be sure to activate the permissions at the phone's settings", buttonText: "OK", callback: nil)
+            self.showAlert(title: "camera_no_access".localize(), message: "camera_no_access_message".localize(), buttonText: "OK", callback: nil)
         }
     }
     
@@ -243,7 +246,7 @@ class CameraViewController : UIViewController, OpalImagePickerControllerDelegate
     }
     
     private func noPhotos() {
-        self.showAlert(title: "No access to Photo Gallery", message: "This app does not have access to the photo gallery. To upload images, be sure to activate the permissions at the phone's settings", buttonText: "OK", callback: nil)
+        self.showAlert(title: "gallery_no_access".localize(), message: "gallery_no_access_message".localize(), buttonText: "OK", callback: nil)
         DispatchQueue.main.async {
             self.galleryButton.setBackgroundImage(UIImage(named: "no-gallery") as UIImage?, for: .normal)
         }

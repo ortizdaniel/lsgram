@@ -89,14 +89,14 @@ class LoginViewController : UIViewController, RequestHandler {
             errorNameLabel.isHidden = false
             constraintErrorName.priority = UILayoutPriority(rawValue: 999)
             error = true
-            errorNameLabel.text = "Field cannot be empty"
+            errorNameLabel.text = ("error_empty_field").localize()
         }
         
         if (tfPassword.text!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
             errorPasswordLabel.isHidden = false
             constraintErrorPassword.priority = UILayoutPriority(rawValue: 999)
             error = true
-            errorPasswordLabel.text = "Field cannot be empty"
+            errorPasswordLabel.text = ("error_empty_field").localize()
         }
         
         return error
@@ -113,7 +113,7 @@ class LoginViewController : UIViewController, RequestHandler {
         let status: String = response["status"].stringValue
         DispatchQueue.main.async {
             if status == "KO" {
-                self.showAlert(title: "Invalid credentials", message: "The credentials you've introduced are incorrect.", buttonText: "OK", callback: nil)
+                self.showAlert(title: "invalid_credentials_title".localize(), message: "invalid_credentials_message".localize(), buttonText: "OK", callback: nil)
             } else if status == "OK" {
                 if let app = UIApplication.shared.delegate {
                     if let win = app.window {
@@ -126,7 +126,7 @@ class LoginViewController : UIViewController, RequestHandler {
     
     func error(message: String) {
         DispatchQueue.main.async {
-            self.showAlert(title: "Error", message: message, buttonText: "Ok", callback: nil)
+            self.showAlert(title: "Error", message: message, buttonText: "OK", callback: nil)
         }
     }
     

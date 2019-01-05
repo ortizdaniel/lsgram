@@ -30,7 +30,7 @@ class LSGram {
                 req.httpBody = try JSONSerialization.data(withJSONObject: handler.reqParameters())
                 //print(String(data: req.httpBody!, encoding: String.Encoding.utf8))
             } catch {
-                handler.error(message: "Could not serialize the request parameters.")
+                handler.error(message: "error_json_serialize".localize())
                 return
             }
         }
@@ -45,7 +45,7 @@ class LSGram {
                     handler.error(message: error!.localizedDescription)
                 }
             } catch {
-                handler.error(message: "Could not parse the response correctly.")
+                handler.error(message: "error_json_parse".localize())
             }
         }.resume()
     }

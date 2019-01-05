@@ -113,7 +113,7 @@ class PostViewController: UIViewController, RequestHandler {
     
     @IBAction func thumbsUpPressed(_ sender: Any) {
         if post!.disliked() {
-            showAlert(title: "Can't do that!", message: "You can't like a post you disliked", buttonText: "Ok", callback: nil)
+            showAlert(title: "oops".localize(), message: "oops_dislike".localize(), buttonText: "OK", callback: nil)
         } else {
             post!.setLiked(b: !post!.liked())
             let handler = LikeHandler(post!.getId(), post!.liked(),
@@ -124,7 +124,7 @@ class PostViewController: UIViewController, RequestHandler {
     
     @IBAction func thumbsDownPressed(_ sender: Any) {
         if post!.liked() {
-            showAlert(title: "Can't do that!", message: "You can't dislike a post you liked", buttonText: "Ok", callback: nil)
+            showAlert(title: "oops".localize(), message: "oops_like".localize(), buttonText: "OK", callback: nil)
         } else {
             let handler = LikeHandler(post!.getId(), post!.disliked(),
                                       btnThumbsDown, "thumbs-down-outline", "thumbs-down", lbLikes, post!)
@@ -135,7 +135,7 @@ class PostViewController: UIViewController, RequestHandler {
     
     func setHollowButton(btn: UIButton) {
         DispatchQueue.main.async {
-            btn.setTitle("  Unfollow  ", for: .normal)
+            btn.setTitle("unfollow".localize(), for: .normal)
             btn.layer.borderColor = PostCellController.blueColor.cgColor
             btn.backgroundColor = .clear
             btn.layer.borderWidth = 2
@@ -145,7 +145,7 @@ class PostViewController: UIViewController, RequestHandler {
     
     func setFilledButton(btn: UIButton) {
         DispatchQueue.main.async {
-            btn.setTitle("  Follow  ", for: .normal)
+            btn.setTitle("follow".localize(), for: .normal)
             btn.backgroundColor = PostCellController.blueColor
             btn.layer.borderWidth = 0
             btn.setTitleColor(.white, for: .normal)
@@ -180,7 +180,7 @@ class PostViewController: UIViewController, RequestHandler {
     }
     
     func error(message: String) {
-        print("Error following/unfollowing user")
+        print("error_follow".localize())
     }
 }
 

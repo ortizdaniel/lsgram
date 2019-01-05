@@ -92,6 +92,10 @@ class MapViewController : UIViewController, UITextFieldDelegate, MKMapViewDelega
     @IBAction func settingsButtonPressed(_ sender: Any) {
         settingsStack.setView([settingsView], gone: settingsToggled, animated: true)
         settingsToggled = !settingsToggled
+        
+        if (!settingsToggled) {
+            view.endEditing(true)
+        }
     }
     
     @IBAction func switchFollowingChanged(_ sender: Any) {

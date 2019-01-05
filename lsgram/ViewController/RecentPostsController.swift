@@ -112,6 +112,10 @@ class RecentPostsController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
         settingsStack.setView([settingsView], gone: settingsToggled, animated: true)
         settingsToggled = !settingsToggled
+        
+        if (!settingsToggled) {
+            view.endEditing(true)
+        }
     }
     
     @IBAction func followOnlySwitchChanged(_ sender: Any) {

@@ -81,7 +81,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     
     func setHollowButton(btn: UIButton) {
         DispatchQueue.main.async {
-            btn.setTitle("  Unfollow  ", for: .normal)
+            btn.setTitle("unfollow".localize(), for: .normal)
             btn.layer.borderColor = PostCellController.blueColor.cgColor
             btn.backgroundColor = .clear
             btn.layer.borderWidth = 2
@@ -91,7 +91,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     
     func setFilledButton(btn: UIButton) {
         DispatchQueue.main.async {
-            btn.setTitle("  Follow  ", for: .normal)
+            btn.setTitle("follow".localize(), for: .normal)
             btn.backgroundColor = PostCellController.blueColor
             btn.layer.borderWidth = 0
             btn.setTitleColor(.white, for: .normal)
@@ -119,7 +119,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     
     @IBAction func thumbsUpPressed(_ sender: Any) {
         if post!.disliked() {
-            showAlert(title: "Can't do that!", message: "You can't like a post you disliked", buttonText: "Ok", whoPresents: parent, callback: nil)
+            showAlert(title: "oops".localize(), message: "oops_dislike".localize(), buttonText: "OK", whoPresents: parent, callback: nil)
         } else {
             post!.setLiked(b: !post!.liked())
             let handler = LikeHandler(post!.getId(), post!.liked(),
@@ -130,7 +130,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     
     @IBAction func thumbsDownPressed(_ sender: Any) {
         if post!.liked() {
-            showAlert(title: "Can't do that!", message: "You can't dislike a post you liked", buttonText: "Ok", whoPresents: parent, callback: nil)
+            showAlert(title: "oops".localize(), message: "oops_like".localize(), buttonText: "OK", whoPresents: parent, callback: nil)
         } else {
             let handler = LikeHandler(post!.getId(), post!.disliked(),
                                       btnThumbsDown, "thumbs-down-outline", "thumbs-down", lbPostLikes, post!)
@@ -165,7 +165,7 @@ class PostCellController: UITableViewCell, RequestHandler, FollowSubscriber {
     }
     
     func error(message: String) {
-        print("Error following/unfollowing user")
+        print("error_follow".localize())
     }
 }
 
@@ -201,10 +201,6 @@ class LikeHandler: RequestHandler {
                     self.button.setImage(UIImage(named: self.liked ? self.filled : self.outline), for: .normal)
                 }, completion: nil)
                 
-                /*self.button.setImage(
-                    UIImage(named: self.liked ? self.filled : self.outline),
-                    for: UIControl.State.normal
-                )*/
                 let likes = response["data"]["likes"].intValue
                 self.post.setLikes(l: likes)
                 self.lbLikes.text = "\(likes) \(abs(likes) == 1 ? "like" : "likes")"
